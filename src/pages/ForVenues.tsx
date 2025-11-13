@@ -102,7 +102,7 @@ const ForVenues = () => {
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
                 {isEnglish
-                  ? "Professional booking management software designed specifically for Finnish golf courses. Modern, affordable, and easy to use."
+                  ? "A modern solution for managing golf course bookings. No complicated systems or unreasonable prices."
                   : "Nykyaikainen ratkaisu golfkenttien varausten hallintaan. Ei monimutkaisia järjestelmiä tai kohtuuttomia hintoja."}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
