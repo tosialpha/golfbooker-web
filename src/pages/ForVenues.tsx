@@ -63,10 +63,6 @@ const ForVenues = () => {
 
   const faqItems = [
     {
-      question: t('faq.q1'),
-      answer: t('faq.a1'),
-    },
-    {
       question: t('faq.q2'),
       answer: t('faq.a2'),
     },
@@ -143,23 +139,21 @@ const ForVenues = () => {
       </section>
 
       {/* All-in-One Platform Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
+      <section className="py-12 md:py-20 px-4 md:px-6 lg:px-8 bg-muted">
+        <div className="container mx-auto max-w-screen-2xl">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            viewport={{ once: true }}
+            className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {isEnglish
-                ? "Everything You Need on One Platform"
-                : "Kaikki mitä tarvitset yhdellä alustalla"}
+            <h2 className="font-bold mb-4 md:mb-6" style={{ fontSize: 'clamp(28px, 3.5vw, 48px)' }}>
+              {isEnglish ? "Everything you need on one platform" : "Kaikki mitä tarvitset yhdellä alustalla"}
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="max-w-3xl mx-auto mb-8 md:mb-12" style={{ fontSize: 'clamp(16px, 1.5vw, 20px)' }}>
               {isEnglish
-                ? "Save time with a simplified platform. Get a comprehensive system that combines bookings, customers, marketing, payments, and automation — all in one view."
+                ? "Simplify your operations and grow more efficiently with Golfbooker. Get a platform that combines bookings, customers, marketing, payments, and automation – all in one view."
                 : "Yksinkertaista arkeasi ja säästä aikaa. Saat käyttöösi alustan, joka yhdistää varaukset, asiakkaat, markkinoinnin, maksut ja automaation yhdessä näkymässä."}
             </p>
           </motion.div>
@@ -167,16 +161,16 @@ const ForVenues = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {[
               {
-                title: isEnglish ? "Tee Time Management" : "Lähtöaikojenseuranta",
+                title: isEnglish ? "Tee Time Management" : "Lähtöjen seuranta",
                 description: isEnglish
                   ? "Complete booking system with real-time availability, online reservations, and automated confirmations for all tee times."
-                  : "Täydellinen varausjärjestelmä reaaliaikaisella saatavuudella, verkkovarauksilla ja automaattisilla vahvistuksilla kaikille lähtöajoille."
+                  : "Varausjärjestelmä reaaliaikaisella seurannalla."
               },
               {
                 title: isEnglish ? "Customer Management (CRM)" : "Asiakashallinta (CRM)",
                 description: isEnglish
-                  ? "Comprehensive customer database with booking history, preferences, contact information, and personalized service capabilities."
-                  : "Kattava asiakastietokanta varaushistorialla, mieltymyksillä, yhteystiedoilla ja mahdollisuudella personoituun palveluun."
+                  ? "Track customer data and communication in one place. Keep memberships up to date and target messages to the right customers at the right time."
+                  : "Seuraa asiakastietoja ja viestintää yhdessä paikassa. Pidä jäsenyydet ajan tasalla ja kohdenna viestit oikeille asiakkaille oikeaan aikaan."
               },
               {
                 title: isEnglish ? "Payments & Billing" : "Maksut ja laskutus",
@@ -193,8 +187,8 @@ const ForVenues = () => {
               {
                 title: isEnglish ? "Dynamic Pricing" : "Dynaaminen hinnoittelu",
                 description: isEnglish
-                  ? "Set custom pricing for peak times, weekends, and special events to maximize revenue and optimize tee time utilization."
-                  : "Aseta mukautetut hinnat ruuhka-ajoille, viikonlopuille ja erikoistapahtumille maksimoidaksesi liikevaihdon ja optimoidaksesi lähtöaikojen käytön."
+                  ? "Set custom pricing for peak times to maximize revenue. Offer discounts during quieter times to optimize utilization."
+                  : "Aseta mukautetut hinnat ruuhka-ajoille maksimoidaksesi liikevaihto. Tarjoa alennuksia hiljaisempina aikoina optimoidaksesi käyttöastetta."
               },
               {
                 title: isEnglish ? "Finnish Support" : "Suomenkielinen tuki",
@@ -264,11 +258,11 @@ const ForVenues = () => {
           </div>
 
           <div className="text-center">
-            <Link to="/contact">
-              <Button size="lg" className="text-lg px-8 py-6">
+            <Button asChild size="lg" className="neumorphic glow-hover text-lg px-8 py-6">
+              <Link to="/contact">
                 {isEnglish ? "Get in Touch" : "Ota yhteyttä"}
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

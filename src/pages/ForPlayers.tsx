@@ -154,7 +154,7 @@ const ForPlayers = () => {
 
                 <div className="space-y-4">
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                    {isEnglish ? "DOWNLOAD APP" : "LATAA SOVELLUS"} {isEnglish ? "For free" : "Ilmaiseksi"}
+                    {isEnglish ? "Download app for free" : "Lataa sovellus ilmaiseksi"}
                   </h2>
                   <div className="flex flex-col gap-3 max-w-[280px]">
                     <div className="relative cursor-not-allowed">

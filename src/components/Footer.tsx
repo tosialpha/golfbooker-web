@@ -20,7 +20,7 @@ const Footer = () => {
               <h3 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">
                 Golfbooker
               </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
+              <p className="text-black dark:text-white text-sm leading-relaxed max-w-md">
                 {t('footer.tagline')}
               </p>
               <p className="text-muted-foreground text-sm mt-3 font-medium">

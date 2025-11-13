@@ -140,7 +140,7 @@ const translations = {
 
     // Hero
     'hero.title': 'Moderni varausjärjestelmä golfkentille',
-    'hero.subtitle': 'Varaa lähtöaikasi nopeasti.',
+    'hero.subtitle': 'Varausjärjestelmä reaaliaikaisella seurannalla.',
     'hero.cta': 'Aloita',
     'hero.launching': 'Lanseeraus alkuvuodesta 2026',
     'hero.waitlist': 'Lataa sovellus (coming soon)',
