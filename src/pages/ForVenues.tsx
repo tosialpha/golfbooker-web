@@ -86,14 +86,14 @@ const ForVenues = () => {
 
       {/* Hero Section with Image */}
       <section className="pt-40 pb-32 px-4 relative overflow-hidden min-h-screen flex items-center">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto max-w-screen-2xl">
+          <div className="grid lg:grid-cols-5 gap-12 items-center">
             {/* Left: Text Content */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-center lg:text-left"
+              className="text-center lg:text-left lg:col-span-2"
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black dark:text-white">
                 {isEnglish
@@ -124,9 +124,9 @@ const ForVenues = () => {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
+              className="relative lg:col-span-3"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-border">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-border transform hover:scale-[1.02] transition-transform duration-300">
                 <img
                   src="/dashboard-hero.png"
                   alt={isEnglish ? "Golfbooker Dashboard" : "Golfbooker hallintapaneeli"}
