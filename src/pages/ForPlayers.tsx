@@ -132,7 +132,7 @@ const ForPlayers = () => {
                     <div className="absolute inset-0 [&_canvas]:!bg-transparent [&>div]:!bg-transparent pointer-events-none">
                       <Suspense fallback={<div className="w-full h-full" />}>
                         <LazySpline
-                          scene="/dynamic_i_phone_mockup.spline"
+                          scene="https://prod.spline.design/K0UkJoRYVt9VXwCF/scene.splinecode"
                           style={{ width: '100%', height: '100%', background: 'transparent', pointerEvents: 'none' }}
                         />
                       </Suspense>
