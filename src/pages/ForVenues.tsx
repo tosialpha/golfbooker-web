@@ -307,16 +307,11 @@ const ForVenues = () => {
             className="text-center"
           >
             <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/10 to-secondary/10">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold mb-8">
                 {isEnglish
                   ? "Ready to Modernize Your Golf Course?"
                   : "Valmis modernisoimaan golfkenttäsi?"}
               </h2>
-              <p className="text-xl text-foreground/80 mb-8">
-                {isEnglish
-                  ? "Join Finnish golf courses switching to affordable, modern booking software."
-                  : "Liity suomalaisiin golfkenttiin, jotka vaihtavat edulliseen, moderniin varausohjelmistoon."}
-              </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/demo">
                   <Button size="lg" className="text-lg px-8 py-6">
