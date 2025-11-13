@@ -223,7 +223,7 @@ const translations = {
     'about.venuesDesc': 'Kaikki mitä tarvitset varausten hallintaan, liikevaihdon kasvattamiseen ja erinomaisen palvelun tarjoamiseen asiakkaillesi.',
 
     // Contact
-    'contact.title': 'Ota Yhteyttä',
+    'contact.title': 'Kysyttävää?',
     'contact.subtitle': 'Ota yhteyttä, niin kerromme lisää',
     'contact.formTitle': 'Lähetä viesti',
     'contact.name': 'Nimi',
