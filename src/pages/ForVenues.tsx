@@ -128,8 +128,8 @@ const ForVenues = () => {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-border">
                 <img
-                  src="/for-venues-calendar.png"
-                  alt={isEnglish ? "Golfbooker Booking System" : "Golfbooker varausjärjestelmä"}
+                  src="/dashboard-hero.png"
+                  alt={isEnglish ? "Golfbooker Dashboard" : "Golfbooker hallintapaneeli"}
                   className="w-full h-auto object-contain"
                 />
               </div>
