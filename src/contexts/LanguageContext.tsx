@@ -246,6 +246,7 @@ const translations = {
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>(() => {
     const saved = localStorage.getItem('golfbooker-language');
+    // Default to Finnish
     return (saved === 'en' ? 'en' : 'fi') as Language;
   });
 
