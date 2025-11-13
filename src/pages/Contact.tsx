@@ -105,7 +105,7 @@ const Contact = () => {
       // Prepare form data
       const formData = new FormData();
       formData.append('access_key', '2836fb7b-e299-46ac-bceb-bfdf2fac41bd');
-      formData.append('to', 'info@golfbooker.fi');
+      formData.append('to', 'funectapp@gmail.com');
       formData.append('name', name || 'Not provided');
       formData.append('email', email);
       formData.append('phone', phone || 'Not provided');
@@ -462,42 +462,6 @@ const Contact = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="space-y-3 lg:mt-0 mt-4 lg:border-0 border-t border-border/50 lg:pt-0 pt-4"
             >
-              {/* Email Card */}
-              <Card className="glass p-4 hover:shadow-lg transition-shadow duration-300">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <EnvelopeSimple size={24} weight="light" className="text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold mb-3">{t('contact.emailLabel')}</h3>
-
-                    {/* General Inquiries Email */}
-                    <div className="mb-3">
-                      <a href="mailto:info@golfbooker.fi" className="text-primary hover:underline block font-medium">
-                        info@golfbooker.fi
-                      </a>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        {isEnglish
-                          ? "General inquiries, sales, partnerships"
-                          : "Yleiset kyselyt, myynti, yhteistyö"}
-                      </p>
-                    </div>
-
-                    {/* Support Email */}
-                    <div>
-                      <a href="mailto:support@golfbooker.fi" className="text-primary hover:underline block font-medium">
-                        support@golfbooker.fi
-                      </a>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        {isEnglish
-                          ? "Technical support and troubleshooting"
-                          : "Tekninen tuki ja ongelmanratkaisu"}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-
               {/* Phone Card */}
               <Card className="glass p-4 hover:shadow-lg transition-shadow duration-300">
                 <div className="flex items-start gap-4">
