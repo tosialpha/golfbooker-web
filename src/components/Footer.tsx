@@ -18,13 +18,13 @@ const Footer = () => {
           <div className="lg:col-span-5 space-y-6">
             <div>
               <h3 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">
-                Golfbooker
+                GolfBooker
               </h3>
               <p className="text-black dark:text-white text-sm leading-relaxed max-w-md">
                 {t('footer.tagline')}
               </p>
               <p className="text-muted-foreground text-sm mt-3 font-medium">
-                {isEnglish ? "Finnish company" : "Kotimainen yritys"} 🇫🇮
+                {isEnglish ? "Made in Finland" : "Kotimainen yritys"} 🇫🇮
               </p>
             </div>
 
@@ -82,11 +82,6 @@ const Footer = () => {
             <div>
               <h4 className="font-semibold mb-4 text-sm uppercase tracking-wide">{t('footer.company')}</h4>
               <ul className="space-y-3">
-                <li>
-                  <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                    {t('nav.about')}
-                  </Link>
-                </li>
                 <li>
                   <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors text-sm">
                     {t('nav.contact')}

@@ -72,11 +72,6 @@ const Navigation = () => {
       isActive: location.pathname === "/for-players"
     },
     {
-      label: t('nav.about'),
-      to: "/about",
-      isActive: location.pathname === "/about"
-    },
-    {
       label: t('nav.contact'),
       to: "/contact",
       isActive: location.pathname === "/contact"
