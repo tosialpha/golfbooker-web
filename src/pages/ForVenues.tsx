@@ -18,12 +18,31 @@ const ForVenues = () => {
   const { language, t } = useLanguage();
   const isEnglish = language === 'en';
   const [expandedBoxes, setExpandedBoxes] = useState<number[]>([]);
+  const [isImageOpen, setIsImageOpen] = useState(false);
 
   useEffect(() => {
     document.title = isEnglish
       ? "Golfbooker - Booking System for Golf Courses in Finland"
       : "Golfbooker - Varausjärjestelmä Golfkentille Suomessa";
   }, [isEnglish]);
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsImageOpen(false);
+      }
+    };
+
+    if (isImageOpen) {
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isImageOpen]);
 
   const toggleBox = (index: number) => {
     if (expandedBoxes.includes(index)) {
@@ -126,7 +145,10 @@ const ForVenues = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative lg:col-span-3"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-border transform hover:scale-[1.02] transition-transform duration-300">
+              <div
+                className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-border transform hover:scale-[1.02] transition-transform duration-300 cursor-pointer"
+                onClick={() => setIsImageOpen(true)}
+              >
                 <img
                   src="/dashboard-hero.png"
                   alt={isEnglish ? "Golfbooker Dashboard" : "Golfbooker hallintapaneeli"}
@@ -330,6 +352,39 @@ const ForVenues = () => {
       </section>
 
       <Footer />
+
+      {/* Image Modal */}
+      <AnimatePresence>
+        {isImageOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 p-4"
+            onClick={() => setIsImageOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              className="relative max-w-7xl w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setIsImageOpen(false)}
+                className="absolute -top-12 right-0 text-white hover:text-gray-300 text-sm"
+              >
+                {isEnglish ? 'Close (ESC)' : 'Sulje (ESC)'}
+              </button>
+              <img
+                src="/dashboard-hero.png"
+                alt={isEnglish ? "Golfbooker Dashboard" : "Golfbooker hallintapaneeli"}
+                className="w-full h-auto rounded-lg"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
