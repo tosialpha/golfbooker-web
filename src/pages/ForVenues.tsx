@@ -95,7 +95,7 @@ const ForVenues = () => {
               transition={{ duration: 0.6 }}
               className="text-center lg:text-left"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gradient">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black dark:text-white">
                 {isEnglish
                   ? "Modern Booking System for Golf Courses"
                   : "Moderni varausjärjestelmä golfkentille"}
@@ -175,14 +175,14 @@ const ForVenues = () => {
               {
                 title: isEnglish ? "Payments & Billing" : "Maksut ja laskutus",
                 description: isEnglish
-                  ? "Integrated payment processing, automated invoicing, and financial reporting to streamline your revenue management."
-                  : "Integroitu maksujen käsittely, automaattinen laskutus ja talousraportointi helpottamaan liikevaihdon hallintaa."
+                  ? "Create and send invoices directly from the system."
+                  : "Luo ja lähetä laskuja suoraan järjestelmästä."
               },
               {
-                title: isEnglish ? "Marketing & Automation" : "Markkinointi ja automaatio",
+                title: isEnglish ? "Marketing & Notifications" : "Markkinointi ja tiedotteet",
                 description: isEnglish
-                  ? "Set up campaigns, reminders, and offers to run automatically. Save time and keep customers engaged."
-                  : "Aseta kampanjat, muistutukset ja tarjoukset pyörimään automaattisesti. Säästä aikaa ja pidä asiakkaat aktiivisina."
+                  ? "Set up campaigns, reminders, and offers to run automatically. Save time and keep customers informed."
+                  : "Aseta kampanjat, muistutukset ja tarjoukset pyörimään automaattisesti. Säästä aikaa ja pidä asiakkaat tietoisina."
               },
               {
                 title: isEnglish ? "Dynamic Pricing" : "Dynaaminen hinnoittelu",
@@ -193,26 +193,26 @@ const ForVenues = () => {
               {
                 title: isEnglish ? "Finnish Support" : "Suomenkielinen tuki",
                 description: isEnglish
-                  ? "Dedicated Finnish-language support team and personal account manager who understands the golf industry."
-                  : "Oma suomenkielinen tukitiimi ja asiakasvastaava, joka ymmärtää golfalan."
+                  ? "We'll help you get started and provide support in Finnish whenever you need it."
+                  : "Autamme sinut alkuun ja tarjoamme tukea suomeksi aina tarvittaessa."
               },
               {
                 title: isEnglish ? "Reporting & Analytics" : "Raportointi ja analytiikka",
                 description: isEnglish
-                  ? "Comprehensive analytics dashboard with revenue tracking, booking trends, customer insights, and performance metrics."
-                  : "Kattava analytiikkanäkymä liikevaihdon seurannalla, varaustrendeillä, asiakastiedoilla ja suorituskykymittareilla."
+                  ? "See the most important metrics at a glance. Track bookings, revenue, and customer numbers in real-time and make better decisions with data."
+                  : "Näe tärkeimmät luvut yhdellä silmäyksellä. Seuraa varauksia, tuloja ja asiakaslukuja reaaliajassa ja tee parempia päätöksiä datan avulla."
               },
               {
                 title: isEnglish ? "Integrations & API" : "Integraatiot ja API",
                 description: isEnglish
-                  ? "Connect with your existing systems including website, payment providers, and golf management tools via our API."
-                  : "Yhdistä olemassa oleviin järjestelmiisi kuten verkkosivuihin, maksupalveluntarjoajiin ja golfin hallintajärjestelmiin API:n kautta."
+                  ? "Connect the golf association's member registry to your systems."
+                  : "Yhdistä golfliiton jäsenrekisteri järjestelmiisi."
               },
               {
                 title: isEnglish ? "Mobile App for Players" : "Mobiilisovellus pelaajille",
                 description: isEnglish
-                  ? "Your customers can find your course and book tee times directly from our mobile app, increasing your visibility and bookings."
-                  : "Asiakkaasi voivat löytää kenttäsi ja varata lähtöaikoja suoraan mobiilisovelluksestamme, lisäten näkyvyyttäsi ja varauksiasi."
+                  ? "Your customers can find your course and book tee times directly from our mobile app."
+                  : "Asiakkaasi voivat löytää kenttäsi ja varata lähtöaikoja suoraan mobiilisovelluksestamme."
               },
             ].map((benefit, index) => (
               <motion.div
