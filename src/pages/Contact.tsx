@@ -243,7 +243,7 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-4"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 text-black dark:text-white">
               {t('contact.title')}
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
