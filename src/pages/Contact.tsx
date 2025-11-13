@@ -105,13 +105,14 @@ const Contact = () => {
       // Prepare form data
       const formData = new FormData();
       formData.append('access_key', '2836fb7b-e299-46ac-bceb-bfdf2fac41bd');
+      formData.append('to', 'info@golfbooker.fi');
       formData.append('name', name || 'Not provided');
       formData.append('email', email);
       formData.append('phone', phone || 'Not provided');
       formData.append('subject', subjectLabel);
       formData.append('message', message || 'No message');
       formData.append('preferred_datetime', selectedDateTime || 'Not specified');
-      formData.append('from_name', 'Funect Contact Form');
+      formData.append('from_name', 'Golfbooker Contact Form');
 
       // Submit to Web3Forms
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -432,14 +433,24 @@ const Contact = () => {
                   </div>
 
                   {/* Submit Button */}
-                  <a href="mailto:info@golfbooker.fi" className="block">
-                    <Button
-                      type="button"
-                      className="w-full neumorphic glow-hover relative"
-                    >
-                      {t('contact.send')}
-                    </Button>
-                  </a>
+                  <Button
+                    type="submit"
+                    className="w-full neumorphic glow-hover relative"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <span className="flex items-center justify-center gap-2">
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
+                        />
+                        {isEnglish ? "Sending..." : "Lähetetään..."}
+                      </span>
+                    ) : (
+                      t('contact.send')
+                    )}
+                  </Button>
                 </form>
               </Card>
             </motion.div>

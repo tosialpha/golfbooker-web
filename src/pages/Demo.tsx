@@ -64,6 +64,7 @@ const Demo = () => {
         // Prepare form data for Web3Forms
         const webFormData = new FormData();
         webFormData.append('access_key', '2836fb7b-e299-46ac-bceb-bfdf2fac41bd');
+        webFormData.append('to', 'info@golfbooker.fi');
         webFormData.append('subject', isEnglish ? 'New Demo Environment Request' : 'Uusi demo-ympäristöpyyntö');
         webFormData.append('company_name', formData.companyName);
         webFormData.append('name', formData.name);
@@ -159,9 +160,9 @@ const Demo = () => {
                   </Link>
                 </Button>
                 <Button asChild variant="outline" className="border-2 border-teal-600 text-teal-700 hover:bg-teal-50 dark:hover:bg-teal-950">
-                  <a href="mailto:info@golfbooker.fi">
+                  <Link to="/contact">
                     {isEnglish ? "Contact Us" : "Ota yhteyttä"}
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </motion.div>
@@ -333,14 +334,12 @@ const Demo = () => {
                 </div>
 
                 {/* Submit Button */}
-                <a href="mailto:info@golfbooker.fi" className="block">
-                  <Button
-                    type="button"
-                    className="w-full bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white text-sm h-10 rounded-lg shadow-lg hover:shadow-xl transition-all mt-3"
-                  >
-                    {isEnglish ? "Create Demo Environment" : "Luo demo-ympäristö"}
-                  </Button>
-                </a>
+                <Button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white text-sm h-10 rounded-lg shadow-lg hover:shadow-xl transition-all mt-3"
+                >
+                  {isEnglish ? "Create Demo Environment" : "Luo demo-ympäristö"}
+                </Button>
               </form>
             </Card>
           </motion.div>
