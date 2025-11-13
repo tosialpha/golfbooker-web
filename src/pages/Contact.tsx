@@ -235,18 +235,18 @@ const Contact = () => {
 
       <main className="pt-16 pb-0">
         {/* Header Section */}
-        <section className="py-8 md:py-12 px-4 bg-background">
+        <section className="py-6 md:py-8 px-4 bg-background">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-4"
+            className="text-center mb-3"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 text-black dark:text-white">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-gradient">
               {t('contact.title')}
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               {t('contact.subtitle')}
             </p>
           </motion.div>
