@@ -159,9 +159,9 @@ const Demo = () => {
                   </Link>
                 </Button>
                 <Button asChild variant="outline" className="border-2 border-teal-600 text-teal-700 hover:bg-teal-50 dark:hover:bg-teal-950">
-                  <Link to="/contact">
+                  <a href="mailto:info@golfbooker.fi">
                     {isEnglish ? "Contact Us" : "Ota yhteyttä"}
-                  </Link>
+                  </a>
                 </Button>
               </div>
             </motion.div>
@@ -333,12 +333,14 @@ const Demo = () => {
                 </div>
 
                 {/* Submit Button */}
-                <Button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white text-sm h-10 rounded-lg shadow-lg hover:shadow-xl transition-all mt-3"
-                >
-                  {isEnglish ? "Create Demo Environment" : "Luo demo-ympäristö"}
-                </Button>
+                <a href="mailto:info@golfbooker.fi" className="block">
+                  <Button
+                    type="button"
+                    className="w-full bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white text-sm h-10 rounded-lg shadow-lg hover:shadow-xl transition-all mt-3"
+                  >
+                    {isEnglish ? "Create Demo Environment" : "Luo demo-ympäristö"}
+                  </Button>
+                </a>
               </form>
             </Card>
           </motion.div>

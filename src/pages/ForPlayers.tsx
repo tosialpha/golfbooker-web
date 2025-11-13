@@ -244,7 +244,7 @@ const ForPlayers = () => {
               className="text-center mb-16"
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
-                {isEnglish ? 'How It Works' : 'Miten se toimii'}
+                {isEnglish ? 'How It Works' : 'Miten se toimii?'}
               </h2>
             </motion.div>
 
@@ -266,7 +266,7 @@ const ForPlayers = () => {
                   <p className="text-foreground/80 text-lg">
                     {isEnglish
                       ? 'Get Golfbooker from App Store or Google Play'
-                      : 'Hanki Golfbooker App Storesta tai Google Playsta'}
+                      : 'Hanki Golfbooker AppStoresta tai Google Playsta'}
                   </p>
                 </div>
               </motion.div>
@@ -334,28 +334,33 @@ const ForPlayers = () => {
 
               <p className="text-lg md:text-xl text-foreground/80 mb-12 max-w-2xl mx-auto leading-relaxed">
                 {isEnglish
-                  ? 'Join the waitlist and get early access when we launch. No spam, just updates.'
-                  : 'Liity jonotuslistalle ja saat varhaisen pääsyn lanseerauksen yhteydessä. Ei roskapostia, vain päivityksiä.'}
+                  ? 'Join the waitlist and get notified when we launch.'
+                  : 'Liity odotuslistalle ja saat ilmoituksen, kun sovellus julkaistaan.'}
               </p>
 
               {!submitted ? (
-                <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8">
-                  <Input
-                    type="email"
-                    placeholder={isEnglish ? "your@email.com" : "sähköpostisi@email.com"}
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="flex-1 h-14 text-lg px-6"
-                  />
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="h-14 px-8 text-lg font-semibold neumorphic glow-hover"
-                  >
-                    {isEnglish ? 'Join Waitlist' : 'Liity listalle'}
-                  </Button>
-                </form>
+                <div className="max-w-md mx-auto mb-8">
+                  <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4">
+                    <Input
+                      type="email"
+                      placeholder={isEnglish ? "your@email.com" : "sähköpostisi@email.com"}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      className="flex-1 h-14 text-lg px-6"
+                    />
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="h-14 px-8 text-lg font-semibold neumorphic glow-hover"
+                    >
+                      {isEnglish ? 'Join Waitlist' : 'Liity listalle'}
+                    </Button>
+                  </form>
+                  <p className="text-sm text-foreground/60 text-center mt-3">
+                    {isEnglish ? 'No spam, just updates.' : 'Ei roskapostia, vain päivityksiä.'}
+                  </p>
+                </div>
               ) : (
                 <motion.div
                   initial={{ scale: 0.8, opacity: 0 }}

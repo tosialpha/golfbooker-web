@@ -132,11 +132,11 @@ const Navigation = () => {
 
             <div className="hidden lg:flex items-center gap-3">
               {/* Try Demo Button */}
-              <Link to="/demo">
+              <a href="mailto:info@golfbooker.fi">
                 <button className="px-4 py-2 rounded-lg bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white font-semibold transition-all shadow-md hover:shadow-lg">
                   {language === 'en' ? 'Try Demo' : 'Kokeile demoa'}
                 </button>
-              </Link>
+              </a>
 
               {/* Theme Toggle Button */}
               <button
@@ -233,8 +233,8 @@ const Navigation = () => {
               )}
 
               {/* Try Demo Button - Mobile */}
-              <Link
-                to="/demo"
+              <a
+                href="mailto:info@golfbooker.fi"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="mt-4"
               >
@@ -243,7 +243,7 @@ const Navigation = () => {
                     {language === 'en' ? 'Try Demo' : 'Kokeile demoa'}
                   </span>
                 </button>
-              </Link>
+              </a>
 
               {/* Theme Toggle Button - Mobile */}
               <button

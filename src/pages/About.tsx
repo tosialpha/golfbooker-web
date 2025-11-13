@@ -77,9 +77,9 @@ const About = () => {
                   size="lg"
                   className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all"
                 >
-                  <Link to="/contact">
+                  <a href="mailto:info@golfbooker.fi">
                     {isEnglish ? 'Get in Touch' : 'Ota yhteyttä'}
-                  </Link>
+                  </a>
                 </Button>
                 <Button
                   asChild

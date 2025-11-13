@@ -106,16 +106,16 @@ const ForVenues = () => {
                   : "Nykyaikainen ratkaisu golfkenttien varausten hallintaan. Ei monimutkaisia järjestelmiä tai kohtuuttomia hintoja."}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link to="/demo">
+                <a href="mailto:info@golfbooker.fi">
                   <Button size="lg" className="text-lg px-8 py-6">
                     {isEnglish ? "Request Demo" : "Pyydä demo"}
                   </Button>
-                </Link>
-                <Link to="/contact">
+                </a>
+                <a href="mailto:info@golfbooker.fi">
                   <Button size="lg" variant="outline" className="text-lg px-8 py-6">
                     {isEnglish ? "Contact Sales" : "Ota yhteyttä"}
                   </Button>
-                </Link>
+                </a>
               </div>
             </motion.div>
 

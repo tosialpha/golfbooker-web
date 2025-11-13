@@ -83,9 +83,9 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                  <a href="mailto:info@golfbooker.fi" className="text-muted-foreground hover:text-primary transition-colors text-sm">
                     {t('nav.contact')}
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>

@@ -432,24 +432,14 @@ const Contact = () => {
                   </div>
 
                   {/* Submit Button */}
-                  <Button
-                    type="submit"
-                    className="w-full neumorphic glow-hover relative"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <span className="flex items-center justify-center gap-2">
-                        <motion.div
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                          className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
-                        />
-                        {isEnglish ? "Sending..." : "Lähetetään..."}
-                      </span>
-                    ) : (
-                      t('contact.send')
-                    )}
-                  </Button>
+                  <a href="mailto:info@golfbooker.fi" className="block">
+                    <Button
+                      type="button"
+                      className="w-full neumorphic glow-hover relative"
+                    >
+                      {t('contact.send')}
+                    </Button>
+                  </a>
                 </form>
               </Card>
             </motion.div>

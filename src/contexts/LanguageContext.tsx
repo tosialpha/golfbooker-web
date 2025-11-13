@@ -26,7 +26,7 @@ const translations = {
 
     // Hero
     'hero.title': 'Modern Booking System for Golf Courses',
-    'hero.subtitle': 'Replace expensive legacy systems.\nAffordable pricing.\nBuilt for Finnish golf courses.',
+    'hero.subtitle': 'Book your tee times quickly',
     'hero.cta': 'Get Started',
     'hero.launching': 'Launching Early 2026',
     'hero.waitlist': 'Request Demo',
@@ -140,7 +140,7 @@ const translations = {
 
     // Hero
     'hero.title': 'Moderni varausjärjestelmä golfkentille',
-    'hero.subtitle': 'Varausjärjestelmä reaaliaikaisella seurannalla.',
+    'hero.subtitle': 'Varaa\nlähtöaikasi\nnopeasti.',
     'hero.cta': 'Aloita',
     'hero.launching': 'Lanseeraus alkuvuodesta 2026',
     'hero.waitlist': 'Lataa sovellus (coming soon)',
