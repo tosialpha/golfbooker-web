@@ -1,0 +1,22 @@
+{
+  "name": "Golfbooker - Modern Booking System for Golf Courses",
+  "short_name": "Golfbooker",
+  "description": "Affordable booking management software for Finnish golf courses",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/golf-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
