@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -34,6 +35,38 @@ const ForPlayers = () => {
     console.log("Waitlist signup:", email);
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
+  };
+
+  // SEO metadata and structured data
+  const seoTitle = isEnglish
+    ? "Golfbooker for Players - Book Golf Tee Times Online"
+    : "Golfbooker Pelaajille - Varaa Golf Lähtöaikoja Netissä";
+
+  const seoDescription = isEnglish
+    ? "Book golf tee times instantly with Golfbooker mobile app. Find golf courses near you, check real-time availability, and reserve tee times in seconds. Golf varausjärjestelmä pelaajille."
+    : "Varaa golf lähtöaikoja välittömästi Golfbooker-sovelluksella. Löydä golfkenttiä läheltäsi, tarkista reaaliaikainen saatavuus ja varaa lähtöajat sekunneissa. Golf varaussovellus.";
+
+  const seoKeywords = isEnglish
+    ? "golf booking app, book tee times, golf course finder, golf reservations, golf varaussovellus, golf lähtöaikojen varaus, golfkenttien haku"
+    : "golf varaussovellus, varaa lähtöaikoja, golf kenttien haku, golf varaukset, golf ajanvaraus sovellus, golf lähtöajat";
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Golfbooker",
+    "applicationCategory": "SportsApplication",
+    "operatingSystem": "iOS, Android",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "description": seoDescription,
+    "provider": {
+      "@type": "Organization",
+      "name": "Golfbooker",
+      "url": "https://golfbooker.fi"
+    }
   };
 
   const features = [
@@ -83,6 +116,13 @@ const ForPlayers = () => {
 
   return (
     <div className="relative min-h-screen bg-background">
+      <SEO
+        title={seoTitle}
+        description={seoDescription}
+        keywords={seoKeywords}
+        canonicalUrl="https://golfbooker.fi/for-players"
+        structuredData={structuredData}
+      />
       {/* Animated Fluid Background */}
       <div className="absolute inset-0 min-h-full z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-[500px] z-10 bg-gradient-to-b from-background/95 via-background/70 to-background/30" />
@@ -160,7 +200,9 @@ const ForPlayers = () => {
                     <div className="relative cursor-not-allowed">
                       <img
                         src={appStoreBadge}
-                        alt="Download on the App Store"
+                        alt={isEnglish
+                          ? "Download Golfbooker golf booking app on the App Store"
+                          : "Lataa Golfbooker golf varaussovellus App Storesta"}
                         className="h-14 w-auto opacity-60"
                       />
                       <div className="absolute right-2 top-1/2 -translate-y-1/2">
@@ -172,7 +214,9 @@ const ForPlayers = () => {
                     <div className="relative cursor-not-allowed">
                       <img
                         src={googlePlayBadge}
-                        alt="Get it on Google Play"
+                        alt={isEnglish
+                          ? "Get Golfbooker golf booking app on Google Play"
+                          : "Hanki Golfbooker golf varaussovellus Google Playsta"}
                         className="h-14 w-auto opacity-60"
                       />
                       <div className="absolute right-2 top-1/2 -translate-y-1/2">

@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -147,6 +148,28 @@ const Contact = () => {
     }
   };
 
+  const seoTitle = isEnglish
+    ? "Contact Golfbooker - Golf Course Management Software Sales & Support"
+    : "Ota Yhteyttä - Golfbooker Myynti ja Tuki";
+
+  const seoDescription = isEnglish
+    ? "Contact Golfbooker for golf course booking system inquiries. Get in touch with our sales team for demos, pricing, or technical support. Golf ajanvarausjärjestelmä asiakaspalvelu."
+    : "Ota yhteyttä Golfbookeriin golf ajanvarausjärjestelmä tiedusteluissa. Ota yhteyttä myyntiimme demojen, hinnoittelun tai teknisen tuen osalta.";
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": seoTitle,
+    "description": seoDescription,
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Golfbooker",
+      "telephone": "+358-40-737-7397",
+      "email": "info@golfbooker.fi",
+      "url": "https://golfbooker.fi"
+    }
+  };
+
   const subjectOptions = isEnglish
     ? [
         { value: "general", label: "General Inquiry" },
@@ -167,6 +190,12 @@ const Contact = () => {
 
   return (
     <div className="relative min-h-screen bg-background">
+      <SEO
+        title={seoTitle}
+        description={seoDescription}
+        canonicalUrl="https://golfbooker.fi/contact"
+        structuredData={structuredData}
+      />
       {/* Animated Fluid Background with Glassmorphism */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         {/* Overlay at top for text readability - adapts to theme */}

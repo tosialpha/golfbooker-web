@@ -1,10 +1,29 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 
 const PrivacyPolicy = () => {
+  const seoTitle = "Privacy Policy - Golfbooker";
+  const seoDescription = "Read Golfbooker's Privacy Policy. Learn how we protect your data when using our golf course management and booking system.";
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": seoTitle,
+    "description": seoDescription,
+    "url": "https://golfbooker.fi/privacy"
+  };
+
   return (
     <div className="min-h-screen">
+      <SEO
+        title={seoTitle}
+        description={seoDescription}
+        canonicalUrl="https://golfbooker.fi/privacy"
+        structuredData={structuredData}
+        noindex={true}
+      />
       <Navigation />
 
       <main className="pt-32 pb-20 px-4 overflow-visible">

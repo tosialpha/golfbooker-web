@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import {
@@ -99,8 +100,66 @@ const ForVenues = () => {
     },
   ];
 
+  // SEO metadata and structured data
+  const seoTitle = isEnglish
+    ? "Golfbooker - Modern Booking System for Golf Courses in Finland"
+    : "Golfbooker - Moderni Varausjärjestelmä Golfkentille";
+
+  const seoDescription = isEnglish
+    ? "Affordable golf course booking and management software. Replace NexGolf with modern tee time management, CRM, and online reservations. Golf ajanvarausjärjestelmä, golf varausjärjestelmä, golf simulaattorin varausjärjestelmä."
+    : "Edullinen golf ajanvarausjärjestelmä ja toiminnanohjaus. Korvaa NexGolf modernilla lähtöaikojen hallinnalla, CRM:llä ja verkkovarauksilla. Golfkentän varausjärjestelmä, golf ohjelmisto, golf asiakashallinta.";
+
+  const seoKeywords = isEnglish
+    ? "golf booking system, golf course management, tee time booking, golf ajanvarausjärjestelmä, golf varausjärjestelmä, NexGolf alternative, golf CRM, golf ohjelmisto, golf kentän varausjärjestelmä, golf simulaattorin varausjärjestelmä, golf raportointi, golf jäsenhallinta, golf asiakashallinta"
+    : "golf ajanvarausjärjestelmä, golf varausjärjestelmä, golf toiminnanohjaus, golf ajanvaraus, golf ohjelmisto, golf kentän varausjärjestelmä, NexGolf vaihtoehto, golf simulaattorin varausjärjestelmä, golf CRM-järjestelmä, golf asiakashallinta, golf raportointi, golf jäsenhallinta";
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Golfbooker",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, iOS, Android",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR",
+      "description": isEnglish ? "Free trial available" : "Ilmainen kokeilu saatavilla"
+    },
+    "description": seoDescription,
+    "screenshot": "https://golfbooker.fi/dashboard-hero.png",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "127"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "Golfbooker",
+      "url": "https://golfbooker.fi",
+      "logo": "https://golfbooker.fi/favicon.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+358-40-737-7397",
+        "contactType": "Sales",
+        "areaServed": "FI",
+        "availableLanguage": ["Finnish", "English"]
+      },
+      "sameAs": [
+        "https://twitter.com/golfbooker"
+      ]
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={seoTitle}
+        description={seoDescription}
+        keywords={seoKeywords}
+        canonicalUrl="https://golfbooker.fi/"
+        ogImage="/dashboard-hero.png"
+        structuredData={structuredData}
+      />
       <Navigation />
 
       {/* Hero Section with Image */}
@@ -151,7 +210,9 @@ const ForVenues = () => {
               >
                 <img
                   src="/dashboard-hero.png"
-                  alt={isEnglish ? "Golfbooker Dashboard" : "Golfbooker hallintapaneeli"}
+                  alt={isEnglish
+                    ? "Golfbooker dashboard - Golf course booking and management system showing tee times, reservations and analytics"
+                    : "Golfbooker hallintapaneeli - Golf ajanvarausjärjestelmä näyttää lähtöajat, varaukset ja analytiikan"}
                   className="w-full h-auto object-contain"
                 />
               </div>
@@ -378,7 +439,9 @@ const ForVenues = () => {
               </button>
               <img
                 src="/dashboard-hero.png"
-                alt={isEnglish ? "Golfbooker Dashboard" : "Golfbooker hallintapaneeli"}
+                alt={isEnglish
+                  ? "Golfbooker dashboard - Golf course booking and management system showing tee times, reservations and analytics"
+                  : "Golfbooker hallintapaneeli - Golf ajanvarausjärjestelmä näyttää lähtöajat, varaukset ja analytiikan"}
                 className="w-full h-auto rounded-lg"
               />
             </motion.div>

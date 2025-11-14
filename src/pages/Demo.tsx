@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Navigation from "../components/Navigation";
+import SEO from "../components/SEO";
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import { Input } from "../components/ui/input";
@@ -26,6 +27,29 @@ const Demo = () => {
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
+
+  const seoTitle = isEnglish
+    ? "Try Golfbooker Free for 14 Days - Golf Course Management Demo"
+    : "Kokeile Golfbookeria Ilmaiseksi 14 Päivää - Golf Toiminnanohjaus Demo";
+
+  const seoDescription = isEnglish
+    ? "Request a free 14-day trial of Golfbooker golf course management system. No credit card required. Try golf ajanvarausjärjestelmä, CRM, and reporting tools free. NexGolf vaihtoehto."
+    : "Pyydä ilmainen 14 päivän kokeilu Golfbooker golf toiminnanohjausjärjestelmästä. Ei luottokorttia. Kokeile golf ajanvarausjärjestelmä, CRM ja raportointityökalut ilmaiseksi.";
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": seoTitle,
+    "description": seoDescription,
+    "url": "https://golfbooker.fi/demo",
+    "mainEntity": {
+      "@type": "Offer",
+      "name": isEnglish ? "14-Day Free Trial" : "14 Päivän Ilmainen Kokeilu",
+      "price": "0",
+      "priceCurrency": "EUR",
+      "description": seoDescription
+    }
+  };
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -109,6 +133,12 @@ const Demo = () => {
   if (submitted) {
     return (
       <div className="relative min-h-screen bg-background overflow-x-hidden">
+        <SEO
+          title={isEnglish ? "Thank You - Demo Request Received" : "Kiitos - Demo-pyyntö vastaanotettu"}
+          description={seoDescription}
+          canonicalUrl="https://golfbooker.fi/demo"
+          noindex={true}
+        />
         {/* Animated Fluid Background */}
         <div className="absolute inset-0 min-h-full z-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 left-0 right-0 h-[500px] z-10 bg-gradient-to-b from-background/95 via-background/70 to-background/30" />
@@ -174,6 +204,12 @@ const Demo = () => {
 
   return (
     <div className="relative min-h-screen bg-background overflow-x-hidden">
+      <SEO
+        title={seoTitle}
+        description={seoDescription}
+        canonicalUrl="https://golfbooker.fi/demo"
+        structuredData={structuredData}
+      />
       {/* Animated Fluid Background */}
       <div className="absolute inset-0 min-h-full z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-[500px] z-10 bg-gradient-to-b from-background/95 via-background/70 to-background/30" />

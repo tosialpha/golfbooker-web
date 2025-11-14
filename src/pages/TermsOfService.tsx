@@ -1,10 +1,29 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 
 const TermsOfService = () => {
+  const seoTitle = "Terms of Service - Golfbooker";
+  const seoDescription = "Read Golfbooker's Terms of Service for golf course management software. Legal terms for using our booking system and platform.";
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": seoTitle,
+    "description": seoDescription,
+    "url": "https://golfbooker.fi/terms"
+  };
+
   return (
     <div className="min-h-screen">
+      <SEO
+        title={seoTitle}
+        description={seoDescription}
+        canonicalUrl="https://golfbooker.fi/terms"
+        structuredData={structuredData}
+        noindex={true}
+      />
       <Navigation />
 
       <main className="pt-32 pb-20 px-4 overflow-visible">

@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -9,8 +10,38 @@ const About = () => {
   const { language } = useLanguage();
   const isEnglish = language === 'en';
 
+  const seoTitle = isEnglish
+    ? "About Golfbooker - Golf Course Management Software Made in Finland"
+    : "Tietoa Golfbookerista - Suomalainen Golf Toiminnanohjaus";
+
+  const seoDescription = isEnglish
+    ? "Learn about Golfbooker - Complete booking and customer management platform for golf courses. Modern golf ajanvarausjärjestelmä built in Finland. Golf toiminnanohjaus, golf CRM."
+    : "Tutustu Golfbookeriin - Täyden palvelun varaus- ja asiakashallintajärjestelmä golfkentille. Moderni golf ajanvarausjärjestelmä rakennettu Suomessa. Golf toiminnanohjaus.";
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": seoTitle,
+    "description": seoDescription,
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Golfbooker",
+      "url": "https://golfbooker.fi",
+      "foundingLocation": "Finland",
+      "description": isEnglish
+        ? "Golf course booking and management platform"
+        : "Golfkenttien varaus- ja hallintajärjestelmä"
+    }
+  };
+
   return (
     <div className="relative min-h-screen bg-background">
+      <SEO
+        title={seoTitle}
+        description={seoDescription}
+        canonicalUrl="https://golfbooker.fi/about"
+        structuredData={structuredData}
+      />
       {/* Animated Fluid Background */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-[500px] z-10 bg-gradient-to-b from-background/95 via-background/70 to-background/30" />
