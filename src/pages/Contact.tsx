@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Phone, MessageCircle } from 'lucide-react';
+import { ArrowLeft, MessageCircle } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { Container } from '../components/ui/Container';
 import { useLanguage } from '../contexts/LanguageContext';

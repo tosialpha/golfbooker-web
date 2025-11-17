@@ -7,26 +7,26 @@ import { Check } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 export const Features: React.FC = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
   const features = [
     {
       icon: <CalendarIcon className="text-brand-green-600" size={28} />,
       title: t('features.bookings.title'),
       subtitle: t('features.bookings.subtitle'),
-      items: t('features.bookings.items') as string[],
+      items: t('features.bookings.items') as unknown as string[],
     },
     {
       icon: <CreditCardIcon className="text-brand-green-600" size={28} />,
       title: t('features.payments.title'),
       subtitle: t('features.payments.subtitle'),
-      items: t('features.payments.items') as string[],
+      items: t('features.payments.items') as unknown as string[],
     },
     {
       icon: <BarChartIcon className="text-brand-green-600" size={28} />,
       title: t('features.analytics.title'),
       subtitle: t('features.analytics.subtitle'),
-      items: t('features.analytics.items') as string[],
+      items: t('features.analytics.items') as unknown as string[],
     },
   ];
 

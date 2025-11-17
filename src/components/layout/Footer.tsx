@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from '../ui/Button';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 export const Footer: React.FC = () => {

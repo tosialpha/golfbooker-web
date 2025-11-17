@@ -21,8 +21,6 @@ export const LogoPremium: React.FC<LogoPremiumProps> = ({
 
   // Render icon based on concept
   const renderIcon = (size: number) => {
-    const scale = size / 48; // Base size is 48px
-
     switch (concept) {
       case 'dimple':
         return (
