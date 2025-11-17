@@ -4,32 +4,32 @@ import { motion, AnimatePresence } from 'framer-motion';
 const screens = [
   {
     id: 'home',
-    title: 'KOIKENTTÄ31',
+    title: 'KOTIKENTTÄSI',
     subtitle: 'Demo Golf Club',
-    location: 'Helsinki',
-    established: 'Vasen Updated 2020',
-    buttonText: 'Varaa Nyt',
+    location: 'Helsinki, Suomi',
+    established: 'Jäsenenä vuodesta 2020',
+    buttonText: 'Varaa lähtöaika',
     buttonIcon: '📅',
     hasCompetitions: true,
   },
   {
     id: 'booking',
-    title: 'Valitse Aika',
+    title: 'Valitse lähtöaika',
     subtitle: 'Demo Golf Club - Helsinki',
-    times: ['10:00', '10:30', '11:00', '11:30', '12:00', '12:30'],
-    buttonText: 'Jatka',
+    times: ['10:00', '10:10', '10:20', '10:30', '10:40', '10:50'],
+    buttonText: 'Vahvista varaus',
   },
   {
     id: 'confirmation',
-    title: 'Vahvistus',
-    subtitle: 'Varauksesi on vahvistettu',
+    title: 'Varaus vahvistettu!',
+    subtitle: 'Lähtöaikasi on varattu',
     details: {
       club: 'Demo Golf Club',
       date: 'Tänään',
-      time: '10:30',
+      time: '10:20',
       players: '1-4 pelaajaa',
     },
-    buttonText: 'Valmis',
+    buttonText: 'Näytä varaukset',
   },
 ];
 
@@ -56,8 +56,13 @@ export const BookingDemo: React.FC = () => {
           {screen.id === 'home' && (
             <div className="w-full h-full flex flex-col">
               {/* Hero Image Section */}
-              <div className="relative h-64 bg-gradient-to-br from-green-800 via-green-600 to-green-700 overflow-hidden">
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utb3BhY2l0eT0iMC4xIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30"></div>
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&q=80"
+                  alt="Golf Course"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70"></div>
                 <div className="absolute top-0 left-0 right-0 pt-14 px-6 text-white">
                   <div className="text-sm font-medium opacity-90 mb-1">{screen.title}</div>
                   <h1 className="text-2xl font-bold mb-1">{screen.subtitle}</h1>
@@ -82,42 +87,78 @@ export const BookingDemo: React.FC = () => {
                 </motion.button>
               </div>
 
-              {/* Competitions Section */}
+              {/* Tournaments Section */}
               {screen.hasCompetitions && (
                 <div className="mt-6 px-6">
                   <div className="flex items-center gap-2 mb-4">
                     <span className="text-xl">🏆</span>
-                    <h2 className="text-lg font-semibold">Käynnissä olevat kilpailut</h2>
+                    <h2 className="text-lg font-semibold">Aktiiviset kilpailut</h2>
                   </div>
 
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="bg-orange-50 rounded-2xl overflow-hidden shadow-sm"
+                    className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100"
                   >
-                    <div className="relative h-32 bg-gradient-to-br from-green-600 to-green-700 overflow-hidden">
-                      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjEiLz48L3N2Zz4=')] opacity-20"></div>
+                    <div className="relative h-32 overflow-hidden">
+                      <img
+                        src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=400&q=80"
+                        alt="Golf Tournament"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div>
                       <div className="absolute top-3 left-3 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">
                         KÄYNNISSÄ
                       </div>
                       <div className="absolute bottom-3 right-3 bg-white/90 text-gray-800 text-sm font-semibold px-3 py-1 rounded-lg flex items-center gap-1">
                         <span>📅</span>
-                        <span>15.11</span>
+                        <span>17.11</span>
                       </div>
                     </div>
 
                     <div className="p-4">
-                      <h3 className="font-bold text-gray-900 mb-2">Helsinki Syyskilpailu</h3>
-                      <p className="text-sm text-gray-600 mb-3">25.4€</p>
+                      <h3 className="font-bold text-gray-900 mb-2">Demo Open 2025</h3>
+                      <p className="text-sm text-gray-600 mb-3">35.00 €</p>
                       <div className="flex items-center justify-between text-sm">
                         <div className="flex items-center gap-4 text-gray-500">
                           <span>📍 Demo Golf Club</span>
-                          <span>👥 24 pelaajaa</span>
+                          <span>👥 48 pelaajaa</span>
                         </div>
                       </div>
                     </div>
                   </motion.div>
+
+                  {/* Featured Courses Section */}
+                  <div className="mt-6">
+                    <h2 className="text-lg font-semibold mb-4">Suositellut kentät</h2>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4 }}
+                      className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100"
+                    >
+                      <div className="relative h-32 overflow-hidden">
+                        <img
+                          src="https://images.unsplash.com/photo-1592919505780-303950717480?w=400&q=80"
+                          alt="Golf Course"
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute top-3 left-3 bg-white text-green-600 text-xs font-bold px-3 py-1 rounded-full">
+                          Golf
+                        </div>
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-bold text-gray-900 mb-1">Demo Golf Club</h3>
+                        <div className="flex items-center text-sm text-gray-500 mb-2">
+                          <span>📍</span>
+                          <span className="ml-1">Helsinki, Suomi</span>
+                        </div>
+                        <p className="text-sm text-gray-600 text-sm mb-2">Upea 18-reikäinen kenttä Helsingin kupeessa. Perinteikäs kenttä vuodelta 1932.</p>
+                        <p className="text-green-600 font-bold">€45.00/kierros</p>
+                      </div>
+                    </motion.div>
+                  </div>
                 </div>
               )}
             </div>
@@ -182,7 +223,7 @@ export const BookingDemo: React.FC = () => {
                   <span className="font-semibold">{screen.details?.date}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Aika</span>
+                  <span className="text-gray-600">Lähtöaika</span>
                   <span className="font-semibold">{screen.details?.time}</span>
                 </div>
                 <div className="flex justify-between">

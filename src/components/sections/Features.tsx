@@ -7,26 +7,47 @@ import { Check } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 export const Features: React.FC = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
+
+  // Define features directly with translations
+  const bookingsItems = [
+    t('features.bookings.items.0'),
+    t('features.bookings.items.1'),
+    t('features.bookings.items.2'),
+  ].filter(item => !item.includes('features.bookings.items'));
+
+  const paymentsItems = [
+    t('features.payments.items.0'),
+    t('features.payments.items.1'),
+    t('features.payments.items.2'),
+    t('features.payments.items.3'),
+  ].filter(item => !item.includes('features.payments.items'));
+
+  const analyticsItems = [
+    t('features.analytics.items.0'),
+    t('features.analytics.items.1'),
+    t('features.analytics.items.2'),
+    t('features.analytics.items.3'),
+  ].filter(item => !item.includes('features.analytics.items'));
 
   const features = [
     {
       icon: <CalendarIcon className="text-brand-green-600" size={28} />,
       title: t('features.bookings.title'),
       subtitle: t('features.bookings.subtitle'),
-      items: t('features.bookings.items') as string[],
+      items: bookingsItems,
     },
     {
       icon: <CreditCardIcon className="text-brand-green-600" size={28} />,
       title: t('features.payments.title'),
       subtitle: t('features.payments.subtitle'),
-      items: t('features.payments.items') as string[],
+      items: paymentsItems,
     },
     {
       icon: <BarChartIcon className="text-brand-green-600" size={28} />,
       title: t('features.analytics.title'),
       subtitle: t('features.analytics.subtitle'),
-      items: t('features.analytics.items') as string[],
+      items: analyticsItems,
     },
   ];
 

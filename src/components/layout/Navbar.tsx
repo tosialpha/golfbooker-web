@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import { Button } from '../ui/Button';
 import { LanguageToggle } from '../ui/LanguageToggle';
 import { useLanguage } from '../../contexts/LanguageContext';
 
