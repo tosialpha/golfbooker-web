@@ -35,9 +35,15 @@ const screens = [
 
 export const BookingDemo: React.FC = () => {
   const [currentScreen, setCurrentScreen] = useState(0);
+  const [selectedTime, setSelectedTime] = useState<string>('10:30');
 
   const handleNext = () => {
     setCurrentScreen((prev) => (prev + 1) % screens.length);
+  };
+
+  const handleTimeSelect = (time: string) => {
+    setSelectedTime(time);
+    handleNext();
   };
 
   const screen = screens[currentScreen];
@@ -137,6 +143,10 @@ export const BookingDemo: React.FC = () => {
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleTimeSelect(time);
+                    }}
                     className="w-full bg-white border-2 border-gray-200 hover:border-green-500 rounded-xl py-4 px-6 text-left transition-all shadow-sm hover:shadow-md"
                   >
                     <div className="flex items-center justify-between">
@@ -183,7 +193,7 @@ export const BookingDemo: React.FC = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Aika</span>
-                  <span className="font-semibold">{screen.details?.time}</span>
+                  <span className="font-semibold">{selectedTime}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Pelaajat</span>

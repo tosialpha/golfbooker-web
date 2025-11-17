@@ -6,6 +6,8 @@ import { Home } from './pages/Home';
 import { Demo } from './pages/Demo';
 import { Contact } from './pages/Contact';
 import { TournamentManagement } from './pages/TournamentManagement';
+import { Privacy } from './pages/Privacy';
+import { Terms } from './pages/Terms';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
             <Route path="/demo" element={<Demo />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/tournaments" element={<TournamentManagement />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
           </Routes>
         </Layout>
       </Router>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
 import { Container } from '../ui/Container';
@@ -8,6 +9,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 
 export const Hero: React.FC = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const scrollToFeatures = () => {
@@ -40,7 +42,12 @@ export const Hero: React.FC = () => {
 
             {/* CTA Buttons - Horizontal centered */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12">
-              <Button variant="primary" size="lg" className="w-full sm:w-auto">
+              <Button
+                variant="primary"
+                size="lg"
+                className="w-full sm:w-auto"
+                onClick={() => navigate('/contact')}
+              >
                 {t('hero.requestDemo')}
               </Button>
               <Button

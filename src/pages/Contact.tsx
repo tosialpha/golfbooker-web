@@ -18,8 +18,45 @@ export const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+
+    // Create email subject
+    const subjectMap: { [key: string]: string } = {
+      demo: t('contact.subjectDemo'),
+      pricing: t('contact.subjectPricing'),
+      technical: t('contact.subjectTechnical'),
+      other: t('contact.subjectOther')
+    };
+
+    const emailSubject = subjectMap[formData.subject] || formData.subject;
+
+    // Create email body
+    const emailBody = `
+Nimi: ${formData.name}
+Sähköposti: ${formData.email}
+${formData.phone ? `Puhelin: ${formData.phone}` : ''}
+${formData.timeframe ? `Toivottu ajanjakso: ${formData.timeframe}` : ''}
+
+Aihe: ${emailSubject}
+
+Viesti:
+${formData.message}
+    `.trim();
+
+    // Create mailto link
+    const mailtoLink = `mailto:info@golfbooker.fi?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+    // Open email client
+    window.location.href = mailtoLink;
+
+    // Optional: Reset form after submission
+    // setFormData({
+    //   name: '',
+    //   email: '',
+    //   phone: '',
+    //   timeframe: '',
+    //   subject: '',
+    //   message: ''
+    // });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

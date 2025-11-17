@@ -188,6 +188,24 @@ const translations = {
       technicalSupport: 'Tekninen tuki',
       businessHours: 'ma–pe klo 9–18',
       whatsapp: 'Viesti WhatsAppissa'
+    },
+    demoTrial: {
+      title: 'Kokeile maksutta 14 päivää',
+      subtitle: 'Ei luottokorttia, ei sitoutumista',
+      company: 'Yritys / Hulaala',
+      companyPlaceholder: 'Virtuainen nimi',
+      contactPerson: 'Yhteyshenkilö',
+      contactPersonPlaceholder: 'Koko nimi',
+      email: 'Sähköposti',
+      emailPlaceholder: 'nimi@email.fi',
+      phone: 'Puhelin',
+      phonePlaceholder: '+358 40 123 4567',
+      message: 'Viesti',
+      messagePlaceholder: 'Kerro tarpeistasi...',
+      acceptUpdates: 'Haluan vastaanottaa päivityksiä ja vinkkejä',
+      bySubmitting: 'Lähettämällä hyväksyt',
+      privacyPolicy: 'tietosuojakäytäntömme',
+      submit: 'Luo demo-ympäristö'
     }
   },
   en: {
@@ -334,6 +352,24 @@ const translations = {
       technicalSupport: 'Technical Support',
       businessHours: 'Mon–Fri 9 AM–6 PM',
       whatsapp: 'Message on WhatsApp'
+    },
+    demoTrial: {
+      title: 'Try Free for 14 Days',
+      subtitle: 'No credit card, no commitment',
+      company: 'Company / Course',
+      companyPlaceholder: 'Virtual name',
+      contactPerson: 'Contact Person',
+      contactPersonPlaceholder: 'Full name',
+      email: 'Email',
+      emailPlaceholder: 'name@email.com',
+      phone: 'Phone',
+      phonePlaceholder: '+358 40 123 4567',
+      message: 'Message',
+      messagePlaceholder: 'Tell us about your needs...',
+      acceptUpdates: 'I want to receive updates and tips',
+      bySubmitting: 'By submitting you accept our',
+      privacyPolicy: 'privacy policy',
+      submit: 'Create Demo Environment'
     }
   }
 };

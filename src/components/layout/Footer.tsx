@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../ui/Button';
 import { useLanguage } from '../../contexts/LanguageContext';
 
@@ -28,14 +29,14 @@ export const Footer: React.FC = () => {
               <h4 className="font-semibold text-gray-900 mb-4">{t('footer.product')}</h4>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li>
-                  <a href="#" className="hover:text-brand-green-600 transition-colors">
+                  <Link to="/" className="hover:text-brand-green-600 transition-colors">
                     {t('footer.forGolfCourses')}
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-brand-green-600 transition-colors">
+                  <Link to="/demo" className="hover:text-brand-green-600 transition-colors">
                     {t('footer.forPlayers')}
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -45,9 +46,9 @@ export const Footer: React.FC = () => {
               <h4 className="font-semibold text-gray-900 mb-4">{t('footer.company')}</h4>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li>
-                  <a href="#" className="hover:text-brand-green-600 transition-colors">
+                  <Link to="/contact" className="hover:text-brand-green-600 transition-colors">
                     {t('footer.contact')}
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -118,13 +119,13 @@ export const Footer: React.FC = () => {
           <div className="pt-8 border-t border-gray-200">
             <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-sm text-gray-600">
               <div className="flex items-center gap-2">
-                <a href="#" className="hover:text-brand-green-600 transition-colors">
+                <Link to="/terms" className="hover:text-brand-green-600 transition-colors">
                   {t('footer.terms')}
-                </a>
+                </Link>
                 <span>•</span>
-                <a href="#" className="hover:text-brand-green-600 transition-colors">
+                <Link to="/privacy" className="hover:text-brand-green-600 transition-colors">
                   {t('footer.privacy')}
-                </a>
+                </Link>
               </div>
             </div>
             <p className="text-center text-sm text-gray-600 mt-4">

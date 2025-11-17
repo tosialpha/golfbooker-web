@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import { Button } from '../ui/Button';
 import { LanguageToggle } from '../ui/LanguageToggle';
 import { useLanguage } from '../../contexts/LanguageContext';
 
@@ -51,6 +50,12 @@ export const Navbar: React.FC = () => {
               {t('nav.forPlayers')}
             </Link>
             <Link
+              to="/tournaments"
+              className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium"
+            >
+              {t('nav.tournaments')}
+            </Link>
+            <Link
               to="/contact"
               className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium"
             >
@@ -89,6 +94,13 @@ export const Navbar: React.FC = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t('nav.forPlayers')}
+              </Link>
+              <Link
+                to="/tournaments"
+                className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('nav.tournaments')}
               </Link>
               <Link
                 to="/contact"
