@@ -66,12 +66,12 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="w-full max-w-5xl"
+            className="w-full max-w-5xl px-4"
           >
-            <div className="relative">
+            <div className="relative flex justify-center items-center overflow-visible">
               {/* Dashboard Card - Clickable and scaled down */}
               <div
-                className="relative cursor-pointer transition-all duration-300 hover:scale-[1.02] shadow-2xl rounded-2xl overflow-hidden bg-white mx-auto"
+                className="relative cursor-pointer transition-all duration-300 hover:scale-[1.02] shadow-2xl rounded-2xl overflow-hidden bg-white scale-[0.4] sm:scale-[0.5] md:scale-[0.65] lg:scale-75 origin-center"
                 onClick={() => setIsModalOpen(true)}
                 role="button"
                 tabIndex={0}
@@ -81,7 +81,6 @@ export const Hero: React.FC = () => {
                   }
                 }}
                 aria-label={t('hero.clickToView')}
-                style={{ transform: 'scale(0.75)', transformOrigin: 'center' }}
               >
                 <DashboardPreview />
               </div>

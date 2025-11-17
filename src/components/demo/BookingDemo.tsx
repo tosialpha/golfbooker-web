@@ -212,6 +212,13 @@ export const BookingDemo: React.FC = () => {
               <button className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 rounded-xl shadow-lg transition-colors">
                 {screen.buttonText}
               </button>
+
+              {/* Demo Disclaimer */}
+              <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <p className="text-xs text-center text-yellow-800">
+                  ⚠️ Tämä on vain demo-esittely. Varausta ei ole tehty oikeasti.
+                </p>
+              </div>
             </div>
           )}
         </motion.div>

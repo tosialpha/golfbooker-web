@@ -7,8 +7,8 @@ interface PhoneMockupProps {
 export const PhoneMockup: React.FC<PhoneMockupProps> = ({ children }) => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-4">
-      {/* Desktop: Phone Frame */}
-      <div className="hidden md:block relative w-[375px] h-[812px] bg-black rounded-[3rem] shadow-2xl p-3">
+      {/* Phone Frame - All screen sizes */}
+      <div className="relative w-[375px] h-[812px] bg-black rounded-[3rem] shadow-2xl p-3">
         {/* Notch */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-black rounded-b-3xl z-10"></div>
 
@@ -32,11 +32,6 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({ children }) => {
           {/* Home Indicator */}
           <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1.5 bg-black rounded-full"></div>
         </div>
-      </div>
-
-      {/* Mobile: Full Screen */}
-      <div className="md:hidden w-full h-screen">
-        {children}
       </div>
     </div>
   );

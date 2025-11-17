@@ -16,7 +16,7 @@ import {
 
 export const DashboardPreview: React.FC = () => {
   return (
-    <div className="w-full bg-gray-50 rounded-xl shadow-2xl overflow-hidden border border-gray-200">
+    <div className="w-[1200px] bg-gray-50 rounded-xl shadow-2xl overflow-hidden border border-gray-200">
       {/* Header */}
       <div className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center">
@@ -119,7 +119,7 @@ export const DashboardPreview: React.FC = () => {
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+            <div className="grid grid-cols-3 gap-6 mb-6">
               {/* Today's Revenue */}
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <div className="text-xs text-gray-500 mb-1">Tämän päivän liikevaihto</div>
@@ -159,7 +159,7 @@ export const DashboardPreview: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-6">
               {/* Alerts */}
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <div className="flex items-center gap-2 mb-4">

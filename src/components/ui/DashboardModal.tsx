@@ -32,7 +32,7 @@ export const DashboardModal: React.FC<DashboardModalProps> = ({ isOpen, onClose 
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-4">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -48,21 +48,23 @@ export const DashboardModal: React.FC<DashboardModalProps> = ({ isOpen, onClose 
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: 'spring', duration: 0.5 }}
-            className="relative z-10 w-full max-w-6xl"
+            className="relative z-10 w-full h-full md:h-auto max-w-6xl overflow-x-auto overflow-y-auto md:overflow-visible"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
+            {/* Close Button - Mobile Friendly */}
             <button
               onClick={onClose}
-              className="absolute -top-12 right-0 p-2 text-white hover:text-gray-300 transition-colors"
+              className="fixed top-4 right-4 md:absolute md:-top-12 md:right-0 z-20 p-3 md:p-2 bg-black/80 md:bg-transparent rounded-full text-white hover:bg-black/90 md:hover:bg-transparent md:hover:text-gray-300 transition-all"
               aria-label="Sulje"
             >
-              <X size={32} />
+              <X size={28} className="md:w-8 md:h-8" />
             </button>
 
-            {/* Dashboard Preview - Larger Scale */}
-            <div className="transform scale-110 origin-center">
-              <DashboardPreview />
+            {/* Dashboard Preview - Scrollable on mobile */}
+            <div className="inline-block min-w-full p-4 md:p-0">
+              <div className="transform scale-[0.75] sm:scale-[0.85] md:scale-95 lg:scale-100 origin-top-left md:origin-center">
+                <DashboardPreview />
+              </div>
             </div>
           </motion.div>
         </div>
