@@ -4,10 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 const screens = [
   {
     id: 'home',
-    title: 'KOIKENTTÄ31',
-    subtitle: 'Demo Golf Club',
+    title: 'Demo Golf Club',
+    subtitle: 'Helsinki',
     location: 'Helsinki',
-    established: 'Vasen Updated 2020',
     buttonText: 'Varaa Nyt',
     buttonIcon: '📅',
     hasCompetitions: true,
@@ -62,8 +61,13 @@ export const BookingDemo: React.FC = () => {
           {screen.id === 'home' && (
             <div className="w-full h-full flex flex-col">
               {/* Hero Image Section */}
-              <div className="relative h-64 bg-gradient-to-br from-green-800 via-green-600 to-green-700 overflow-hidden">
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utb3BhY2l0eT0iMC4xIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30"></div>
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=1000&auto=format&fit=crop"
+                  alt="Golf Course"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20"></div>
                 <div className="absolute top-0 left-0 right-0 pt-14 px-6 text-white">
                   <div className="text-sm font-medium opacity-90 mb-1">{screen.title}</div>
                   <h1 className="text-2xl font-bold mb-1">{screen.subtitle}</h1>
@@ -71,26 +75,12 @@ export const BookingDemo: React.FC = () => {
                     <span>📍</span>
                     <span>{screen.location}</span>
                   </div>
-                  <div className="text-xs opacity-75 mt-1">{screen.established}</div>
                 </div>
-              </div>
-
-              {/* Booking Button */}
-              <div className="px-6 -mt-8 relative z-10">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-xl shadow-lg flex items-center justify-center gap-3 transition-colors"
-                >
-                  <span className="text-xl">{screen.buttonIcon}</span>
-                  <span className="text-lg">{screen.buttonText}</span>
-                  <span className="ml-auto text-xl">→</span>
-                </motion.button>
               </div>
 
               {/* Competitions Section */}
               {screen.hasCompetitions && (
-                <div className="mt-6 px-6">
+                <div className="mt-8 px-6">
                   <div className="flex items-center gap-2 mb-4">
                     <span className="text-xl">🏆</span>
                     <h2 className="text-lg font-semibold">Käynnissä olevat kilpailut</h2>
@@ -102,8 +92,13 @@ export const BookingDemo: React.FC = () => {
                     transition={{ delay: 0.3 }}
                     className="bg-orange-50 rounded-2xl overflow-hidden shadow-sm"
                   >
-                    <div className="relative h-32 bg-gradient-to-br from-green-600 to-green-700 overflow-hidden">
-                      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjEiLz48L3N2Zz4=')] opacity-20"></div>
+                    <div className="relative h-32 overflow-hidden">
+                      <img
+                        src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?q=80&w=1000&auto=format&fit=crop"
+                        alt="Golf Course"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                       <div className="absolute top-3 left-3 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">
                         KÄYNNISSÄ
                       </div>
@@ -126,6 +121,19 @@ export const BookingDemo: React.FC = () => {
                   </motion.div>
                 </div>
               )}
+
+              {/* Booking Button */}
+              <div className="px-6 mt-auto mb-48">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-xl shadow-lg flex items-center justify-center gap-3 transition-colors"
+                >
+                  <span className="text-xl">{screen.buttonIcon}</span>
+                  <span className="text-lg">{screen.buttonText}</span>
+                  <span className="ml-auto text-xl">→</span>
+                </motion.button>
+              </div>
             </div>
           )}
 
@@ -161,7 +169,7 @@ export const BookingDemo: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
-                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 rounded-xl shadow-lg transition-colors mt-6"
+                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 rounded-xl shadow-lg transition-colors mt-auto mb-20"
               >
                 {screen.buttonText}
               </motion.button>
@@ -210,7 +218,7 @@ export const BookingDemo: React.FC = () => {
       </AnimatePresence>
 
       {/* Progress Dots */}
-      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
         {screens.map((_, index) => (
           <button
             key={index}
