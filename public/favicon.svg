@@ -1,0 +1,16 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Artistic "G" letter with golf ball on tee -->
+  <path d="M 25 9 C 25 5 21 2 16 2 C 9 2 4 8 4 16 C 4 24 9 30 16 30 C 21 30 25 25 25 21 L 25 16 L 17 16" stroke="#16a34a" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+
+  <!-- Golf ball -->
+  <circle cx="16" cy="17.5" r="3.5" fill="#f5f5dc" stroke="#16a34a" strokeWidth="0.4"/>
+
+  <!-- Dimples -->
+  <circle cx="14.5" cy="16.5" r="0.6" fill="#d4af37" opacity="0.6"/>
+  <circle cx="17.5" cy="16.5" r="0.6" fill="#d4af37" opacity="0.6"/>
+  <circle cx="16" cy="18.5" r="0.6" fill="#d4af37" opacity="0.6"/>
+
+  <!-- Tee -->
+  <line x1="16" y1="21.5" x2="16" y2="24" stroke="#16a34a" strokeWidth="1" strokeLinecap="round"/>
+  <path d="M 14.5 24 L 17.5 24" stroke="#16a34a" strokeWidth="1" strokeLinecap="round"/>
+</svg>

@@ -1,0 +1,22 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Concept 2: Orbital - Ultra-minimal, premium SaaS aesthetic -->
+
+  <!-- Ultra-thin outer ring -->
+  <circle cx="24" cy="24" r="20" stroke="#16a34a" stroke-width="1.5" fill="none"/>
+
+  <!-- Minimal tick marks (only at cardinal positions) -->
+  <line x1="24" y1="4" x2="24" y2="7.5" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="44" y1="24" x2="40.5" y2="24" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="24" y1="44" x2="24" y2="40.5" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="4" y1="24" x2="7.5" y2="24" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Center golf ball (perfect sphere) -->
+  <circle cx="24" cy="24" r="7" fill="#16a34a"/>
+
+  <!-- Subtle dimples on ball (premium detail) -->
+  <circle cx="24" cy="21" r="1.2" fill="white" opacity="0.35"/>
+  <circle cx="21.5" cy="24" r="1.2" fill="white" opacity="0.35"/>
+  <circle cx="26.5" cy="24" r="1.2" fill="white" opacity="0.35"/>
+  <circle cx="22.5" cy="26.5" r="1" fill="white" opacity="0.25"/>
+  <circle cx="25.5" cy="26.5" r="1" fill="white" opacity="0.25"/>
+</svg>

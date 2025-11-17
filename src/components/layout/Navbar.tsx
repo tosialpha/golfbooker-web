@@ -1,0 +1,109 @@
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
+import { Button } from '../ui/Button';
+import { LanguageToggle } from '../ui/LanguageToggle';
+import { useLanguage } from '../../contexts/LanguageContext';
+
+export const Navbar: React.FC = () => {
+  const { t } = useLanguage();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-white/80 backdrop-blur-md shadow-md'
+          : 'bg-white/60 backdrop-blur-sm'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="h-20 flex items-center justify-between">
+          {/* Logo */}
+          <Link to="/" className="hover:opacity-80 transition-opacity">
+            <span className="text-2xl font-semibold tracking-tight text-gray-900">
+              Golf<span className="font-bold">Booker</span>
+            </span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            <Link
+              to="/"
+              className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium"
+            >
+              {t('nav.home')}
+            </Link>
+            <Link
+              to="/demo"
+              className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium"
+            >
+              {t('nav.forPlayers')}
+            </Link>
+            <Link
+              to="/contact"
+              className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium"
+            >
+              {t('nav.contact')}
+            </Link>
+          </div>
+
+          {/* Language Toggle (Desktop) */}
+          <div className="hidden md:block">
+            <LanguageToggle />
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 text-gray-700 hover:text-brand-green-600"
+          >
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden py-4 border-t border-gray-200 animate-slideDown">
+            <div className="flex flex-col gap-4">
+              <Link
+                to="/"
+                className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium text-left py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('nav.home')}
+              </Link>
+              <Link
+                to="/demo"
+                className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('nav.forPlayers')}
+              </Link>
+              <Link
+                to="/contact"
+                className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('nav.contact')}
+              </Link>
+              <div className="flex justify-center py-2">
+                <LanguageToggle />
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
+  );
+};

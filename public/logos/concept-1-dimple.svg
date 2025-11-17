@@ -1,0 +1,28 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Concept 1: Dimple Clock - Golf ball dimples AS clock markers -->
+
+  <!-- Outer circle -->
+  <circle cx="24" cy="24" r="20" stroke="#16a34a" stroke-width="2" fill="none"/>
+
+  <!-- Hour dimples (12, 3, 6, 9) - Primary markers -->
+  <circle cx="24" cy="6" r="2.2" fill="#16a34a"/>
+  <circle cx="42" cy="24" r="2.2" fill="#16a34a"/>
+  <circle cx="24" cy="42" r="2.2" fill="#16a34a"/>
+  <circle cx="6" cy="24" r="2.2" fill="#16a34a"/>
+
+  <!-- Secondary dimples (1, 2, 4, 5, 7, 8, 10, 11) -->
+  <circle cx="30.5" cy="9" r="1.6" fill="#16a34a" opacity="0.7"/>
+  <circle cx="37" cy="14.5" r="1.6" fill="#16a34a" opacity="0.7"/>
+  <circle cx="37" cy="33.5" r="1.6" fill="#16a34a" opacity="0.7"/>
+  <circle cx="30.5" cy="39" r="1.6" fill="#16a34a" opacity="0.7"/>
+  <circle cx="17.5" cy="39" r="1.6" fill="#16a34a" opacity="0.7"/>
+  <circle cx="11" cy="33.5" r="1.6" fill="#16a34a" opacity="0.7"/>
+  <circle cx="11" cy="14.5" r="1.6" fill="#16a34a" opacity="0.7"/>
+  <circle cx="17.5" cy="9" r="1.6" fill="#16a34a" opacity="0.7"/>
+
+  <!-- Clock hand (elegant, pointing to 10 o'clock) -->
+  <line x1="24" y1="24" x2="18" y2="12" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Center dot -->
+  <circle cx="24" cy="24" r="2" fill="#16a34a"/>
+</svg>
