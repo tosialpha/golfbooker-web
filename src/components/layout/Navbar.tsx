@@ -29,8 +29,8 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="h-20 flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="hover:opacity-80 transition-opacity">
-            <span className="text-2xl font-semibold tracking-tight text-gray-900">
+          <Link to="/" className="group transition-all duration-300 ease-in-out transform hover:scale-105">
+            <span className="text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-brand-green-600 transition-colors duration-300">
               Golf<span className="font-bold">Booker</span>
             </span>
           </Link>
