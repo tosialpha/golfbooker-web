@@ -89,31 +89,31 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-brand-green-50 to-white pt-20 pb-8">
+    <div className="min-h-screen bg-gradient-to-br from-brand-green-50 to-white pt-24 pb-6">
       <Container>
         {/* Header */}
-        <div className="mb-4">
-          <Link to="/" className="inline-flex items-center gap-2 text-brand-green-600 hover:text-brand-green-700 font-medium mb-2">
-            <ArrowLeft size={20} />
+        <div className="mb-3">
+          <Link to="/" className="inline-flex items-center gap-2 text-brand-green-600 hover:text-brand-green-700 font-medium mb-2 text-sm">
+            <ArrowLeft size={18} />
             {t('contact.backToHome')}
           </Link>
           <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1 text-center">
             {t('contact.title')}
           </h1>
-          <p className="text-base md:text-lg text-gray-600 text-center">
+          <p className="text-sm md:text-base text-gray-600 text-center">
             {t('contact.subtitle')}
           </p>
         </div>
 
         {/* Contact Form and Info */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 max-w-6xl mx-auto">
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6">
-              <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
+            <div className="bg-white rounded-xl shadow-lg p-3 md:p-4">
+              <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2 md:mb-3">
                 {t('contact.sendMessage')}
               </h3>
-              <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-2 md:space-y-3">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-1">
                     {t('contact.name')} *
@@ -204,7 +204,7 @@ export const Contact: React.FC = () => {
                   <textarea
                     id="message"
                     name="message"
-                    rows={4}
+                    rows={3}
                     value={formData.message}
                     onChange={handleChange}
                     placeholder={t('contact.messagePlaceholder')}
