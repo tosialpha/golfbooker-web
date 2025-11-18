@@ -113,71 +113,75 @@ export const Contact: React.FC = () => {
               <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2 md:mb-3">
                 {t('contact.sendMessage')}
               </h3>
-              <form onSubmit={handleSubmit} className="space-y-2 md:space-y-3">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-1">
-                    {t('contact.name')} *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder={t('contact.namePlaceholder')}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
-                  />
+              <form onSubmit={handleSubmit} className="space-y-2">
+                {/* Two column grid for short fields */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                  <div>
+                    <label htmlFor="name" className="block text-xs font-medium text-gray-900 mb-1">
+                      {t('contact.name')} *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder={t('contact.namePlaceholder')}
+                      className="w-full px-2 py-1.5 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-xs font-medium text-gray-900 mb-1">
+                      {t('contact.email')} *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder={t('contact.emailPlaceholder')}
+                      className="w-full px-2 py-1.5 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="phone" className="block text-xs font-medium text-gray-700 mb-1">
+                      {t('contact.phone')} <span className="text-gray-400 text-xs">({t('contact.optional')})</span>
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder={t('contact.phonePlaceholder')}
+                      className="w-full px-2 py-1.5 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="timeframe" className="block text-xs font-medium text-gray-700 mb-1">
+                      {isEnglish ? "Date & Time" : "Ajankohta"} <span className="text-gray-400 text-xs">({t('contact.optional')})</span>
+                    </label>
+                    <input
+                      type="datetime-local"
+                      id="timeframe"
+                      name="timeframe"
+                      value={formData.timeframe}
+                      onChange={handleChange}
+                      step="300"
+                      className="w-full px-2 py-1.5 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
+                    />
+                  </div>
                 </div>
 
+                {/* Full width subject */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-1">
-                    {t('contact.email')} *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder={t('contact.emailPlaceholder')}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                    {t('contact.phone')} <span className="text-gray-400">({t('contact.optional')})</span>
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder={t('contact.phonePlaceholder')}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="timeframe" className="block text-sm font-medium text-gray-700 mb-1">
-                    {isEnglish ? "Preferred Date & Time" : "Toivottu ajankohta"} <span className="text-gray-400">({t('contact.optional')})</span>
-                  </label>
-                  <input
-                    type="datetime-local"
-                    id="timeframe"
-                    name="timeframe"
-                    value={formData.timeframe}
-                    onChange={handleChange}
-                    step="300"
-                    className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-900 mb-1">
+                  <label htmlFor="subject" className="block text-xs font-medium text-gray-900 mb-1">
                     {t('contact.subject')} *
                   </label>
                   <select
@@ -186,7 +190,7 @@ export const Contact: React.FC = () => {
                     required
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
+                    className="w-full px-2 py-1.5 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
                   >
                     <option value="">{t('contact.selectSubject')}</option>
                     <option value="general">{t('contact.subjectGeneral')}</option>
@@ -197,20 +201,21 @@ export const Contact: React.FC = () => {
                   </select>
                 </div>
 
+                {/* Full width message */}
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-1">
+                  <label htmlFor="message" className="block text-xs font-medium text-gray-900 mb-1">
                     {t('contact.message')}
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    rows={3}
+                    rows={2}
                     value={formData.message}
                     onChange={handleChange}
                     placeholder={t('contact.messagePlaceholder')}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent resize-none"
+                    className="w-full px-2 py-1.5 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent resize-none"
                   />
-                  <div className="text-right text-sm text-gray-500 mt-1">
+                  <div className="text-right text-xs text-gray-500">
                     {formData.message.length}/500
                   </div>
                 </div>
