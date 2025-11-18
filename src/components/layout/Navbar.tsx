@@ -44,12 +44,6 @@ export const Navbar: React.FC = () => {
               {t('nav.home')}
             </Link>
             <Link
-              to="/demo"
-              className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium"
-            >
-              {t('nav.forPlayers')}
-            </Link>
-            <Link
               to="/tournaments"
               className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium"
             >
@@ -87,13 +81,6 @@ export const Navbar: React.FC = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t('nav.home')}
-              </Link>
-              <Link
-                to="/demo"
-                className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {t('nav.forPlayers')}
               </Link>
               <Link
                 to="/tournaments"
