@@ -17,10 +17,6 @@ export const FAQ: React.FC = () => {
       question: "Onko mobiilisovellus saatavilla pelaajille?",
       answer: "Kyllä! GolfBooker sisältää modernin mobiilisovelluksen iOS:lle ja Androidille. Pelaajat voivat varata lähtöaikoja, maksaa varauksia ja nähdä turnaukset suoraan puhelimestaan."
     },
-    {
-      question: "Paljonko GolfBooker maksaa?",
-      answer: "Hinnoittelu perustuu kentän kokoon ja käyttäjämäärään. Aloituspaketti alkaa 299€/kk sisältäen kaikki perusominaisuudet. Tarjoamme myös 30 päivän ilmaisen kokeilujakson ilman sitoutumista."
-    },
   ];
 
   return (
