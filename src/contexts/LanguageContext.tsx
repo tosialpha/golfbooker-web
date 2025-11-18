@@ -65,7 +65,7 @@ const translations = {
     },
     features: {
       title: 'Kaikki mitä tarvitset kentän hallintaan',
-      subtitle: 'Tehokkaat työkalut, jotka säästävät aikaa ja kasvattavat tuloja',
+      subtitle: 'Tehokkaat työkalut, jotka säästävät aikaa ja helpottavat arkea.',
       bookings: {
         title: 'Varaukset & Ajanhallinta',
         subtitle: 'Automatisoitu varausjärjestelmä, joka säästää aikaa',
@@ -229,7 +229,7 @@ const translations = {
     },
     features: {
       title: 'Everything you need to manage your course',
-      subtitle: 'Powerful tools that save time and grow revenue',
+      subtitle: 'Powerful tools that save time and make daily operations easier.',
       bookings: {
         title: 'Bookings & Time Management',
         subtitle: 'Automated booking system that saves time',
