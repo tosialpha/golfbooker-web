@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '../ui/Button';
 import { Container } from '../ui/Container';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { X } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const { t } = useLanguage();
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const scrollToFeatures = () => {
     const featuresSection = document.getElementById('features');
@@ -66,16 +68,65 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex-grow lg:w-7/12"
           >
-            <div className="relative">
+            <div
+              className="relative cursor-pointer group"
+              onClick={() => setIsModalOpen(true)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  setIsModalOpen(true);
+                }
+              }}
+            >
               <img
                 src="/dashboard-hero.png"
                 alt="GolfBooker Dashboard"
-                className="w-full h-auto rounded-2xl shadow-2xl max-w-none lg:scale-110"
+                className="w-full h-auto rounded-2xl shadow-2xl max-w-none lg:scale-110 transition-transform duration-300 group-hover:scale-[1.12]"
               />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-2xl flex items-center justify-center">
+                <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg font-semibold bg-brand-green-600 px-4 py-2 rounded-lg">
+                  {t('hero.clickToView')}
+                </span>
+              </div>
             </div>
           </motion.div>
         </div>
       </Container>
+
+      {/* Image Modal */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+            onClick={() => setIsModalOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              className="relative max-w-7xl w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
+                aria-label="Close"
+              >
+                <X size={32} />
+              </button>
+              <img
+                src="/dashboard-hero.png"
+                alt="GolfBooker Dashboard - Full View"
+                className="w-full h-auto rounded-2xl shadow-2xl"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
