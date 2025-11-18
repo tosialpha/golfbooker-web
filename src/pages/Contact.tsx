@@ -6,7 +6,8 @@ import { Container } from '../components/ui/Container';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export const Contact: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isEnglish = language === 'en';
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -214,18 +215,22 @@ export const Contact: React.FC = () => {
 
                 {submitStatus === 'success' && (
                   <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
-                    {t('contact.successMessage') || 'Message sent successfully! We\'ll get back to you soon.'}
+                    {isEnglish
+                      ? "Thank you! We'll get back to you soon."
+                      : "Kiitos! Palaamme asiaan pian."}
                   </div>
                 )}
 
                 {submitStatus === 'error' && (
                   <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
-                    {t('contact.errorMessage') || 'Failed to send message. Please try again or contact us directly.'}
+                    {isEnglish
+                      ? "Something went wrong. Please try again."
+                      : "Jokin meni pieleen. Yritä uudelleen."}
                   </div>
                 )}
 
                 <Button type="submit" variant="primary" size="lg" className="w-full" disabled={isSubmitting}>
-                  {isSubmitting ? (t('contact.sending') || 'Sending...') : t('contact.send')}
+                  {isSubmitting ? (isEnglish ? 'Sending...' : 'Lähetetään...') : t('contact.send')}
                 </Button>
               </form>
             </div>
