@@ -101,7 +101,7 @@ const translations = {
     },
     tournaments: {
       title: 'Kilpailujen hallinta',
-      subtitle: 'Kaikki mitä golf-klubin tarvitsee kilpailujen hallintaan - saatavilla myös erillisenä moduulina',
+      subtitle: 'Kaikki mitä golfklubin tarvitsee kilpailujen hallintaan\n- saatavilla myös erillisenä moduulina',
       management: {
         title: 'Kilpailujen hallinta',
         description: 'Helppokäyttöinen järjestelmä hoitaa koko kilpailuprosessin saumattomasti - ilmoittautumisista ja lähtölistoista aina tulosten julkaisuun saakka. Tuloslistat päivittyvät reaaliajassa ja pelaajat saavat välittömästi ajantasaiset tiedot. Tukee kaikkia yleisimpiä kilpailumuotoja kuten lyöntiä, staplefordia ja bogey-peliä. Taustalla toimivat automatisoidut prosessit säästävät aikaa, vähentävät virheitä ja pitävät tapahtuman sujuvana.'

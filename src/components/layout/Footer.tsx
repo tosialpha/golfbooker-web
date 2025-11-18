@@ -32,11 +32,6 @@ export const Footer: React.FC = () => {
                     {t('footer.forGolfCourses')}
                   </Link>
                 </li>
-                <li>
-                  <Link to="/demo" className="hover:text-brand-green-600 transition-colors">
-                    {t('footer.forPlayers')}
-                  </Link>
-                </li>
               </ul>
             </div>
 
