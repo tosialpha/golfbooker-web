@@ -34,38 +34,46 @@ export const Contact: React.FC = () => {
 
       const emailSubject = subjectMap[formData.subject] || formData.subject;
 
-      // Send to API
-      const response = await fetch('http://localhost:3001/api/contact', {
+      // Prepare form data for Web3Forms
+      const web3FormData = new FormData();
+      web3FormData.append('access_key', '2836fb7b-e299-46ac-bceb-bfdf2fac41bd');
+      web3FormData.append('name', formData.name);
+      web3FormData.append('email', formData.email);
+      web3FormData.append('phone', formData.phone || 'Not provided');
+      web3FormData.append('timeframe', formData.timeframe || 'Not specified');
+      web3FormData.append('subject', emailSubject);
+      web3FormData.append('message', formData.message);
+      web3FormData.append('from_name', 'GolfBooker Contact Form');
+
+      // Send to Web3Forms
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          subject: emailSubject
-        }),
+        body: web3FormData
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to send message');
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitStatus('success');
+        // Reset form after successful submission
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          timeframe: '',
+          subject: '',
+          message: ''
+        });
+
+        // Clear success message after 5 seconds
+        setTimeout(() => setSubmitStatus('idle'), 5000);
+      } else {
+        throw new Error('Form submission failed');
       }
-
-      setSubmitStatus('success');
-      // Reset form after successful submission
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        timeframe: '',
-        subject: '',
-        message: ''
-      });
-
-      // Clear success message after 5 seconds
-      setTimeout(() => setSubmitStatus('idle'), 5000);
     } catch (error) {
       console.error('Error sending message:', error);
       setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
     } finally {
       setIsSubmitting(false);
     }
