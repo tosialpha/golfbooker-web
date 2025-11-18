@@ -89,33 +89,33 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-brand-green-50 to-white pt-24 pb-12">
+    <div className="min-h-screen bg-gradient-to-br from-brand-green-50 to-white pt-20 pb-8">
       <Container>
         {/* Header */}
-        <div className="mb-6">
-          <Link to="/" className="inline-flex items-center gap-2 text-brand-green-600 hover:text-brand-green-700 font-medium mb-3">
+        <div className="mb-4">
+          <Link to="/" className="inline-flex items-center gap-2 text-brand-green-600 hover:text-brand-green-700 font-medium mb-2">
             <ArrowLeft size={20} />
             {t('contact.backToHome')}
           </Link>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1 text-center">
             {t('contact.title')}
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 text-center">
+          <p className="text-base md:text-lg text-gray-600 text-center">
             {t('contact.subtitle')}
           </p>
         </div>
 
         {/* Contact Form and Info */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">
+            <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6">
+              <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
                 {t('contact.sendMessage')}
               </h3>
-              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-1">
                     {t('contact.name')} *
                   </label>
                   <input
@@ -126,12 +126,12 @@ export const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder={t('contact.namePlaceholder')}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-1">
                     {t('contact.email')} *
                   </label>
                   <input
@@ -142,12 +142,12 @@ export const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder={t('contact.emailPlaceholder')}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
                     {t('contact.phone')} <span className="text-gray-400">({t('contact.optional')})</span>
                   </label>
                   <input
@@ -157,12 +157,12 @@ export const Contact: React.FC = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder={t('contact.phonePlaceholder')}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="timeframe" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="timeframe" className="block text-sm font-medium text-gray-700 mb-1">
                     {isEnglish ? "Preferred Date & Time" : "Toivottu ajankohta"} <span className="text-gray-400">({t('contact.optional')})</span>
                   </label>
                   <input
@@ -172,12 +172,12 @@ export const Contact: React.FC = () => {
                     value={formData.timeframe}
                     onChange={handleChange}
                     step="300"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-900 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-900 mb-1">
                     {t('contact.subject')} *
                   </label>
                   <select
@@ -186,7 +186,7 @@ export const Contact: React.FC = () => {
                     required
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
                   >
                     <option value="">{t('contact.selectSubject')}</option>
                     <option value="general">{t('contact.subjectGeneral')}</option>
@@ -198,17 +198,17 @@ export const Contact: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-1">
                     {t('contact.message')}
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    rows={6}
+                    rows={4}
                     value={formData.message}
                     onChange={handleChange}
                     placeholder={t('contact.messagePlaceholder')}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent resize-none"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent resize-none"
                   />
                   <div className="text-right text-sm text-gray-500 mt-1">
                     {formData.message.length}/500
