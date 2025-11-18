@@ -15,48 +15,60 @@ export const Contact: React.FC = () => {
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
 
-    // Create email subject
-    const subjectMap: { [key: string]: string } = {
-      demo: t('contact.subjectDemo'),
-      pricing: t('contact.subjectPricing'),
-      technical: t('contact.subjectTechnical'),
-      other: t('contact.subjectOther')
-    };
+    try {
+      // Create email subject
+      const subjectMap: { [key: string]: string } = {
+        demo: t('contact.subjectDemo'),
+        pricing: t('contact.subjectPricing'),
+        technical: t('contact.subjectTechnical'),
+        other: t('contact.subjectOther')
+      };
 
-    const emailSubject = subjectMap[formData.subject] || formData.subject;
+      const emailSubject = subjectMap[formData.subject] || formData.subject;
 
-    // Create email body
-    const emailBody = `
-Nimi: ${formData.name}
-Sähköposti: ${formData.email}
-${formData.phone ? `Puhelin: ${formData.phone}` : ''}
-${formData.timeframe ? `Toivottu ajanjakso: ${formData.timeframe}` : ''}
+      // Send to API
+      const response = await fetch('http://localhost:3001/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          subject: emailSubject
+        }),
+      });
 
-Aihe: ${emailSubject}
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
 
-Viesti:
-${formData.message}
-    `.trim();
+      setSubmitStatus('success');
+      // Reset form after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        timeframe: '',
+        subject: '',
+        message: ''
+      });
 
-    // Create mailto link
-    const mailtoLink = `mailto:info@golfbooker.fi?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-
-    // Open email client
-    window.location.href = mailtoLink;
-
-    // Optional: Reset form after submission
-    // setFormData({
-    //   name: '',
-    //   email: '',
-    //   phone: '',
-    //   timeframe: '',
-    //   subject: '',
-    //   message: ''
-    // });
+      // Clear success message after 5 seconds
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -192,8 +204,20 @@ ${formData.message}
                   </div>
                 </div>
 
-                <Button type="submit" variant="primary" size="lg" className="w-full">
-                  {t('contact.send')}
+                {submitStatus === 'success' && (
+                  <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
+                    {t('contact.successMessage') || 'Message sent successfully! We\'ll get back to you soon.'}
+                  </div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
+                    {t('contact.errorMessage') || 'Failed to send message. Please try again or contact us directly.'}
+                  </div>
+                )}
+
+                <Button type="submit" variant="primary" size="lg" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? (t('contact.sending') || 'Sending...') : t('contact.send')}
                 </Button>
               </form>
             </div>
