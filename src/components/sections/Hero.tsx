@@ -19,13 +19,14 @@ export const Hero: React.FC = () => {
   return (
     <section className="pt-32 pb-20 lg:pb-24 bg-gray-50 relative overflow-hidden">
       <Container>
-        <div className="flex flex-col items-center text-center">
-          {/* Content */}
+        {/* Mobile: Stacked layout, Desktop: Side by side */}
+        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12">
+          {/* Left: Text Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto"
+            className="flex-1 text-center lg:text-left mb-12 lg:mb-0"
           >
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-gray-900 leading-[1.1] mb-6">
@@ -37,8 +38,8 @@ export const Hero: React.FC = () => {
               {t('hero.description')}
             </p>
 
-            {/* CTA Buttons - Horizontal centered */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
               <Button
                 variant="primary"
                 size="lg"
@@ -58,14 +59,14 @@ export const Hero: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Dashboard Image - Full size centered below text */}
+          {/* Right: Dashboard Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="w-full max-w-6xl px-4 mt-8"
+            className="flex-1"
           >
-            <div className="relative flex justify-center items-center">
+            <div className="relative">
               <img
                 src="/dashboard-hero.png"
                 alt="GolfBooker Dashboard"
