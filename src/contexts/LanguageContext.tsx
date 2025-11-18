@@ -81,8 +81,7 @@ const translations = {
         items: [
           'Verkkomaksut (Stripe, Paytrail, Checkout Finland)',
           'Automaattinen laskutus ja reskontra',
-          'Jäsenmaksut ja kausikorttien hallinta',
-          'Kassajärjestelmä-integraatiot (POS)'
+          'Jäsenmaksut ja kausikorttien hallinta'
         ]
       },
       analytics: {
@@ -245,8 +244,7 @@ const translations = {
         items: [
           'Online payments (Stripe, Paytrail, Checkout Finland)',
           'Automatic billing and accounting',
-          'Membership fees and season ticket management',
-          'POS system integrations'
+          'Membership fees and season ticket management'
         ]
       },
       analytics: {
