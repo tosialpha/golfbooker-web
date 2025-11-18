@@ -4,6 +4,8 @@ import { ArrowLeft, MessageCircle } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { Container } from '../components/ui/Container';
 import { useLanguage } from '../contexts/LanguageContext';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export const Contact: React.FC = () => {
   const { t, language } = useLanguage();
@@ -12,15 +14,36 @@ export const Contact: React.FC = () => {
     name: '',
     email: '',
     phone: '',
-    timeframe: '',
     subject: '',
     message: ''
   });
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errors, setErrors] = useState({
+    name: false,
+    email: false,
+    subject: false
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate required fields
+    const newErrors = {
+      name: !formData.name.trim(),
+      email: !formData.email.trim(),
+      subject: !formData.subject
+    };
+
+    setErrors(newErrors);
+
+    // If there are errors, don't submit
+    if (newErrors.name || newErrors.email || newErrors.subject) {
+      setSubmitStatus('idle');
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
@@ -42,7 +65,12 @@ export const Contact: React.FC = () => {
       web3FormData.append('name', formData.name);
       web3FormData.append('email', formData.email);
       web3FormData.append('phone', formData.phone || 'Not provided');
-      web3FormData.append('timeframe', formData.timeframe || 'Not specified');
+
+      const formattedDateTime = selectedDate
+        ? selectedDate.toISOString().slice(0, 16).replace('T', ' ')
+        : 'Not specified';
+      web3FormData.append('preferred_datetime', formattedDateTime);
+
       web3FormData.append('subject', emailSubject);
       web3FormData.append('message', formData.message);
       web3FormData.append('from_name', 'GolfBooker Contact Form');
@@ -62,10 +90,10 @@ export const Contact: React.FC = () => {
           name: '',
           email: '',
           phone: '',
-          timeframe: '',
           subject: '',
           message: ''
         });
+        setSelectedDate(null);
 
         // Clear success message after 5 seconds
         setTimeout(() => setSubmitStatus('idle'), 5000);
@@ -113,44 +141,35 @@ export const Contact: React.FC = () => {
               <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2 md:mb-3">
                 {t('contact.sendMessage')}
               </h3>
-              <form onSubmit={handleSubmit} className="space-y-2">
-                {/* Two column grid for short fields */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Name and Phone - Side by side */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-xs font-medium text-gray-900 mb-1">
-                      {t('contact.name')} *
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">
+                      {t('contact.name')} <span className="text-gray-900">*</span>
                     </label>
                     <input
                       type="text"
                       id="name"
                       name="name"
-                      required
                       value={formData.name}
-                      onChange={handleChange}
+                      onChange={(e) => {
+                        handleChange(e);
+                        setErrors({ ...errors, name: false });
+                      }}
                       placeholder={t('contact.namePlaceholder')}
-                      className="w-full px-2 py-1.5 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
+                      className={`w-full px-4 py-3 text-sm rounded-lg border ${errors.name ? 'border-red-500 bg-red-50' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent transition-all`}
                     />
+                    {errors.name && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {isEnglish ? 'Please fill in your name' : 'Täytä nimesi'}
+                      </p>
+                    )}
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-xs font-medium text-gray-900 mb-1">
-                      {t('contact.email')} *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder={t('contact.emailPlaceholder')}
-                      className="w-full px-2 py-1.5 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="phone" className="block text-xs font-medium text-gray-700 mb-1">
-                      {t('contact.phone')} <span className="text-gray-400 text-xs">({t('contact.optional')})</span>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                      {t('contact.phone')} <span className="text-gray-400 text-sm">({t('contact.optional')})</span>
                     </label>
                     <input
                       type="tel"
@@ -159,66 +178,118 @@ export const Contact: React.FC = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder={t('contact.phonePlaceholder')}
-                      className="w-full px-2 py-1.5 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
+                      className="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent transition-all"
+                    />
+                  </div>
+                </div>
+
+                {/* Email - Full width */}
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
+                    {t('contact.email')} <span className="text-gray-900">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={(e) => {
+                      handleChange(e);
+                      setErrors({ ...errors, email: false });
+                    }}
+                    placeholder={t('contact.emailPlaceholder')}
+                    className={`w-full px-4 py-3 text-sm rounded-lg border ${errors.email ? 'border-red-500 bg-red-50' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent transition-all`}
+                  />
+                  {errors.email && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {isEnglish ? 'Please fill in your email address' : 'Täytä sähköpostiosoitteesi'}
+                    </p>
+                  )}
+                </div>
+
+                {/* Date & Time and Subject */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      {isEnglish ? "Preferred Date & Time" : "Toivottu ajankohta"} <span className="text-gray-400 text-sm">({t('contact.optional')})</span>
+                    </label>
+                    <DatePicker
+                      selected={selectedDate}
+                      onChange={(date: Date | null) => setSelectedDate(date)}
+                      showTimeSelect
+                      timeFormat="HH:mm"
+                      timeIntervals={5}
+                      dateFormat="dd.MM.yyyy HH:mm"
+                      placeholderText={isEnglish ? "Select date and time" : "Valitse päivä ja aika"}
+                      className="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent transition-all"
+                      calendarClassName="shadow-xl"
+                      timeCaption={isEnglish ? "Time" : "Aika"}
+                      minDate={new Date()}
+                      showPopperArrow={false}
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="timeframe" className="block text-xs font-medium text-gray-700 mb-1">
-                      {isEnglish ? "Date & Time" : "Ajankohta"} <span className="text-gray-400 text-xs">({t('contact.optional')})</span>
+                    <label htmlFor="subject" className="block text-sm font-medium text-gray-900 mb-2">
+                      {t('contact.subject')} <span className="text-gray-900">*</span>
                     </label>
-                    <input
-                      type="datetime-local"
-                      id="timeframe"
-                      name="timeframe"
-                      value={formData.timeframe}
-                      onChange={handleChange}
-                      step="300"
-                      className="w-full px-2 py-1.5 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
-                    />
+                    <select
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={(e) => {
+                        handleChange(e);
+                        setErrors({ ...errors, subject: false });
+                      }}
+                      className={`w-full px-4 py-3 text-sm rounded-lg border ${errors.subject ? 'border-red-500 bg-red-50' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent transition-all appearance-none bg-white cursor-pointer`}
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'right 1rem center',
+                        backgroundSize: '12px'
+                      }}
+                    >
+                      <option value="">{t('contact.selectSubject')}</option>
+                      <option value="general">{t('contact.subjectGeneral')}</option>
+                      <option value="demo">{t('contact.subjectDemo')}</option>
+                      <option value="pricing">{t('contact.subjectPricing')}</option>
+                      <option value="technical">{t('contact.subjectTechnical')}</option>
+                      <option value="other">{t('contact.subjectOther')}</option>
+                    </select>
+                    {errors.subject && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {isEnglish ? 'Please select a subject' : 'Valitse aihe'}
+                      </p>
+                    )}
                   </div>
                 </div>
 
-                {/* Full width subject */}
+                {/* Message - Full width */}
                 <div>
-                  <label htmlFor="subject" className="block text-xs font-medium text-gray-900 mb-1">
-                    {t('contact.subject')} *
-                  </label>
-                  <select
-                    id="subject"
-                    name="subject"
-                    required
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="w-full px-2 py-1.5 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
-                  >
-                    <option value="">{t('contact.selectSubject')}</option>
-                    <option value="general">{t('contact.subjectGeneral')}</option>
-                    <option value="demo">{t('contact.subjectDemo')}</option>
-                    <option value="pricing">{t('contact.subjectPricing')}</option>
-                    <option value="technical">{t('contact.subjectTechnical')}</option>
-                    <option value="other">{t('contact.subjectOther')}</option>
-                  </select>
-                </div>
-
-                {/* Full width message */}
-                <div>
-                  <label htmlFor="message" className="block text-xs font-medium text-gray-900 mb-1">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-2">
                     {t('contact.message')}
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    rows={2}
+                    rows={4}
                     value={formData.message}
                     onChange={handleChange}
                     placeholder={t('contact.messagePlaceholder')}
-                    className="w-full px-2 py-1.5 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent resize-none"
+                    className="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent resize-none transition-all"
                   />
-                  <div className="text-right text-xs text-gray-500">
+                  <div className="text-right text-sm text-gray-500 mt-1">
                     {formData.message.length}/500
                   </div>
                 </div>
+
+                {(errors.name || errors.email || errors.subject) && (
+                  <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
+                    {isEnglish
+                      ? "Please fill in all required fields before submitting."
+                      : "Täytä kaikki pakolliset kentät ennen lähettämistä."}
+                  </div>
+                )}
 
                 {submitStatus === 'success' && (
                   <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
