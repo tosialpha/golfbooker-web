@@ -89,31 +89,31 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-brand-green-50 to-white pt-24 pb-16">
+    <div className="min-h-screen bg-gradient-to-br from-brand-green-50 to-white pt-24 pb-12">
       <Container>
         {/* Header */}
-        <div className="mb-8">
-          <Link to="/" className="inline-flex items-center gap-2 text-brand-green-600 hover:text-brand-green-700 font-medium mb-4">
+        <div className="mb-6">
+          <Link to="/" className="inline-flex items-center gap-2 text-brand-green-600 hover:text-brand-green-700 font-medium mb-3">
             <ArrowLeft size={20} />
             {t('contact.backToHome')}
           </Link>
-          <h1 className="text-4xl font-bold text-gray-900 mb-2 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center">
             {t('contact.title')}
           </h1>
-          <p className="text-xl text-gray-600 text-center">
+          <p className="text-lg md:text-xl text-gray-600 text-center">
             {t('contact.subtitle')}
           </p>
         </div>
 
         {/* Contact Form and Info */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">
                 {t('contact.sendMessage')}
               </h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">
                     {t('contact.name')} *
