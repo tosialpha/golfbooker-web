@@ -116,7 +116,7 @@ const translations = {
       }
     },
     footer: {
-      slogan: 'Moderni varausjärjestelmä golfkenttille',
+      slogan: 'Moderni varausjärjestelmä golfkentille',
       domestic: 'Kotimainen yritys',
       product: 'TUOTE',
       forGolfCourses: 'Golfkentille',
