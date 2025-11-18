@@ -27,6 +27,7 @@ export const Contact: React.FC = () => {
     try {
       // Create email subject
       const subjectMap: { [key: string]: string } = {
+        general: t('contact.subjectGeneral'),
         demo: t('contact.subjectDemo'),
         pricing: t('contact.subjectPricing'),
         technical: t('contact.subjectTechnical'),
@@ -188,6 +189,7 @@ export const Contact: React.FC = () => {
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
                   >
                     <option value="">{t('contact.selectSubject')}</option>
+                    <option value="general">{t('contact.subjectGeneral')}</option>
                     <option value="demo">{t('contact.subjectDemo')}</option>
                     <option value="pricing">{t('contact.subjectPricing')}</option>
                     <option value="technical">{t('contact.subjectTechnical')}</option>
