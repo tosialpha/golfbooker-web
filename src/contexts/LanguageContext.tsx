@@ -55,7 +55,7 @@ const translations = {
     },
     hero: {
       title: 'Moderni varausjärjestelmä golfklubeille',
-      description: 'Nykyaikainen ratkaisu golfkenttien varausten hallintaan. Ei monimutkaisia järjestelmiä tai kohtuuttomia hintoja. Automatisoi varaukset, optimoi kapasiteetin käyttö ja tarjoa pelaajille kitkaton kokemus.',
+      description: 'Nykyaikainen ratkaisu golfkenttien varausten hallintaan. Ei monimutkaisia järjestelmiä tai kohtuuttomia hintoja.',
       requestDemo: 'Varaa demo',
       viewFeatures: 'Katso toiminnot',
       integrationNexGolf: 'Integrointi NexGolf',
@@ -219,7 +219,7 @@ const translations = {
     },
     hero: {
       title: 'Modern Booking System for Golf Clubs',
-      description: 'A modern solution for managing golf course bookings. No complicated systems or unreasonable prices. Automate bookings, optimize capacity usage, and provide players with a frictionless experience.',
+      description: 'A modern solution for managing golf course bookings. No complicated systems or unreasonable prices.',
       requestDemo: 'Book Demo',
       viewFeatures: 'View Features',
       integrationNexGolf: 'NexGolf Integration',
