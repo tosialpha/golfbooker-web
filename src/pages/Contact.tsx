@@ -162,15 +162,15 @@ export const Contact: React.FC = () => {
 
                 <div>
                   <label htmlFor="timeframe" className="block text-sm font-medium text-gray-700 mb-2">
-                    {t('contact.timeframe')} <span className="text-gray-400">({t('contact.optional')})</span>
+                    {isEnglish ? "Preferred Date & Time" : "Toivottu ajankohta"} <span className="text-gray-400">({t('contact.optional')})</span>
                   </label>
                   <input
-                    type="text"
+                    type="datetime-local"
                     id="timeframe"
                     name="timeframe"
                     value={formData.timeframe}
                     onChange={handleChange}
-                    placeholder={t('contact.timeframePlaceholder')}
+                    step="300"
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent"
                   />
                 </div>
