@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
 import { Container } from '../ui/Container';
-import { DashboardPreview } from '../demo/DashboardPreview';
-import { DashboardModal } from '../ui/DashboardModal';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 export const Hero: React.FC = () => {
   const { t } = useLanguage();
   const navigate = useNavigate();
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const scrollToFeatures = () => {
     const featuresSection = document.getElementById('features');
@@ -61,36 +58,23 @@ export const Hero: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Dashboard Preview - Centered below text */}
+          {/* Dashboard Image - Full size centered below text */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="w-full max-w-5xl px-4"
+            className="w-full max-w-6xl px-4 mt-8"
           >
-            <div className="relative flex justify-center items-center overflow-visible">
-              {/* Dashboard Card - Clickable and scaled down */}
-              <div
-                className="relative cursor-pointer transition-all duration-300 hover:scale-[1.02] shadow-2xl rounded-2xl overflow-hidden bg-white scale-[0.4] sm:scale-[0.5] md:scale-[0.65] lg:scale-75 origin-center"
-                onClick={() => setIsModalOpen(true)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    setIsModalOpen(true);
-                  }
-                }}
-                aria-label={t('hero.clickToView')}
-              >
-                <DashboardPreview />
-              </div>
+            <div className="relative flex justify-center items-center">
+              <img
+                src="/dashboard-hero.png"
+                alt="GolfBooker Dashboard"
+                className="w-full h-auto rounded-2xl shadow-2xl"
+              />
             </div>
           </motion.div>
         </div>
       </Container>
-
-      {/* Dashboard Modal */}
-      <DashboardModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 };
