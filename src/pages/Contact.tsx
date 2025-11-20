@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Phone, Mail } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Button } from '../components/ui/Button';
 import { Container } from '../components/ui/Container';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -120,7 +121,12 @@ export const Contact: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-brand-green-50 to-white pt-24 pb-6">
       <Container>
         {/* Header */}
-        <div className="mb-3">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-3"
+        >
           <Link to="/" className="inline-flex items-center gap-2 text-brand-green-600 hover:text-brand-green-700 font-medium mb-2 text-sm">
             <ArrowLeft size={18} />
             {t('contact.backToHome')}
@@ -131,12 +137,17 @@ export const Contact: React.FC = () => {
           <p className="text-sm md:text-base text-gray-600 text-center">
             {t('contact.subtitle')}
           </p>
-        </div>
+        </motion.div>
 
         {/* Contact Form and Info */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 max-w-6xl mx-auto">
           {/* Contact Form */}
-          <div className="lg:col-span-2">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:col-span-2"
+          >
             <div className="bg-white rounded-xl shadow-lg p-3 md:p-4">
               <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2 md:mb-3">
                 {t('contact.sendMessage')}
@@ -312,10 +323,15 @@ export const Contact: React.FC = () => {
                 </Button>
               </form>
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Info */}
-          <div className="lg:col-span-1">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-1"
+          >
             <div className="bg-white rounded-2xl shadow-lg p-6 space-y-6">
               {/* Phone Section */}
               <div>
@@ -330,14 +346,14 @@ export const Contact: React.FC = () => {
 
                 <div className="space-y-3 ml-13">
                   <div>
-                    <p className="text-xs font-medium text-gray-500 mb-1">{t('contact.sales')}</p>
+                    <p className="text-xs text-gray-600 mb-2">{t('contact.salesDescription')}</p>
                     <a href="tel:+358407377397" className="text-sm text-brand-green-600 hover:text-brand-green-700 font-medium block break-all">
                       +358 40 737 7397
                     </a>
                   </div>
 
                   <div>
-                    <p className="text-xs font-medium text-gray-500 mb-1">{t('contact.technicalSupport')}</p>
+                    <p className="text-xs text-gray-600 mb-2">{t('contact.technicalSupportDescription')}</p>
                     <a href="tel:+358440582663" className="text-sm text-brand-green-600 hover:text-brand-green-700 font-medium block break-all">
                       +358 44 058 2663
                     </a>
@@ -373,14 +389,14 @@ export const Contact: React.FC = () => {
 
                 <div className="space-y-3 ml-13">
                   <div>
-                    <p className="text-xs font-medium text-gray-500 mb-1">{t('contact.sales')}</p>
+                    <p className="text-xs text-gray-600 mb-2">{t('contact.salesDescription')}</p>
                     <a href="mailto:info@golfbooker.fi" className="text-sm text-brand-green-600 hover:text-brand-green-700 font-medium block break-all">
                       info@golfbooker.fi
                     </a>
                   </div>
 
                   <div>
-                    <p className="text-xs font-medium text-gray-500 mb-1">{t('contact.technicalSupport')}</p>
+                    <p className="text-xs text-gray-600 mb-2">{t('contact.technicalSupportDescription')}</p>
                     <a href="mailto:support@golfbooker.fi" className="text-sm text-brand-green-600 hover:text-brand-green-700 font-medium block break-all">
                       support@golfbooker.fi
                     </a>
@@ -388,7 +404,7 @@ export const Contact: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </Container>
     </div>

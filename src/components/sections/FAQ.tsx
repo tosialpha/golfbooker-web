@@ -2,20 +2,23 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Container } from '../ui/Container';
 import { Accordion, AccordionItem } from '../ui/Accordion';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 export const FAQ: React.FC = () => {
+  const { t } = useLanguage();
+
   const faqs = [
     {
-      question: "Mitä ominaisuuksia GolfBooker sisältää?",
-      answer: "GolfBooker tarjoaa kattavan varausjärjestelmän lähtöaikojen hallintaan, mobiilisovelluksen pelaajille, kilpailujen ja turnausten hallinnan sekä reaaliaikaiset raportit. Kaikki tarvittavat työkalut golfklubin sujuvaan toimintaan yhdessä järjestelmässä."
+      question: t('faq.questions.implementation.question'),
+      answer: t('faq.questions.implementation.answer')
     },
     {
-      question: "Kuinka kauan käyttöönotto kestää?",
-      answer: "Tavallinen käyttöönotto kestää 1-2 viikkoa. Tämä sisältää järjestelmän konfiguroinnin, henkilökunnan koulutuksen ja integraatiot. Autamme joka vaiheessa ja varmistamme sujuvan siirtymän."
+      question: t('faq.questions.support.question'),
+      answer: t('faq.questions.support.answer')
     },
     {
-      question: "Onko mobiilisovellus saatavilla pelaajille?",
-      answer: "Kyllä! GolfBooker sisältää modernin mobiilisovelluksen iOS:lle ja Androidille. Pelaajat voivat varata lähtöaikoja, maksaa varauksia ja nähdä turnaukset suoraan puhelimestaan."
+      question: t('faq.questions.pricing.question'),
+      answer: t('faq.questions.pricing.answer')
     },
   ];
 
@@ -30,10 +33,10 @@ export const FAQ: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Usein kysytyt kysymykset
+            {t('faq.title')}
           </h2>
           <p className="text-xl text-gray-600">
-            Löydä vastaukset yleisimpiin kysymyksiin
+            {t('faq.subtitle')}
           </p>
         </motion.div>
 

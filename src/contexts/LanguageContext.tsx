@@ -54,9 +54,9 @@ const translations = {
       tryDemo: 'Kokeile demoa'
     },
     hero: {
-      title: 'Moderni varausjärjestelmä golfklubeille',
-      description: 'Nykyaikainen ratkaisu golfkenttien varausten hallintaan. Ei monimutkaisia järjestelmiä tai kohtuuttomia hintoja.',
-      requestDemo: 'Varaa demo',
+      title: 'Moderni Golfkentän hallintajärjestelmä',
+      description: 'Käyttäjäystävällinen järjestelmä, ei kohtuuttomia hintoja.',
+      requestDemo: 'Esittely',
       viewFeatures: 'Katso toiminnot',
       integrationNexGolf: 'Integrointi NexGolf',
       courses: '50+ kenttää',
@@ -97,11 +97,25 @@ const translations = {
     },
     faq: {
       title: 'Usein kysytyt kysymykset',
-      subtitle: 'Löydä vastaukset yleisimpiin kysymyksiin'
+      subtitle: 'Löydä vastaukset yleisimpiin kysymyksiin',
+      questions: {
+        implementation: {
+          question: 'Kuinka kauan käyttöönotto kestää?',
+          answer: 'Käyttöönotto kestää noin 1-2 viikkoa, johon sisältyy henkilökunnan perehdytys ja integraatiot. Autamme koko prosessin ajan.'
+        },
+        support: {
+          question: 'Millaista asiakastukea tarjoatte?',
+          answer: 'Tarjoamme suomenkielistä asiakastukea. Saat nopeasti apua sähköpostitse, puhelimitse tai chat-tuen kautta.'
+        },
+        pricing: {
+          question: 'Miten hinnoittelu toimii?',
+          answer: 'Valitse tarvitsemasi toiminnot ja maksa vain niistä. Pyydä tarjous, niin räätälöimme paketin juuri sinun kenttäsi tarpeisiin.'
+        }
+      }
     },
     tournaments: {
       title: 'Kilpailujen hallinta',
-      subtitle: 'Kaikki mitä golfklubin tarvitsee kilpailujen hallintaan\n- saatavilla myös erillisenä moduulina',
+      subtitle: 'Hallitse kilpailut helposti - ilmoittautumisista tuloslistoihin',
       management: {
         title: 'Kilpailujen hallinta',
         description: 'Helppokäyttöinen järjestelmä hoitaa koko kilpailuprosessin saumattomasti - ilmoittautumisista ja lähtölistoista aina tulosten julkaisuun saakka. Tuloslistat päivittyvät reaaliajassa ja pelaajat saavat välittömästi ajantasaiset tiedot. Tukee kaikkia yleisimpiä kilpailumuotoja kuten lyöntiä, staplefordia ja bogey-peliä. Taustalla toimivat automatisoidut prosessit säästävät aikaa, vähentävät virheitä ja pitävät tapahtuman sujuvana.'
@@ -185,7 +199,9 @@ const translations = {
       phoneTitle: 'Puhelin',
       emailTitle: 'Sähköposti',
       sales: 'Myynti',
+      salesDescription: 'Yleiset tiedustelut, tarjouspyynnöt ja tuotedemot',
       technicalSupport: 'Tekninen tuki',
+      technicalSupportDescription: 'Käyttötuki, tekniset ongelmat ja ohjeet',
       businessHours: 'ma–pe klo 9–18',
       whatsapp: 'Viesti WhatsAppissa'
     },
@@ -261,11 +277,25 @@ const translations = {
     },
     faq: {
       title: 'Frequently Asked Questions',
-      subtitle: 'Find answers to common questions'
+      subtitle: 'Find answers to common questions',
+      questions: {
+        implementation: {
+          question: 'How long does implementation take?',
+          answer: 'Implementation takes approximately 1-2 weeks, which includes staff training and integrations. We assist you throughout the entire process.'
+        },
+        support: {
+          question: 'What kind of customer support do you offer?',
+          answer: 'We offer customer support in Finnish. You can quickly get help via email, phone, or chat support.'
+        },
+        pricing: {
+          question: 'How does pricing work?',
+          answer: 'Choose the features you need and pay only for those. Request a quote, and we\'ll customize a package specifically for your course\'s needs.'
+        }
+      }
     },
     tournaments: {
       title: 'Tournament Management',
-      subtitle: 'Everything a golf club needs for tournament management - also available as a separate module',
+      subtitle: 'Manage tournaments effortlessly - from registration to leaderboards',
       management: {
         title: 'Tournament Management',
         description: 'User-friendly system that seamlessly handles the entire tournament process - from registrations and tee sheets to results publication. Leaderboards update in real-time and players receive instant, up-to-date information. Supports all common competition formats including stroke play, stableford, and bogey. Automated processes running in the background save time, reduce errors, and keep the event running smoothly.'
@@ -349,7 +379,9 @@ const translations = {
       phoneTitle: 'Phone',
       emailTitle: 'Email',
       sales: 'Sales',
+      salesDescription: 'General inquiries, quote requests, and product demos',
       technicalSupport: 'Technical Support',
+      technicalSupportDescription: 'User support, technical issues, and guidance',
       businessHours: 'Mon–Fri 9 AM–6 PM',
       whatsapp: 'Message on WhatsApp'
     },

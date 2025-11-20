@@ -20,16 +20,16 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-white/80 backdrop-blur-md shadow-md'
-          : 'bg-white/60 backdrop-blur-sm'
+          ? 'bg-white/90 backdrop-blur-xl shadow-lg border-b border-white/20'
+          : 'bg-white/70 backdrop-blur-lg border-b border-white/10'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="h-20 flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="group transition-all duration-300 ease-in-out transform hover:scale-105">
+          <Link to="/" className="group transition-all duration-300 ease-in-out transform hover:scale-105" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <span className="text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-brand-green-600 transition-colors duration-300">
               Golf<span className="font-bold">Booker</span>
             </span>
@@ -40,8 +40,15 @@ export const Navbar: React.FC = () => {
             <Link
               to="/"
               className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               {t('nav.home')}
+            </Link>
+            <Link
+              to="/tournaments"
+              className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium"
+            >
+              {t('nav.tournaments')}
             </Link>
             <Link
               to="/contact"
@@ -67,14 +74,24 @@ export const Navbar: React.FC = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200 animate-slideDown">
+          <div className="md:hidden py-4 border-t border-white/20 backdrop-blur-xl animate-slideDown">
             <div className="flex flex-col gap-4">
               <Link
                 to="/"
                 className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium text-left py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
               >
                 {t('nav.home')}
+              </Link>
+              <Link
+                to="/tournaments"
+                className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('nav.tournaments')}
               </Link>
               <Link
                 to="/contact"
