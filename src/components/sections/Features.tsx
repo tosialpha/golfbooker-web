@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Container } from '../ui/Container';
 import { ChevronDown } from 'lucide-react';
@@ -8,6 +8,15 @@ export const Features: React.FC = () => {
   const { t, language } = useLanguage();
   const isEnglish = language === 'en';
   const [openRow, setOpenRow] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const features = [
     {
@@ -67,11 +76,18 @@ export const Features: React.FC = () => {
   ];
 
   const toggleBox = (index: number) => {
-    const row = Math.floor(index / 3); // Calculate which row (0, 1, or 2)
-    setOpenRow(openRow === row ? null : row);
+    if (isMobile) {
+      setOpenIndex(openIndex === index ? null : index);
+    } else {
+      const row = Math.floor(index / 3);
+      setOpenRow(openRow === row ? null : row);
+    }
   };
 
   const isBoxOpen = (index: number) => {
+    if (isMobile) {
+      return openIndex === index;
+    }
     const row = Math.floor(index / 3);
     return openRow === row;
   };
