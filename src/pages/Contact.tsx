@@ -21,10 +21,12 @@ export const Contact: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [errors, setErrors] = useState({
     name: false,
     email: false,
-    subject: false
+    subject: false,
+    privacy: false
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -34,13 +36,14 @@ export const Contact: React.FC = () => {
     const newErrors = {
       name: !formData.name.trim(),
       email: !formData.email.trim(),
-      subject: !formData.subject
+      subject: !formData.subject,
+      privacy: !privacyAccepted
     };
 
     setErrors(newErrors);
 
     // If there are errors, don't submit
-    if (newErrors.name || newErrors.email || newErrors.subject) {
+    if (newErrors.name || newErrors.email || newErrors.subject || newErrors.privacy) {
       setSubmitStatus('idle');
       return;
     }
@@ -95,6 +98,7 @@ export const Contact: React.FC = () => {
           message: ''
         });
         setSelectedDate(null);
+        setPrivacyAccepted(false);
 
         // Clear success message after 5 seconds
         setTimeout(() => setSubmitStatus('idle'), 5000);
@@ -152,7 +156,7 @@ export const Contact: React.FC = () => {
               <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2 md:mb-3">
                 {t('contact.sendMessage')}
               </h3>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-3">
                 {/* Name and Phone - Side by side */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -289,12 +293,51 @@ export const Contact: React.FC = () => {
                     placeholder={t('contact.messagePlaceholder')}
                     className="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent resize-none transition-all"
                   />
-                  <div className="text-right text-sm text-gray-500 mt-1">
+                  <div className="text-right text-sm text-gray-500 mt-0">
                     {formData.message.length}/500
                   </div>
                 </div>
 
-                {(errors.name || errors.email || errors.subject) && (
+                {/* Privacy Policy Checkbox */}
+                <div className="mt-0">
+                  <label className="flex items-start gap-3 cursor-pointer group">
+                    <input
+                      type="checkbox"
+                      checked={privacyAccepted}
+                      onChange={(e) => {
+                        setPrivacyAccepted(e.target.checked);
+                        setErrors({ ...errors, privacy: false });
+                      }}
+                      className={`mt-1 w-5 h-5 rounded border-2 ${errors.privacy ? 'border-red-500' : 'border-gray-300'} text-brand-green-600 focus:ring-2 focus:ring-brand-green-600 focus:ring-offset-0 cursor-pointer`}
+                    />
+                    <span className={`text-sm ${errors.privacy ? 'text-red-600' : 'text-gray-700'} group-hover:text-gray-900`}>
+                      {isEnglish ? (
+                        <>
+                          I have read the{' '}
+                          <Link to="/privacy" className="text-brand-green-600 hover:text-brand-green-700 underline">
+                            privacy policy
+                          </Link>{' '}
+                          and consent to the processing of my personal data <span className="text-gray-900">*</span>
+                        </>
+                      ) : (
+                        <>
+                          Olen lukenut{' '}
+                          <Link to="/privacy" className="text-brand-green-600 hover:text-brand-green-700 underline">
+                            tietosuojaselosteen
+                          </Link>{' '}
+                          ja hyväksyn henkilötietojeni käsittelyn <span className="text-gray-900">*</span>
+                        </>
+                      )}
+                    </span>
+                  </label>
+                  {errors.privacy && (
+                    <p className="text-red-500 text-xs mt-2 ml-8">
+                      {isEnglish ? 'You must accept the privacy policy to continue' : 'Sinun on hyväksyttävä tietosuojaseloste jatkaaksesi'}
+                    </p>
+                  )}
+                </div>
+
+                {(errors.name || errors.email || errors.subject || errors.privacy) && (
                   <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
                     {isEnglish
                       ? "Please fill in all required fields before submitting."

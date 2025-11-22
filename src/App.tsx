@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { ScrollToTop } from './components/ScrollToTop';
+import { CookieConsent } from './components/ui/CookieConsent';
 import { Layout } from './components/layout/Layout';
 import { Home } from './pages/Home';
 import { Demo } from './pages/Demo';
@@ -14,6 +15,7 @@ function App() {
     <LanguageProvider>
       <Router>
         <ScrollToTop />
+        <CookieConsent />
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />

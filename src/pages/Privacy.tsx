@@ -48,7 +48,7 @@ export const Privacy: React.FC = () => {
                   {isEnglish ? 'Business ID:' : 'Y-tunnus:'} 3571724-7<br/>
                   {isEnglish ? 'Address:' : 'Osoite:'} Kivelänkatu 1 B, 00260 Helsinki<br/>
                   {isEnglish ? 'Phone:' : 'Puhelin:'} +358 44 058 2663<br/>
-                  {isEnglish ? 'Email:' : 'Sähköposti:'} privacy@funect.com
+                  {isEnglish ? 'Email:' : 'Sähköposti:'} support@golfbooker.fi
                 </p>
                 <p>
                   {isEnglish
@@ -217,8 +217,8 @@ export const Privacy: React.FC = () => {
                 </ul>
                 <p className="mt-3">
                   {isEnglish
-                    ? 'You can exercise your rights by contacting: privacy@funect.com'
-                    : 'Voit käyttää oikeuksiasi ottamalla yhteyttä osoitteeseen: privacy@funect.com'}
+                    ? 'You can exercise your rights by contacting: support@golfbooker.fi'
+                    : 'Voit käyttää oikeuksiasi ottamalla yhteyttä osoitteeseen: support@golfbooker.fi'}
                 </p>
                 <p className="mt-3 text-sm text-gray-600">
                   {isEnglish
@@ -249,21 +249,32 @@ export const Privacy: React.FC = () => {
                 </h2>
                 <p className="mb-3">
                   {isEnglish
-                    ? 'We use cookies and similar technologies to improve user experience and analyze website usage. We use the following cookies:'
-                    : 'Käytämme evästeitä ja vastaavia teknologioita parantaaksemme käyttökokemusta ja analysoidaksemme sivuston käyttöä. Käytämme seuraavia evästeitä:'}
+                    ? 'We use cookies and similar technologies to improve user experience and analyze website usage. You can manage your cookie preferences through the cookie banner on our website. We use the following cookies:'
+                    : 'Käytämme evästeitä ja vastaavia teknologioita parantaaksemme käyttökokemusta ja analysoidaksemme sivuston käyttöä. Voit hallita evästeasetuksiasi sivustomme evästebannerin kautta. Käytämme seuraavia evästeitä:'}
                 </p>
                 <ul className="list-disc pl-6 space-y-1 mb-3">
                   <li>
-                    <strong>{isEnglish ? 'Essential cookies:' : 'Välttämättömät evästeet:'}</strong> {isEnglish ? 'Required for website functionality, such as session management and login authentication. These cookies cannot be disabled.' : 'Tarvitaan sivuston toiminnalle, kuten istunnonhallintaan ja kirjautumiseen. Näitä evästeitä ei voi estää.'}
+                    <strong>{isEnglish ? 'Essential cookies:' : 'Välttämättömät evästeet:'}</strong> {isEnglish ? 'Required for website functionality, such as session management, login authentication, and cookie consent preferences. These cookies cannot be disabled.' : 'Tarvitaan sivuston toiminnalle, kuten istunnonhallintaan, kirjautumiseen ja evästeasetuksiin. Näitä evästeitä ei voi estää.'}
                   </li>
                   <li>
-                    <strong>{isEnglish ? 'Analytics cookies:' : 'Analytiikkaevästeet:'}</strong> {isEnglish ? 'Help understand website usage and improve service quality. Analytics data is processed in anonymized form.' : 'Auttavat ymmärtämään sivuston käyttöä ja parantamaan palvelun laatua. Analytiikkadata käsitellään anonymisoituna.'}
+                    <strong>{isEnglish ? 'Analytics cookies (Google Analytics):' : 'Analytiikkaevästeet (Google Analytics):'}</strong> {isEnglish ? 'We use Google Analytics to understand how visitors use our website and to improve service quality. Google Analytics collects information anonymously about page visits, time spent on pages, and user interactions. You can control these cookies through our cookie banner.' : 'Käytämme Google Analytics -palvelua ymmärtääksemme, miten kävijät käyttävät sivustoamme ja parantaaksemme palvelun laatua. Google Analytics kerää tietoa anonyymisti sivuvierailuista, sivuilla vietetystä ajasta ja käyttäjän toiminnoista. Voit hallita näitä evästeitä evästebannerin kautta.'}
+                  </li>
+                  <li>
+                    <strong>{isEnglish ? 'Marketing cookies:' : 'Markkinointievästeet:'}</strong> {isEnglish ? 'Used to deliver personalized advertisements and measure campaign effectiveness. You can control these cookies through our cookie banner.' : 'Käytetään personoidun mainonnan toimittamiseen ja kampanjoiden tehokkuuden mittaamiseen. Voit hallita näitä evästeitä evästebannerin kautta.'}
                   </li>
                 </ul>
+                <p className="text-gray-700 mb-2">
+                  {isEnglish
+                    ? 'For more information about how Google Analytics processes data, please visit: '
+                    : 'Lisätietoja siitä, miten Google Analytics käsittelee tietoja, löydät osoitteesta: '}
+                  <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-brand-green-600 hover:underline">
+                    https://policies.google.com/privacy
+                  </a>
+                </p>
                 <p className="text-gray-700">
                   {isEnglish
-                    ? 'You can manage non-essential cookie settings in your browser settings. Disabling cookies may affect website functionality.'
-                    : 'Voit hallita ei-välttämättömiä evästeasetuksia selaimesi asetuksista. Evästeiden estäminen saattaa vaikuttaa sivuston toiminnallisuuteen.'}
+                    ? 'You can manage your cookie preferences at any time by clicking the cookie icon in the bottom left corner of our website.'
+                    : 'Voit hallita evästeasetuksiasi milloin tahansa klikkaamalla evästekuvaketta sivustomme vasemmassa alakulmassa.'}
                 </p>
               </section>
 
@@ -272,13 +283,8 @@ export const Privacy: React.FC = () => {
                   {isEnglish ? '9. Contact Information' : '9. Yhteystiedot'}
                 </h2>
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <p className="mb-4">
-                    <strong>{isEnglish ? 'Privacy matters:' : 'Tietosuoja-asiat:'}</strong><br/>
-                    {isEnglish ? 'Email:' : 'Sähköposti:'} privacy@funect.com<br/>
-                    {isEnglish ? 'Phone:' : 'Puhelin:'} +358 44 058 2663
-                  </p>
                   <p>
-                    <strong>{isEnglish ? 'Technical support:' : 'Tekninen tuki:'}</strong><br/>
+                    <strong>{isEnglish ? 'Privacy matters:' : 'Tietosuoja-asiat:'}</strong><br/>
                     {isEnglish ? 'Email:' : 'Sähköposti:'} support@golfbooker.fi<br/>
                     {isEnglish ? 'Phone:' : 'Puhelin:'} +358 44 058 2663
                   </p>
