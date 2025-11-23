@@ -19,7 +19,7 @@ export const TournamentManagement: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50 to-brand-green-900 pt-32 pb-24">
+      <section className="relative overflow-hidden bg-white pt-32 pb-24">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -61,10 +61,6 @@ export const TournamentManagement: React.FC = () => {
             </div>
           </motion.div>
         </Container>
-
-        {/* Decorative gradient orbs */}
-        <div className="absolute top-20 right-0 w-96 h-96 bg-brand-green-600 rounded-full filter blur-3xl opacity-20"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-600 rounded-full filter blur-3xl opacity-10"></div>
       </section>
 
       {/* Stats/Quick Facts Bar */}
@@ -161,10 +157,6 @@ export const TournamentManagement: React.FC = () => {
                   </div>
                 </div>
               </div>
-
-              {/* Floating elements */}
-              <div className="absolute -top-8 -left-8 w-32 h-32 bg-purple-200 rounded-2xl blur-2xl opacity-40"></div>
-              <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-brand-green-200 rounded-2xl blur-2xl opacity-40"></div>
             </motion.div>
 
             {/* Mobile mockup - overlapping */}
@@ -187,10 +179,6 @@ export const TournamentManagement: React.FC = () => {
                 {/* Phone notch */}
                 <div className="absolute top-6 left-1/2 -translate-x-1/2 w-20 h-5 bg-gray-900 rounded-full"></div>
               </div>
-
-              {/* Floating elements */}
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-brand-green-300 rounded-2xl blur-2xl opacity-60"></div>
-              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-blue-300 rounded-2xl blur-2xl opacity-50"></div>
             </motion.div>
           </motion.div>
         </Container>
@@ -254,7 +242,7 @@ export const TournamentManagement: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="aspect-[4/3] bg-gradient-to-br from-green-100 to-green-50 rounded-2xl shadow-2xl flex items-center justify-center overflow-hidden">
+              <div className="aspect-[4/3] bg-gray-100 rounded-2xl shadow-2xl flex items-center justify-center overflow-hidden">
                 <div className="text-center p-8">
                   <TrendingUp size={80} className="text-gray-400 mx-auto mb-4" />
                   <p className="text-gray-500 font-medium text-lg">
@@ -265,9 +253,6 @@ export const TournamentManagement: React.FC = () => {
                   </p>
                 </div>
               </div>
-
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-green-300 rounded-2xl blur-2xl opacity-50"></div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-brand-green-200 rounded-2xl blur-2xl opacity-40"></div>
             </motion.div>
           </div>
         </Container>
@@ -284,7 +269,7 @@ export const TournamentManagement: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="order-2 lg:order-1 relative"
             >
-              <div className="aspect-[4/3] bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl shadow-2xl flex items-center justify-center overflow-hidden">
+              <div className="aspect-[4/3] bg-gray-100 rounded-2xl shadow-2xl flex items-center justify-center overflow-hidden">
                 <div className="text-center p-8">
                   <Users size={80} className="text-gray-400 mx-auto mb-4" />
                   <p className="text-gray-500 font-medium text-lg">
@@ -295,9 +280,6 @@ export const TournamentManagement: React.FC = () => {
                   </p>
                 </div>
               </div>
-
-              <div className="absolute -top-6 -left-6 w-24 h-24 bg-blue-300 rounded-2xl blur-2xl opacity-50"></div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-purple-200 rounded-2xl blur-2xl opacity-40"></div>
             </motion.div>
 
             <motion.div
@@ -405,7 +387,7 @@ export const TournamentManagement: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="aspect-[4/3] bg-gradient-to-br from-purple-100 to-purple-50 rounded-2xl shadow-2xl flex items-center justify-center overflow-hidden">
+              <div className="aspect-[4/3] bg-gray-100 rounded-2xl shadow-2xl flex items-center justify-center overflow-hidden">
                 <div className="text-center p-8">
                   <Monitor size={80} className="text-gray-400 mx-auto mb-4" />
                   <p className="text-gray-500 font-medium text-lg">
@@ -416,9 +398,6 @@ export const TournamentManagement: React.FC = () => {
                   </p>
                 </div>
               </div>
-
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-purple-300 rounded-2xl blur-2xl opacity-50"></div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-pink-200 rounded-2xl blur-2xl opacity-40"></div>
             </motion.div>
           </div>
         </Container>
@@ -435,7 +414,7 @@ export const TournamentManagement: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="order-2 lg:order-1 relative"
             >
-              <div className="aspect-[4/3] bg-gradient-to-br from-orange-100 to-orange-50 rounded-2xl shadow-2xl flex items-center justify-center overflow-hidden">
+              <div className="aspect-[4/3] bg-gray-100 rounded-2xl shadow-2xl flex items-center justify-center overflow-hidden">
                 <div className="text-center p-8">
                   <Monitor size={80} className="text-gray-400 mx-auto mb-4" />
                   <p className="text-gray-500 font-medium text-lg">
@@ -446,9 +425,6 @@ export const TournamentManagement: React.FC = () => {
                   </p>
                 </div>
               </div>
-
-              <div className="absolute -top-6 -left-6 w-24 h-24 bg-orange-300 rounded-2xl blur-2xl opacity-50"></div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-yellow-200 rounded-2xl blur-2xl opacity-40"></div>
             </motion.div>
 
             <motion.div
@@ -501,7 +477,7 @@ export const TournamentManagement: React.FC = () => {
       </section>
 
       {/* CTA Panel with Phone Mockup */}
-      <section id="cta-section" className="relative bg-gradient-to-br from-gray-800 via-brand-green-800 to-brand-green-900 py-20 overflow-hidden">
+      <section id="cta-section" className="relative bg-white py-20 overflow-hidden">
         <Container>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left side - Contact form */}
@@ -510,18 +486,18 @@ export const TournamentManagement: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-white"
+              className="text-gray-900"
             >
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
                 {isEnglish ? 'Ready to get started?' : 'Valmis aloittamaan?'}
               </h2>
-              <p className="text-lg md:text-xl text-gray-200 mb-4">
+              <p className="text-lg md:text-xl text-gray-600 mb-4">
                 {isEnglish
                   ? 'Discover how our tournament management system can transform your golf events. Get in touch and we\'ll tell you more!'
                   : 'Tutustu kilpailunhallintajärjestelmäämme ja katso, miten se voi helpottaa tapahtumienne järjestämistä. Ota yhteyttä niin kerromme lisää!'
                 }
               </p>
-              <p className="text-sm text-green-300 mb-8">
+              <p className="text-sm text-gray-500 mb-8">
                 {isEnglish
                   ? 'Fill out the form and we\'ll contact you shortly.'
                   : 'Täytä lomake, niin otamme sinuun yhteyttä pian.'}
@@ -531,31 +507,31 @@ export const TournamentManagement: React.FC = () => {
                 <input
                   type="text"
                   placeholder={isEnglish ? 'Full name*' : 'Nimi*'}
-                  className="w-full px-6 py-4 rounded-full bg-white bg-opacity-90 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-green-400"
+                  className="w-full px-6 py-4 rounded-full bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-green-400"
                   required
                 />
 
                 <input
                   type="email"
                   placeholder={isEnglish ? 'Email*' : 'Sähköposti*'}
-                  className="w-full px-6 py-4 rounded-full bg-white bg-opacity-90 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-green-400"
+                  className="w-full px-6 py-4 rounded-full bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-green-400"
                   required
                 />
 
                 <input
                   type="tel"
                   placeholder={isEnglish ? 'Phone' : 'Puhelin'}
-                  className="w-full px-6 py-4 rounded-full bg-white bg-opacity-90 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-green-400"
+                  className="w-full px-6 py-4 rounded-full bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-green-400"
                 />
 
                 <textarea
                   placeholder={isEnglish ? 'Write your message...*' : 'Kirjoita viesti...*'}
                   rows={4}
-                  className="w-full px-6 py-4 rounded-3xl bg-white bg-opacity-90 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-green-400 resize-none"
+                  className="w-full px-6 py-4 rounded-3xl bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-green-400 resize-none"
                   required
                 ></textarea>
 
-                <div className="text-sm text-gray-300">
+                <div className="text-sm text-gray-500">
                   *{isEnglish ? 'required field' : 'pakollinen tieto'}
                 </div>
 
@@ -566,31 +542,18 @@ export const TournamentManagement: React.FC = () => {
                     className="mt-1 w-4 h-4 rounded border-gray-300 text-brand-green-600 focus:ring-brand-green-400"
                     required
                   />
-                  <label htmlFor="privacy" className="text-sm text-gray-300">
+                  <label htmlFor="privacy" className="text-sm text-gray-600">
                     {isEnglish ? (
-                      <>I understand and agree that my personal data will be processed in accordance with the <Link to="/privacy" className="underline hover:text-white">privacy policy</Link>.*</>
+                      <>I understand and agree that my personal data will be processed in accordance with the <Link to="/privacy" className="underline hover:text-brand-green-600">privacy policy</Link>.*</>
                     ) : (
-                      <>Ymmärrän ja suostun siihen, että henkilötietojani käsitellään <Link to="/privacy" className="underline hover:text-white">tietosuojakäytännön</Link> mukaisesti.*</>
+                      <>Ymmärrän ja suostun siihen, että henkilötietojani käsitellään <Link to="/privacy" className="underline hover:text-brand-green-600">tietosuojakäytännön</Link> mukaisesti.*</>
                     )}
-                  </label>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    id="marketing"
-                    className="mt-1 w-4 h-4 rounded border-gray-300 text-brand-green-600 focus:ring-brand-green-400"
-                  />
-                  <label htmlFor="marketing" className="text-sm text-gray-300">
-                    {isEnglish
-                      ? 'I want to receive marketing communications and updates about new features.'
-                      : 'Haluan vastaanottaa markkinointiviestejä ja tietoa uusista ominaisuuksista.'}
                   </label>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full md:w-auto px-12 py-4 bg-white text-brand-green-900 font-bold rounded-full hover:bg-gray-100 transition-colors shadow-lg"
+                  className="w-full md:w-auto px-12 py-4 bg-brand-green-600 text-white font-bold rounded-full hover:bg-brand-green-700 transition-colors shadow-lg"
                 >
                   {isEnglish ? 'Send' : 'Lähetä'}
                 </button>
@@ -608,10 +571,10 @@ export const TournamentManagement: React.FC = () => {
               <div className="aspect-[9/19.5] w-80 bg-black rounded-[3rem] shadow-2xl p-3 relative">
                 <div className="bg-white rounded-[2.5rem] w-full h-full overflow-hidden">
                   {/* Phone content - Tournament app mockup */}
-                  <div className="relative h-full bg-gradient-to-b from-gray-900 to-gray-800 p-6 flex flex-col">
+                  <div className="relative h-full bg-gray-900 p-6 flex flex-col">
                     {/* Tournament image */}
                     <div className="w-full h-48 bg-gray-700 rounded-xl mb-4 overflow-hidden">
-                      <div className="w-full h-full bg-gradient-to-br from-green-600 to-green-800"></div>
+                      <div className="w-full h-full bg-brand-green-700"></div>
                     </div>
 
                     {/* Tournament title */}
@@ -644,10 +607,6 @@ export const TournamentManagement: React.FC = () => {
                 {/* Phone notch */}
                 <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full"></div>
               </div>
-
-              {/* Decorative gradient orbs */}
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-brand-green-400 rounded-full filter blur-3xl opacity-30"></div>
-              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-green-300 rounded-full filter blur-3xl opacity-20"></div>
             </motion.div>
           </div>
         </Container>
