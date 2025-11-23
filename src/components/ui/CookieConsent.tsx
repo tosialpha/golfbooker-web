@@ -20,6 +20,7 @@ declare global {
 export function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
   const [showFloatingButton, setShowFloatingButton] = useState(false);
+  const [showCustomize, setShowCustomize] = useState(false);
   const { language } = useLanguage();
   const [preferences, setPreferences] = useState<CookiePreferences>({
     necessary: true,
@@ -51,37 +52,45 @@ export function CookieConsent() {
     script.async = true;
     document.head.appendChild(script);
 
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function gtag(...args: unknown[]) {
-      window.dataLayer.push(args);
+    script.onload = () => {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function gtag() {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag('js', new Date());
+      window.gtag('config', GA_ID);
     };
-    window.gtag('js', new Date());
-    window.gtag('config', GA_ID, {
-      anonymize_ip: true,
-      cookie_flags: 'SameSite=None;Secure'
-    });
   };
 
   const handleAcceptAll = () => {
-    const allAccepted = { necessary: true, analytics: true, marketing: true };
+    const allAccepted = {
+      necessary: true,
+      analytics: true,
+      marketing: true
+    };
     localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(allAccepted));
-    setPreferences(allAccepted);
     setShowBanner(false);
+    setShowCustomize(false);
     setShowFloatingButton(true);
     loadGoogleAnalytics();
   };
 
   const handleRejectAll = () => {
-    const onlyNecessary = { necessary: true, analytics: false, marketing: false };
+    const onlyNecessary = {
+      necessary: true,
+      analytics: false,
+      marketing: false
+    };
     localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(onlyNecessary));
-    setPreferences(onlyNecessary);
     setShowBanner(false);
+    setShowCustomize(false);
     setShowFloatingButton(true);
   };
 
   const handleSavePreferences = () => {
     localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(preferences));
     setShowBanner(false);
+    setShowCustomize(false);
     setShowFloatingButton(true);
     if (preferences.analytics) {
       loadGoogleAnalytics();
@@ -98,28 +107,26 @@ export function CookieConsent() {
         analyticsDesc: 'Help us understand how visitors interact with our website.',
         marketing: 'Marketing',
         marketingDesc: 'Used to deliver personalized advertisements.',
-        customize: 'Customize',
-        showDetails: 'Show details',
-        hideDetails: 'Hide details',
-        acceptAll: 'Accept all',
+        customize: 'Settings',
+        acceptAll: 'Accept',
         rejectAll: 'Reject all',
-        savePreferences: 'Save preferences'
+        savePreferences: 'Save preferences',
+        cancel: 'Cancel'
       }
     : {
         title: 'Arvostamme yksityisyyttäsi',
         message: 'Käytämme evästeitä parantaaksemme käyttökokemustasi ja analysoidaksemme sivuston liikennettä. Voit valita, mitkä evästeet hyväksyt.',
         necessary: 'Välttämättömät',
-        necessaryDesc: 'Vaaditaan verkkosivuston asianmukaista toimintaa varten.',
+        necessaryDesc: 'Nämä evästeet mahdollistavat keskeiset toiminnallisuudet, kuten turvallisuus, henkilöllisyyden vahvistaminen ja verkon hallinta. Näitä evästeitä ei voi ottaa pois käytöstä.',
         analytics: 'Analytiikka',
-        analyticsDesc: 'Auttavat meitä ymmärtämään, miten kävijät käyttävät verkkosivustoamme.',
+        analyticsDesc: 'Auttavat meitä ymmärtämään, miten vierailijat käyttävät sivustoamme, havaitsemaan virheitä ja tarjoamaan paremman kokonaisanalyysin.',
         marketing: 'Markkinointi',
-        marketingDesc: 'Käytetään personoidun mainonnan toimittamiseen.',
-        customize: 'Mukauta',
-        showDetails: 'Näytä tiedot',
-        hideDetails: 'Piilota tiedot',
-        acceptAll: 'Hyväksy kaikki',
+        marketingDesc: 'Käytetään markkinoinnin tehokkuuden seurantaan sopivampien palvelujen tarjoamiseksi ja kiinnostuksenkohteitasi paremmin vastaavien mainosten toimittamiseksi.',
+        customize: 'Asetukset',
+        acceptAll: 'Hyväksy',
         rejectAll: 'Hylkää kaikki',
-        savePreferences: 'Tallenna valinnat'
+        savePreferences: 'Tallenna valinnat',
+        cancel: 'Peruuta'
       };
 
   return (
@@ -135,14 +142,47 @@ export function CookieConsent() {
         </button>
       )}
 
-      {/* Cookie Banner Modal */}
-      {showBanner && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-end md:items-center justify-center p-0 md:p-4">
-          <div className="bg-white w-full md:max-w-2xl md:rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
-        {/* Header */}
-        <div className="p-6 border-b border-gray-200">
-          <div className="flex items-start justify-between">
-            <div>
+      {/* Cookie Banner - Bottom Bar */}
+      {showBanner && !showCustomize && (
+        <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-2xl">
+          <div className="max-w-7xl mx-auto p-4 md:p-6">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div className="flex-1">
+                <h2 className="text-lg font-bold text-gray-900 mb-1">{text.title}</h2>
+                <p className="text-sm text-gray-600">
+                  {text.message}{' '}
+                  <a href="/privacy" className="text-brand-green-600 hover:underline">
+                    {language === 'en' ? 'Learn more' : 'Lue lisää'}
+                  </a>
+                </p>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-2 md:gap-3">
+                <button
+                  onClick={() => setShowCustomize(true)}
+                  className="px-6 py-2.5 text-sm font-medium border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors whitespace-nowrap"
+                >
+                  {text.customize}
+                </button>
+                <button
+                  onClick={handleAcceptAll}
+                  className="px-6 py-2.5 text-sm font-medium bg-brand-green-600 text-white rounded-lg hover:bg-brand-green-700 transition-colors whitespace-nowrap"
+                >
+                  {text.acceptAll}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Customize Modal */}
+      {showCustomize && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white w-full max-w-2xl rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
+            {/* Header */}
+            <div className="p-6 border-b border-gray-200">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">{text.title}</h2>
               <p className="text-sm text-gray-600">
                 {text.message}{' '}
@@ -151,88 +191,80 @@ export function CookieConsent() {
                 </a>
               </p>
             </div>
-          </div>
-        </div>
 
-        {/* Cookie Categories */}
-        <div className="p-6 space-y-4">
-          {/* Necessary Cookies */}
-          <div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
-            <div className="flex items-center justify-between">
-              <div className="flex-1">
-                <h3 className="font-semibold text-gray-900">{text.necessary}</h3>
-                <p className="text-sm text-gray-600 mt-1">{text.necessaryDesc}</p>
+            {/* Cookie Categories */}
+            <div className="p-6 space-y-4">
+              {/* Necessary Cookies */}
+              <div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">{text.necessary}</h3>
+                    <p className="text-sm text-gray-600 mt-1">{text.necessaryDesc}</p>
+                  </div>
+                  <div className="ml-4">
+                    <div className="w-12 h-6 bg-brand-green-600 rounded-full flex items-center justify-end px-1 cursor-not-allowed opacity-50">
+                      <div className="w-4 h-4 bg-white rounded-full"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="ml-4">
-                <div className="w-12 h-6 bg-brand-green-600 rounded-full flex items-center justify-end px-1 cursor-not-allowed opacity-50">
-                  <div className="w-4 h-4 bg-white rounded-full"></div>
+
+              {/* Analytics Cookies */}
+              <div className="border border-gray-200 rounded-lg p-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">{text.analytics}</h3>
+                    <p className="text-sm text-gray-600 mt-1">{text.analyticsDesc}</p>
+                  </div>
+                  <div className="ml-4">
+                    <button
+                      onClick={() => setPreferences({ ...preferences, analytics: !preferences.analytics })}
+                      className={`w-12 h-6 rounded-full flex items-center transition-colors ${
+                        preferences.analytics ? 'bg-brand-green-600 justify-end' : 'bg-gray-300 justify-start'
+                      } px-1`}
+                    >
+                      <div className="w-4 h-4 bg-white rounded-full"></div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Marketing Cookies */}
+              <div className="border border-gray-200 rounded-lg p-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">{text.marketing}</h3>
+                    <p className="text-sm text-gray-600 mt-1">{text.marketingDesc}</p>
+                  </div>
+                  <div className="ml-4">
+                    <button
+                      onClick={() => setPreferences({ ...preferences, marketing: !preferences.marketing })}
+                      className={`w-12 h-6 rounded-full flex items-center transition-colors ${
+                        preferences.marketing ? 'bg-brand-green-600 justify-end' : 'bg-gray-300 justify-start'
+                      } px-1`}
+                    >
+                      <div className="w-4 h-4 bg-white rounded-full"></div>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Analytics Cookies */}
-          <div className="border border-gray-200 rounded-lg p-4">
-            <div className="flex items-center justify-between">
-              <div className="flex-1">
-                <h3 className="font-semibold text-gray-900">{text.analytics}</h3>
-                <p className="text-sm text-gray-600 mt-1">{text.analyticsDesc}</p>
-              </div>
-              <div className="ml-4">
-                <button
-                  onClick={() => setPreferences({ ...preferences, analytics: !preferences.analytics })}
-                  className={`w-12 h-6 rounded-full flex items-center transition-colors ${
-                    preferences.analytics ? 'bg-brand-green-600 justify-end' : 'bg-gray-300 justify-start'
-                  } px-1`}
-                >
-                  <div className="w-4 h-4 bg-white rounded-full"></div>
-                </button>
-              </div>
+            {/* Actions */}
+            <div className="p-6 border-t border-gray-200 bg-gray-50 flex flex-col sm:flex-row gap-3">
+              <button
+                onClick={() => setShowCustomize(false)}
+                className="flex-1 px-4 py-3 text-sm font-medium border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors"
+              >
+                {text.cancel}
+              </button>
+              <button
+                onClick={handleSavePreferences}
+                className="flex-1 px-4 py-3 text-sm font-medium bg-brand-green-600 text-white rounded-lg hover:bg-brand-green-700 transition-colors"
+              >
+                {text.savePreferences}
+              </button>
             </div>
-          </div>
-
-          {/* Marketing Cookies */}
-          <div className="border border-gray-200 rounded-lg p-4">
-            <div className="flex items-center justify-between">
-              <div className="flex-1">
-                <h3 className="font-semibold text-gray-900">{text.marketing}</h3>
-                <p className="text-sm text-gray-600 mt-1">{text.marketingDesc}</p>
-              </div>
-              <div className="ml-4">
-                <button
-                  onClick={() => setPreferences({ ...preferences, marketing: !preferences.marketing })}
-                  className={`w-12 h-6 rounded-full flex items-center transition-colors ${
-                    preferences.marketing ? 'bg-brand-green-600 justify-end' : 'bg-gray-300 justify-start'
-                  } px-1`}
-                >
-                  <div className="w-4 h-4 bg-white rounded-full"></div>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Actions */}
-        <div className="p-6 border-t border-gray-200 bg-gray-50 flex flex-col sm:flex-row gap-3">
-          <button
-            onClick={handleRejectAll}
-            className="flex-1 px-4 py-3 text-sm font-medium border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors"
-          >
-            {text.rejectAll}
-          </button>
-          <button
-            onClick={handleSavePreferences}
-            className="flex-1 px-4 py-3 text-sm font-medium border border-brand-green-600 text-brand-green-600 rounded-lg hover:bg-brand-green-50 transition-colors"
-          >
-            {text.savePreferences}
-          </button>
-          <button
-            onClick={handleAcceptAll}
-            className="flex-1 px-4 py-3 text-sm font-medium bg-brand-green-600 text-white rounded-lg hover:bg-brand-green-700 transition-colors"
-          >
-            {text.acceptAll}
-          </button>
-        </div>
           </div>
         </div>
       )}
