@@ -44,7 +44,7 @@ export function CookieConsent() {
   }, []);
 
   const loadGoogleAnalytics = () => {
-    const GA_ID = 'G-XXXXXXXXXX'; // Replace with your GA4 ID
+    const GA_ID = 'G-3GEQGHSM72';
 
     const script = document.createElement('script');
     script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
