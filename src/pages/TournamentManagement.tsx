@@ -570,39 +570,12 @@ export const TournamentManagement: React.FC = () => {
             >
               <div className="aspect-[9/19.5] w-80 bg-black rounded-[3rem] shadow-2xl p-3 relative">
                 <div className="bg-white rounded-[2.5rem] w-full h-full overflow-hidden">
-                  {/* Phone content - Tournament app mockup */}
-                  <div className="relative h-full bg-gray-900 p-6 flex flex-col">
-                    {/* Tournament image */}
-                    <div className="w-full h-48 bg-gray-700 rounded-xl mb-4 overflow-hidden">
-                      <div className="w-full h-full bg-brand-green-700"></div>
-                    </div>
-
-                    {/* Tournament title */}
-                    <h3 className="text-white text-xl font-bold mb-1">Birdie Trophy Invitational</h3>
-                    <p className="text-gray-400 text-sm mb-4">Reynolds Lake Oconee | 11.06.2024</p>
-
-                    {/* Trophy icon */}
-                    <div className="flex justify-center my-6">
-                      <div className="w-16 h-16 bg-white bg-opacity-10 rounded-full flex items-center justify-center">
-                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M6 3h12v2H6V3zm1 4h10v1c0 2.21-1.79 4-4 4H11c-2.21 0-4-1.79-4-4V7zm5 14c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2zm-1-4v-2h2v2h-2z"/>
-                        </svg>
-                      </div>
-                    </div>
-
-                    {/* Sign up button */}
-                    <button className="w-full py-3 bg-brand-green-500 hover:bg-brand-green-600 text-white font-semibold rounded-lg mb-4">
-                      Sign up
-                    </button>
-
-                    {/* Navigation tabs */}
-                    <div className="grid grid-cols-4 gap-2 text-xs text-gray-400 mt-auto">
-                      <div className="text-center">Info</div>
-                      <div className="text-center">Game</div>
-                      <div className="text-center">Players</div>
-                      <div className="text-center">Start List</div>
-                    </div>
-                  </div>
+                  {/* Phone content - Tournament app screenshot */}
+                  <img
+                    src="/tournament-mobile-app.png"
+                    alt={isEnglish ? 'Tournament mobile app' : 'Kilpailumobiilisovellus'}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 {/* Phone notch */}
                 <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full"></div>
