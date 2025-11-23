@@ -35,6 +35,11 @@ export const Footer: React.FC = () => {
                     {t('footer.forGolfCourses')}
                   </Link>
                 </li>
+                <li>
+                  <Link to="/tournaments" className="hover:text-brand-green-600 transition-all duration-200 hover:translate-x-1 inline-block">
+                    {t('footer.tournamentManagement')}
+                  </Link>
+                </li>
               </ul>
             </div>
 

@@ -44,14 +44,12 @@ export const Navbar: React.FC = () => {
             >
               {t('nav.home')}
             </Link>
-            {/* Tournament link hidden for production - uncomment to show:
             <Link
               to="/tournaments"
               className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium"
             >
               {t('nav.tournaments')}
             </Link>
-            */}
             <Link
               to="/contact"
               className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium"
@@ -88,7 +86,6 @@ export const Navbar: React.FC = () => {
               >
                 {t('nav.home')}
               </Link>
-              {/* Tournament link hidden for production - uncomment to show:
               <Link
                 to="/tournaments"
                 className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium py-2"
@@ -96,7 +93,6 @@ export const Navbar: React.FC = () => {
               >
                 {t('nav.tournaments')}
               </Link>
-              */}
               <Link
                 to="/contact"
                 className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium py-2"

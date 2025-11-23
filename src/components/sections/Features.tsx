@@ -26,10 +26,10 @@ export const Features: React.FC = () => {
         : 'Varaa, muokkaa ja peru tiiaikoja vaivattomasti. Vierasvaraukset ja lisäpalvelut kuten golfautot tai mailavuokraus.'
     },
     {
-      title: isEnglish ? 'Tournament Management' : 'Kilpailuhallinta',
+      title: isEnglish ? 'Tournament Management' : 'Kilpailumoduuli',
       description: isEnglish
-        ? 'Create and manage your golf course tournaments in the same system. Real-time results tracking, scoring and leaderboards.'
-        : 'Luo ja hallitse golfkenttäsi kilpailut samassa järjestelmässä. Reaaliaikainen tulosten seuranta, merkkaaminen ja tulostaulut.'
+        ? 'Create and manage your golf course tournaments in the same system. Real-time results tracking, scoring and leaderboards. Available also as a standalone module.'
+        : 'Luo ja hallitse golfkenttäsi kilpailut samassa järjestelmässä. Reaaliaikainen tulosten seuranta, merkkaaminen ja tulostaulut. Saatavilla myös erillisenä moduulina.'
     },
     {
       title: isEnglish ? 'Payments and Invoicing' : 'Maksut ja laskutus',

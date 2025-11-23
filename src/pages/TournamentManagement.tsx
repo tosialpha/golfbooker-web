@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Container } from '../components/ui/Container';
 import { useLanguage } from '../contexts/LanguageContext';
-import { ArrowRight, Smartphone, Monitor, Zap, TrendingUp, Users } from 'lucide-react';
+import { ArrowRight, Monitor, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const TournamentManagement: React.FC = () => {
@@ -18,34 +18,31 @@ export const TournamentManagement: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white pt-32 pb-24">
-        <Container>
+      {/* Hero Section with Background */}
+      <section className="relative overflow-visible bg-white pb-64">
+        {/* Green background - extends to bottom of mockups */}
+        <div className="absolute inset-x-0 top-0 bottom-0 bg-gradient-to-br from-brand-green-400 via-emerald-400 to-teal-400">
+          {/* Decorative Elements */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-20 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-32 left-0 w-[32rem] h-[32rem] bg-emerald-300/30 rounded-full blur-3xl"></div>
+            <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-teal-300/20 rounded-full blur-2xl"></div>
+          </div>
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 w-full flex items-start justify-start pt-32" style={{ paddingLeft: '6rem', minHeight: '60vh' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl"
+            className="max-w-2xl"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-block mb-6"
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-green-600 bg-opacity-20 border border-brand-green-600 rounded-full">
-                <Zap size={16} className="text-brand-green-700" />
-                <span className="text-brand-green-900 text-sm font-medium">
-                  {isEnglish ? 'Tournament Management Platform' : 'Kilpailunhallinta-alusta'}
-                </span>
-              </div>
-            </motion.div>
-
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight" style={{ textShadow: '0 4px 8px rgba(0,0,0,0.5), 0 8px 16px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.6)' }}>
               {t('tournaments.title')}
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-700 mb-12 leading-relaxed max-w-3xl whitespace-pre-line">
+            <p className="text-xl md:text-2xl text-white mb-12 leading-relaxed max-w-3xl whitespace-pre-line" style={{ textShadow: '0 4px 8px rgba(0,0,0,0.5), 0 8px 16px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.6)' }}>
               {t('tournaments.subtitle')}
             </p>
 
@@ -60,77 +57,11 @@ export const TournamentManagement: React.FC = () => {
               </button>
             </div>
           </motion.div>
-        </Container>
-      </section>
-
-      {/* Stats/Quick Facts Bar */}
-      <section className="bg-white border-y border-gray-200">
-        <Container>
-          <div className="py-12 grid grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="flex justify-center mb-3">
-                <div className="w-12 h-12 bg-brand-green-100 rounded-xl flex items-center justify-center">
-                  <Zap className="text-brand-green-600" size={24} />
-                </div>
-              </div>
-              <div className="text-3xl font-bold text-gray-900 mb-1">
-                {isEnglish ? 'Fast Setup' : 'Nopea käyttöönotto'}
-              </div>
-              <div className="text-sm text-gray-600">
-                {isEnglish ? 'Launch in minutes' : 'Käynnistä minuuteissa'}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-center"
-            >
-              <div className="flex justify-center mb-3">
-                <div className="w-12 h-12 bg-brand-green-100 rounded-xl flex items-center justify-center">
-                  <Users className="text-brand-green-600" size={24} />
-                </div>
-              </div>
-              <div className="text-3xl font-bold text-gray-900 mb-1">
-                {isEnglish ? 'Unlimited' : 'Rajaton'}
-              </div>
-              <div className="text-sm text-gray-600">
-                {isEnglish ? 'Players & tournaments' : 'Pelaajat & kilpailut'}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-center"
-            >
-              <div className="flex justify-center mb-3">
-                <div className="w-12 h-12 bg-brand-green-100 rounded-xl flex items-center justify-center">
-                  <TrendingUp className="text-brand-green-600" size={24} />
-                </div>
-              </div>
-              <div className="text-3xl font-bold text-gray-900 mb-1">
-                {isEnglish ? 'Real-time' : 'Reaaliaikainen'}
-              </div>
-              <div className="text-sm text-gray-600">
-                {isEnglish ? 'Mobile app' : 'Mobiilisovellus'}
-              </div>
-            </motion.div>
-          </div>
-        </Container>
+        </div>
       </section>
 
       {/* Platform Showcase - Mobile & Desktop */}
-      <section className="py-24 bg-gray-50">
+      <section className="-mt-[20rem] pt-0 pb-0 bg-transparent relative z-10">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -143,11 +74,12 @@ export const TournamentManagement: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative flex-1 max-w-3xl"
+              className="relative flex-1 max-w-3xl cursor-pointer"
             >
-              <div className="aspect-video bg-gray-900 rounded-2xl shadow-2xl p-4 relative">
+              <div className="aspect-video bg-gray-900 rounded-2xl shadow-2xl p-4 relative transition-shadow hover:shadow-3xl">
                 <div className="bg-gray-100 rounded-xl w-full h-full overflow-hidden">
                   <img
                     src="/tournament-desktop.png"
@@ -162,31 +94,165 @@ export const TournamentManagement: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative -ml-32 mb-8 z-10"
+              className="relative -ml-32 mb-8 z-10 cursor-pointer"
             >
-              <div className="aspect-[9/16] w-64 bg-gray-900 rounded-[3rem] shadow-2xl p-3 relative">
-                <div className="bg-gray-100 rounded-[2.5rem] w-full h-full flex items-center justify-center overflow-hidden">
-                  <div className="text-center p-6">
-                    <Smartphone size={60} className="text-gray-400 mx-auto mb-3" />
-                    <p className="text-gray-500 font-medium text-sm">
-                      {isEnglish ? 'Mobile App' : 'Mobiilisovellus'}
-                    </p>
-                  </div>
+              <div className="aspect-[9/16] w-64 bg-black rounded-[3rem] shadow-2xl p-3 relative transition-shadow hover:shadow-3xl">
+                <div className="bg-white rounded-[2.5rem] w-full h-full overflow-hidden">
+                  <img
+                    src="/tournament-mobile-app.png"
+                    alt={isEnglish ? 'Tournament mobile app' : 'Kilpailun mobiilisovellus'}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 {/* Phone notch */}
-                <div className="absolute top-6 left-1/2 -translate-x-1/2 w-20 h-5 bg-gray-900 rounded-full"></div>
+                <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full"></div>
               </div>
             </motion.div>
+          </motion.div>
+
+        </Container>
+      </section>
+
+      {/* Description Section - White Background */}
+      <section className="bg-white py-16 relative z-20">
+        <Container>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed">
+              {isEnglish
+                ? 'GolfBooker\'s tournament module handles the entire tournament process smoothly. You can create tournaments quickly, choose from multiple game formats and set registration settings. Players can register and pay the entry fee in the app and at the same time you can collect necessary additional information such as time preferences, group selections or special needs. Form playing pairs easily and publish tee sheets with one click. Automated communication handles confirmations and reminders to players. During the round, players enter scores on mobile and leaderboards update in real-time.'
+                : 'GolfBookerin kilpailumoduuli hoitaa koko kilpailuprosessin sujuvasti. Voit luoda kilpailuja nopeasti, valita useista pelimuodoista ja määrittää ilmoittautumisasetukset. Pelaajat voivat ilmoittautua ja maksaa osallistumismaksun sovelluksessa ja samalla voit kerätä tarvitsemasi lisätiedot kuten aikatoiveet, ryhmävalinnat tai erityistarpeet. Muodosta peliparit helposti ja julkaise lähtölistat yhdellä klikkauksella. Automatisoitu viestintä hoitaa vahvistukset ja muistutukset pelaajille. Kierroksen aikana pelaajat kirjaavat pisteet mobiililla ja tuloslistat päivittyvät reaaliajassa.'}
+            </p>
           </motion.div>
         </Container>
       </section>
 
       {/* Additional Feature Sections */}
 
-      {/* Live Scoring Section */}
+      {/* Tournament Creation Section */}
+      <section className="py-24 bg-gray-50">
+        <Container>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                {isEnglish ? 'Flexible tools for tournaments' : 'Joustavat työkalut kilpailuihin'}
+              </h2>
+
+              <p className="text-xl text-gray-600 leading-relaxed">
+                {isEnglish
+                  ? 'Manage your course tournaments from start to finish. Create events, accept registrations, and track results in real-time on a single platform.'
+                  : 'Hallitse kenttäsi kilpailuja alusta loppuun. Luo tapahtumia, vastaanota ilmoittautumisia ja seuraa tuloksia reaaliajassa yhdellä alustalla.'
+                }
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="aspect-[4/3] bg-white rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 hover:shadow-3xl hover:scale-105 cursor-pointer">
+                <img
+                  src="/tournament-formats.png"
+                  alt={isEnglish ? 'Tournament format selection' : 'Turnausmuodon valinta'}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Registration & Payments Section */}
       <section className="py-24 bg-white">
+        <Container>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="order-2 lg:order-1 relative"
+            >
+              <div className="aspect-[4/3] bg-gray-100 rounded-2xl shadow-2xl flex items-center justify-center overflow-hidden">
+                <div className="text-center p-8">
+                  <Monitor size={80} className="text-gray-400 mx-auto mb-4" />
+                  <p className="text-gray-500 font-medium text-lg">
+                    {isEnglish ? 'Registration Form Screenshot' : 'Ilmoittautumislomakkeen kuvakaappaus'}
+                  </p>
+                  <p className="text-gray-400 text-sm mt-2">
+                    {isEnglish ? 'Image placeholder' : 'Kuvan paikka'}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="order-1 lg:order-2"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                {isEnglish ? 'Online registration & payments' : 'Ilmoittautuminen ja maksut verkossa'}
+              </h2>
+
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                {isEnglish
+                  ? 'Streamline registration with online sign-ups. Accept payments securely and manage participant lists automatically.'
+                  : 'Tehosta ilmoittautumista verkkoilmoittautumisella. Vastaanota maksut turvallisesti ja hallitse osallistujalistoja automaattisesti.'
+                }
+              </p>
+
+              <ul className="space-y-4 text-lg">
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                  </div>
+                  <span className="text-gray-700">
+                    {isEnglish ? 'Easy online registration forms' : 'Helpot verkkoilmoittautumislomakkeet'}
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                  </div>
+                  <span className="text-gray-700">
+                    {isEnglish ? 'Secure payment processing' : 'Turvallinen maksujen käsittely'}
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                  </div>
+                  <span className="text-gray-700">
+                    {isEnglish ? 'Automatic confirmation emails' : 'Automaattiset vahvistussähköpostit'}
+                  </span>
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Live Scoring Section */}
+      <section className="py-24 bg-gray-50">
         <Container>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -257,153 +323,8 @@ export const TournamentManagement: React.FC = () => {
         </Container>
       </section>
 
-      {/* Tournament Creation Section */}
-      <section className="py-24 bg-gray-50">
-        <Container>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="order-2 lg:order-1 relative"
-            >
-              <div className="aspect-[4/3] bg-gray-100 rounded-2xl shadow-2xl flex items-center justify-center overflow-hidden">
-                <div className="text-center p-8">
-                  <Users size={80} className="text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-500 font-medium text-lg">
-                    {isEnglish ? 'Tournament Setup Screenshot' : 'Kilpailun luomisen kuvakaappaus'}
-                  </p>
-                  <p className="text-gray-400 text-sm mt-2">
-                    {isEnglish ? 'Image placeholder' : 'Kuvan paikka'}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="order-1 lg:order-2"
-            >
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                {isEnglish ? 'Create tournaments effortlessly' : 'Luo kilpailuja vaivattomasti'}
-              </h2>
-
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                {isEnglish
-                  ? 'Set up any type of tournament in minutes. From small club events to major championships - configure formats, scoring, and rules with ease.'
-                  : 'Järjestä kaikenkokoisia kilpailuja minuuteissa. Pienistä klubitapahtumista suuriin mestaruuksiin - määritä formaatit, pisteytys ja säännöt helposti.'
-                }
-              </p>
-
-              <ul className="space-y-4 text-lg">
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  </div>
-                  <span className="text-gray-700">
-                    {isEnglish ? 'Support for all tournament formats' : 'Tuki kaikille kilpailumuodoille'}
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  </div>
-                  <span className="text-gray-700">
-                    {isEnglish ? 'Unlimited participants' : 'Rajaton määrä osallistujia'}
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  </div>
-                  <span className="text-gray-700">
-                    {isEnglish ? 'Quick templates for common formats' : 'Valmiit mallit yleisille formaateille'}
-                  </span>
-                </li>
-              </ul>
-            </motion.div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Registration & Payments Section */}
-      <section className="py-24 bg-white">
-        <Container>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                {isEnglish ? 'Online registration & payments' : 'Ilmoittautuminen ja maksut verkossa'}
-              </h2>
-
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                {isEnglish
-                  ? 'Streamline registration with online sign-ups. Accept payments securely and manage participant lists automatically.'
-                  : 'Tehosta ilmoittautumista verkkoilmoittautumisella. Vastaanota maksut turvallisesti ja hallitse osallistujalistoja automaattisesti.'
-                }
-              </p>
-
-              <ul className="space-y-4 text-lg">
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                  </div>
-                  <span className="text-gray-700">
-                    {isEnglish ? 'Easy online registration forms' : 'Helpot verkkoilmoittautumislomakkeet'}
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                  </div>
-                  <span className="text-gray-700">
-                    {isEnglish ? 'Secure payment processing' : 'Turvallinen maksujen käsittely'}
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                  </div>
-                  <span className="text-gray-700">
-                    {isEnglish ? 'Automatic confirmation emails' : 'Automaattiset vahvistussähköpostit'}
-                  </span>
-                </li>
-              </ul>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <div className="aspect-[4/3] bg-gray-100 rounded-2xl shadow-2xl flex items-center justify-center overflow-hidden">
-                <div className="text-center p-8">
-                  <Monitor size={80} className="text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-500 font-medium text-lg">
-                    {isEnglish ? 'Registration Form Screenshot' : 'Ilmoittautumislomakkeen kuvakaappaus'}
-                  </p>
-                  <p className="text-gray-400 text-sm mt-2">
-                    {isEnglish ? 'Image placeholder' : 'Kuvan paikka'}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </Container>
-      </section>
-
       {/* Custom Tournament Pages Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-white">
         <Container>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div

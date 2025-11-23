@@ -114,10 +114,10 @@ const translations = {
       }
     },
     tournaments: {
-      title: 'Kilpailujen hallinta',
+      title: 'Kilpailumoduuli',
       subtitle: 'Hallitse kilpailut helposti - ilmoittautumisista tuloslistoihin',
       management: {
-        title: 'Kilpailujen hallinta',
+        title: 'Kilpailumoduuli',
         description: 'Helppokäyttöinen järjestelmä hoitaa koko kilpailuprosessin saumattomasti - ilmoittautumisista ja lähtölistoista aina tulosten julkaisuun saakka. Tuloslistat päivittyvät reaaliajassa ja pelaajat saavat välittömästi ajantasaiset tiedot. Tukee kaikkia yleisimpiä kilpailumuotoja kuten lyöntiä, staplefordia ja bogey-peliä. Taustalla toimivat automatisoidut prosessit säästävät aikaa, vähentävät virheitä ja pitävät tapahtuman sujuvana.'
       },
       reporting: {
@@ -135,6 +135,7 @@ const translations = {
       product: 'TUOTE',
       forGolfCourses: 'Golfkentille',
       forPlayers: 'Pelaajille',
+      tournamentManagement: 'Kilpailunhallinta',
       company: 'YRITYS',
       contact: 'Ota yhteyttä',
       downloadApp: 'LATAA SOVELLUS',
@@ -143,6 +144,7 @@ const translations = {
       googlePlay: 'Google Play',
       terms: 'Käyttöehdot',
       privacy: 'Tietosuojakäytäntö',
+      cookieSettings: 'Evästeasetukset',
       rights: 'Kaikki oikeudet pidätetään'
     },
     demo: {
@@ -315,6 +317,7 @@ const translations = {
       product: 'PRODUCT',
       forGolfCourses: 'For Golf Courses',
       forPlayers: 'For Players',
+      tournamentManagement: 'Tournament Management',
       company: 'COMPANY',
       contact: 'Contact',
       downloadApp: 'DOWNLOAD APP',
@@ -323,6 +326,7 @@ const translations = {
       googlePlay: 'Google Play',
       terms: 'Terms of Service',
       privacy: 'Privacy Policy',
+      cookieSettings: 'Cookie Settings',
       rights: 'All rights reserved'
     },
     demo: {
