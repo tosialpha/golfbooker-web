@@ -148,13 +148,12 @@ export const TournamentManagement: React.FC = () => {
               className="relative flex-1 max-w-3xl"
             >
               <div className="aspect-video bg-gray-900 rounded-2xl shadow-2xl p-4 relative">
-                <div className="bg-gray-100 rounded-xl w-full h-full flex items-center justify-center overflow-hidden">
-                  <div className="text-center p-8">
-                    <Monitor size={80} className="text-gray-400 mx-auto mb-4" />
-                    <p className="text-gray-500 font-medium text-lg">
-                      {isEnglish ? 'Desktop Dashboard' : 'Työpöytänäkymä'}
-                    </p>
-                  </div>
+                <div className="bg-gray-100 rounded-xl w-full h-full overflow-hidden">
+                  <img
+                    src="/tournament-desktop.png"
+                    alt={isEnglish ? 'Desktop tournament dashboard' : 'Kilpailun työpöytänäkymä'}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </motion.div>
