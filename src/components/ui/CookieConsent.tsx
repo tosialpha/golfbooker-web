@@ -75,17 +75,18 @@ export function CookieConsent() {
     loadGoogleAnalytics();
   };
 
-  const handleRejectAll = () => {
-    const onlyNecessary = {
-      necessary: true,
-      analytics: false,
-      marketing: false
-    };
-    localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(onlyNecessary));
-    setShowBanner(false);
-    setShowCustomize(false);
-    setShowFloatingButton(true);
-  };
+  // Commented out unused function
+  // const handleRejectAll = () => {
+  //   const onlyNecessary = {
+  //     necessary: true,
+  //     analytics: false,
+  //     marketing: false
+  //   };
+  //   localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(onlyNecessary));
+  //   setShowBanner(false);
+  //   setShowCustomize(false);
+  //   setShowFloatingButton(true);
+  // };
 
   const handleSavePreferences = () => {
     localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(preferences));

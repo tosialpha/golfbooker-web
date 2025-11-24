@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Container } from '../components/ui/Container';
 import { useLanguage } from '../contexts/LanguageContext';
-import { ArrowRight, Smartphone, Monitor, Zap, TrendingUp, Users } from 'lucide-react';
+import { ArrowRight, Zap, TrendingUp, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const TournamentManagement: React.FC = () => {
