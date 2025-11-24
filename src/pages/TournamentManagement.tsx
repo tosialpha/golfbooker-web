@@ -19,33 +19,36 @@ export const TournamentManagement: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50 to-brand-green-900 pt-32 pb-24">
-        <Container>
+      <section className="relative overflow-hidden pt-32 pb-24 min-h-[600px] flex items-center">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/tournament-hero-bg.jpg"
+            alt="Golf tournament"
+            className="w-full h-full object-cover"
+          />
+          {/* Overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-transparent to-brand-green-900/40"></div>
+        </div>
+
+        <Container className="relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-block mb-6"
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-green-600 bg-opacity-20 border border-brand-green-600 rounded-full">
-                <Zap size={16} className="text-brand-green-700" />
-                <span className="text-brand-green-900 text-sm font-medium">
-                  {isEnglish ? 'Tournament Management Platform' : 'Kilpailunhallinta-alusta'}
-                </span>
-              </div>
-            </motion.div>
-
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight"
+                style={{
+                  textShadow: '0 10px 40px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.3)'
+                }}>
               {t('tournaments.title')}
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-700 mb-12 leading-relaxed max-w-3xl whitespace-pre-line">
+            <p className="text-xl md:text-2xl text-white/95 mb-12 leading-relaxed max-w-3xl whitespace-pre-line"
+               style={{
+                 textShadow: '0 4px 12px rgba(0,0,0,0.3)'
+               }}>
               {t('tournaments.subtitle')}
             </p>
 
@@ -53,21 +56,17 @@ export const TournamentManagement: React.FC = () => {
               <button
                 type="button"
                 onClick={handleScrollToCTA}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-brand-green-600 text-white rounded-lg font-semibold hover:bg-brand-green-700 transition-colors cursor-pointer shadow-lg"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-brand-green-600 text-white rounded-lg font-semibold hover:bg-brand-green-700 transition-all duration-300 hover:scale-105 shadow-lg"
               >
-                Aloita tästä
+                {isEnglish ? 'Start here' : 'Aloita tästä'}
                 <ArrowRight size={20} />
               </button>
             </div>
           </motion.div>
         </Container>
-
-        {/* Decorative gradient orbs */}
-        <div className="absolute top-20 right-0 w-96 h-96 bg-brand-green-600 rounded-full filter blur-3xl opacity-20"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-600 rounded-full filter blur-3xl opacity-10"></div>
       </section>
 
-      {/* Stats/Quick Facts Bar */}
+      {/* Key Features Bar */}
       <section className="bg-white border-y border-gray-200">
         <Container>
           <div className="py-12 grid grid-cols-3 gap-8">
@@ -82,11 +81,11 @@ export const TournamentManagement: React.FC = () => {
                   <Zap className="text-brand-green-600" size={24} />
                 </div>
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-1">
-                {isEnglish ? 'Fast Setup' : 'Nopea käyttöönotto'}
+              <div className="text-xl font-bold text-gray-900 mb-2">
+                {isEnglish ? 'Create Tournaments' : 'Luo kilpailuja'}
               </div>
-              <div className="text-sm text-gray-600">
-                {isEnglish ? 'Launch in minutes' : 'Käynnistä minuuteissa'}
+              <div className="text-sm text-gray-600 leading-relaxed">
+                {isEnglish ? 'Set up any tournament format in minutes with intuitive tools' : 'Perusta minkä tahansa muotoinen kilpailu minuuteissa intuitiivisilla työkaluilla'}
               </div>
             </motion.div>
 
@@ -102,11 +101,11 @@ export const TournamentManagement: React.FC = () => {
                   <Users className="text-brand-green-600" size={24} />
                 </div>
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-1">
-                {isEnglish ? 'Unlimited' : 'Rajaton'}
+              <div className="text-xl font-bold text-gray-900 mb-2">
+                {isEnglish ? 'Live Results' : 'Reaaliaikaiset tulokset'}
               </div>
-              <div className="text-sm text-gray-600">
-                {isEnglish ? 'Players & tournaments' : 'Pelaajat & kilpailut'}
+              <div className="text-sm text-gray-600 leading-relaxed">
+                {isEnglish ? 'Players enter scores on mobile and leaderboards update instantly' : 'Pelaajat syöttävät tulokset mobiilissa ja listat päivittyvät välittömästi'}
               </div>
             </motion.div>
 
@@ -122,11 +121,11 @@ export const TournamentManagement: React.FC = () => {
                   <TrendingUp className="text-brand-green-600" size={24} />
                 </div>
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-1">
-                {isEnglish ? 'Real-time' : 'Reaaliaikainen'}
+              <div className="text-xl font-bold text-gray-900 mb-2">
+                {isEnglish ? 'Complete Management' : 'Kokonaisvaltainen hallinta'}
               </div>
-              <div className="text-sm text-gray-600">
-                {isEnglish ? 'Mobile app' : 'Mobiilisovellus'}
+              <div className="text-sm text-gray-600 leading-relaxed">
+                {isEnglish ? 'Manage registrations, players, scoring, and results all in one place' : 'Hallitse ilmoittautumisia, pelaajia, pisteytystä ja tuloksia yhdessä paikassa'}
               </div>
             </motion.div>
           </div>
@@ -149,16 +148,15 @@ export const TournamentManagement: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative flex-1 max-w-3xl"
+              className="relative flex-1 max-w-4xl"
             >
-              <div className="aspect-video bg-gray-900 rounded-2xl shadow-2xl p-4 relative">
-                <div className="bg-gray-100 rounded-xl w-full h-full flex items-center justify-center overflow-hidden">
-                  <div className="text-center p-8">
-                    <Monitor size={80} className="text-gray-400 mx-auto mb-4" />
-                    <p className="text-gray-500 font-medium text-lg">
-                      {isEnglish ? 'Desktop Dashboard' : 'Työpöytänäkymä'}
-                    </p>
-                  </div>
+              <div className="bg-gray-900 rounded-2xl shadow-2xl p-3 relative">
+                <div className="bg-gray-100 rounded-xl w-full overflow-hidden">
+                  <img
+                    src="/desktop-mockup-1.png"
+                    alt="Desktop dashboard"
+                    className="w-full object-contain"
+                  />
                 </div>
               </div>
 
@@ -175,17 +173,14 @@ export const TournamentManagement: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="relative -ml-32 mb-8 z-10"
             >
-              <div className="aspect-[9/16] w-64 bg-gray-900 rounded-[3rem] shadow-2xl p-3 relative">
-                <div className="bg-gray-100 rounded-[2.5rem] w-full h-full flex items-center justify-center overflow-hidden">
-                  <div className="text-center p-6">
-                    <Smartphone size={60} className="text-gray-400 mx-auto mb-3" />
-                    <p className="text-gray-500 font-medium text-sm">
-                      {isEnglish ? 'Mobile App' : 'Mobiilisovellus'}
-                    </p>
-                  </div>
+              <div className="aspect-[9/18] w-72 bg-gray-900 rounded-[3rem] shadow-2xl p-2 relative">
+                <div className="bg-gray-100 rounded-[2.5rem] w-full h-full overflow-hidden flex items-center justify-center">
+                  <img
+                    src="/tournament-phone-mockup-1.png"
+                    alt="Tournament mobile app"
+                    className="w-full h-full object-cover object-center"
+                  />
                 </div>
-                {/* Phone notch */}
-                <div className="absolute top-6 left-1/2 -translate-x-1/2 w-20 h-5 bg-gray-900 rounded-full"></div>
               </div>
 
               {/* Floating elements */}
@@ -214,8 +209,8 @@ export const TournamentManagement: React.FC = () => {
 
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 {isEnglish
-                  ? 'Players enter scores directly through the mobile app. Leaderboards update instantly and stay current throughout the tournament.'
-                  : 'Pelaajat syöttävät pisteet suoraan mobiilisovelluksella. Tuloslistat päivittyvät välittömästi ja pysyvät ajan tasalla koko kilpailun ajan.'
+                  ? 'Leaderboards update instantly and stay current throughout the tournament.'
+                  : 'Tuloslistat päivittyvät välittömästi ja pysyvät ajan tasalla koko kilpailun ajan.'
                 }
               </p>
 
@@ -252,19 +247,20 @@ export const TournamentManagement: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              whileHover={{ scale: 1.02 }}
               className="relative"
             >
-              <div className="aspect-[4/3] bg-gradient-to-br from-green-100 to-green-50 rounded-2xl shadow-2xl flex items-center justify-center overflow-hidden">
-                <div className="text-center p-8">
-                  <TrendingUp size={80} className="text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-500 font-medium text-lg">
-                    {isEnglish ? 'Live Scoring Screenshot' : 'Suoran pisteytyksen kuvakaappaus'}
-                  </p>
-                  <p className="text-gray-400 text-sm mt-2">
-                    {isEnglish ? 'Image placeholder' : 'Kuvan paikka'}
-                  </p>
-                </div>
-              </div>
+              <motion.img
+                src="/live-tracking-desktop.png"
+                alt="Live tracking desktop dashboard"
+                className="w-full rounded-2xl shadow-2xl"
+                whileHover={{
+                  rotateX: 2,
+                  rotateY: 2,
+                  transition: { duration: 0.3 }
+                }}
+                style={{ transformStyle: "preserve-3d" }}
+              />
 
               <div className="absolute -top-6 -right-6 w-24 h-24 bg-green-300 rounded-2xl blur-2xl opacity-50"></div>
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-brand-green-200 rounded-2xl blur-2xl opacity-40"></div>
@@ -282,19 +278,20 @@ export const TournamentManagement: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              whileHover={{ scale: 1.02 }}
               className="order-2 lg:order-1 relative"
             >
-              <div className="aspect-[4/3] bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl shadow-2xl flex items-center justify-center overflow-hidden">
-                <div className="text-center p-8">
-                  <Users size={80} className="text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-500 font-medium text-lg">
-                    {isEnglish ? 'Tournament Setup Screenshot' : 'Kilpailun luomisen kuvakaappaus'}
-                  </p>
-                  <p className="text-gray-400 text-sm mt-2">
-                    {isEnglish ? 'Image placeholder' : 'Kuvan paikka'}
-                  </p>
-                </div>
-              </div>
+              <motion.img
+                src="/tournament-creation-mockup.png"
+                alt="Tournament creation dashboard"
+                className="w-full rounded-2xl shadow-2xl"
+                whileHover={{
+                  rotateX: -2,
+                  rotateY: -2,
+                  transition: { duration: 0.3 }
+                }}
+                style={{ transformStyle: "preserve-3d" }}
+              />
 
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-blue-300 rounded-2xl blur-2xl opacity-50"></div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-purple-200 rounded-2xl blur-2xl opacity-40"></div>
@@ -349,7 +346,7 @@ export const TournamentManagement: React.FC = () => {
         </Container>
       </section>
 
-      {/* Registration & Payments Section */}
+      {/* Mobile Score Entry Section */}
       <section className="py-24 bg-white">
         <Container>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -360,13 +357,13 @@ export const TournamentManagement: React.FC = () => {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                {isEnglish ? 'Online registration & payments' : 'Ilmoittautuminen ja maksut verkossa'}
+                {isEnglish ? 'Players mark scores conveniently on mobile' : 'Pelaajat merkkaavat tulokset kätevästi mobiilissa'}
               </h2>
 
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 {isEnglish
-                  ? 'Streamline registration with online sign-ups. Accept payments securely and manage participant lists automatically.'
-                  : 'Tehosta ilmoittautumista verkkoilmoittautumisella. Vastaanota maksut turvallisesti ja hallitse osallistujalistoja automaattisesti.'
+                  ? 'Players enter their scores directly through the mobile app. Quick, easy, and always up-to-date - no paper scorecards needed.'
+                  : 'Pelaajat syöttävät tuloksensa suoraan mobiilisovelluksen kautta. Nopeaa, helppoa ja aina ajan tasalla - ei tarvetta paperisille tuloskorteille.'
                 }
               </p>
 
@@ -376,7 +373,7 @@ export const TournamentManagement: React.FC = () => {
                     <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
                   </div>
                   <span className="text-gray-700">
-                    {isEnglish ? 'Easy online registration forms' : 'Helpot verkkoilmoittautumislomakkeet'}
+                    {isEnglish ? 'Intuitive score entry' : 'Intuitiivinen tulosten syöttö'}
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -384,7 +381,7 @@ export const TournamentManagement: React.FC = () => {
                     <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
                   </div>
                   <span className="text-gray-700">
-                    {isEnglish ? 'Secure payment processing' : 'Turvallinen maksujen käsittely'}
+                    {isEnglish ? 'Works offline - syncs when connected' : 'Toimii offline-tilassa - synkronoituu yhdistettäessä'}
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -392,7 +389,7 @@ export const TournamentManagement: React.FC = () => {
                     <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
                   </div>
                   <span className="text-gray-700">
-                    {isEnglish ? 'Automatic confirmation emails' : 'Automaattiset vahvistussähköpostit'}
+                    {isEnglish ? 'Automatic score validation' : 'Automaattinen tulosten validointi'}
                   </span>
                 </li>
               </ul>
@@ -403,17 +400,16 @@ export const TournamentManagement: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative"
+              whileHover={{ scale: 1.02 }}
+              className="relative flex justify-center"
             >
-              <div className="aspect-[4/3] bg-gradient-to-br from-purple-100 to-purple-50 rounded-2xl shadow-2xl flex items-center justify-center overflow-hidden">
-                <div className="text-center p-8">
-                  <Monitor size={80} className="text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-500 font-medium text-lg">
-                    {isEnglish ? 'Registration Form Screenshot' : 'Ilmoittautumislomakkeen kuvakaappaus'}
-                  </p>
-                  <p className="text-gray-400 text-sm mt-2">
-                    {isEnglish ? 'Image placeholder' : 'Kuvan paikka'}
-                  </p>
+              <div className="aspect-[9/18] w-72 bg-gray-900 rounded-[3rem] shadow-2xl p-2 relative">
+                <div className="bg-gray-100 rounded-[2.5rem] w-full h-full overflow-hidden flex items-center justify-center">
+                  <img
+                    src="/mobile-score-entry.png"
+                    alt="Mobile score entry"
+                    className="w-full h-full object-cover object-center"
+                  />
                 </div>
               </div>
 
@@ -424,8 +420,8 @@ export const TournamentManagement: React.FC = () => {
         </Container>
       </section>
 
-      {/* Custom Tournament Pages Section */}
-      <section className="py-24 bg-gray-50">
+      {/* Custom Tournament Pages Section - Hidden for now */}
+      {/* <section className="py-24 bg-gray-50">
         <Container>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -498,30 +494,30 @@ export const TournamentManagement: React.FC = () => {
             </motion.div>
           </div>
         </Container>
-      </section>
+      </section> */}
 
       {/* CTA Panel with Phone Mockup */}
       <section id="cta-section" className="relative bg-gradient-to-br from-gray-800 via-brand-green-800 to-brand-green-900 py-20 overflow-hidden">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left side - Contact form */}
+          <div className="max-w-3xl mx-auto">
+            {/* Contact form */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               className="text-white"
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-center">
                 {isEnglish ? 'Ready to get started?' : 'Valmis aloittamaan?'}
               </h2>
-              <p className="text-lg md:text-xl text-gray-200 mb-4">
+              <p className="text-lg md:text-xl text-gray-200 mb-4 text-center">
                 {isEnglish
                   ? 'Discover how our tournament management system can transform your golf events. Get in touch and we\'ll tell you more!'
                   : 'Tutustu kilpailunhallintajärjestelmäämme ja katso, miten se voi helpottaa tapahtumienne järjestämistä. Ota yhteyttä niin kerromme lisää!'
                 }
               </p>
-              <p className="text-sm text-green-300 mb-8">
+              <p className="text-sm text-green-300 mb-8 text-center">
                 {isEnglish
                   ? 'Fill out the form and we\'ll contact you shortly.'
                   : 'Täytä lomake, niin otamme sinuun yhteyttä pian.'}
@@ -588,66 +584,15 @@ export const TournamentManagement: React.FC = () => {
                   </label>
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full md:w-auto px-12 py-4 bg-white text-brand-green-900 font-bold rounded-full hover:bg-gray-100 transition-colors shadow-lg"
-                >
-                  {isEnglish ? 'Send' : 'Lähetä'}
-                </button>
-              </form>
-            </motion.div>
-
-            {/* Right side - Phone mockup */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative flex justify-center items-center"
-            >
-              <div className="aspect-[9/19.5] w-80 bg-black rounded-[3rem] shadow-2xl p-3 relative">
-                <div className="bg-white rounded-[2.5rem] w-full h-full overflow-hidden">
-                  {/* Phone content - Tournament app mockup */}
-                  <div className="relative h-full bg-gradient-to-b from-gray-900 to-gray-800 p-6 flex flex-col">
-                    {/* Tournament image */}
-                    <div className="w-full h-48 bg-gray-700 rounded-xl mb-4 overflow-hidden">
-                      <div className="w-full h-full bg-gradient-to-br from-green-600 to-green-800"></div>
-                    </div>
-
-                    {/* Tournament title */}
-                    <h3 className="text-white text-xl font-bold mb-1">Birdie Trophy Invitational</h3>
-                    <p className="text-gray-400 text-sm mb-4">Reynolds Lake Oconee | 11.06.2024</p>
-
-                    {/* Trophy icon */}
-                    <div className="flex justify-center my-6">
-                      <div className="w-16 h-16 bg-white bg-opacity-10 rounded-full flex items-center justify-center">
-                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M6 3h12v2H6V3zm1 4h10v1c0 2.21-1.79 4-4 4H11c-2.21 0-4-1.79-4-4V7zm5 14c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2zm-1-4v-2h2v2h-2z"/>
-                        </svg>
-                      </div>
-                    </div>
-
-                    {/* Sign up button */}
-                    <button className="w-full py-3 bg-brand-green-500 hover:bg-brand-green-600 text-white font-semibold rounded-lg mb-4">
-                      Sign up
-                    </button>
-
-                    {/* Navigation tabs */}
-                    <div className="grid grid-cols-4 gap-2 text-xs text-gray-400 mt-auto">
-                      <div className="text-center">Info</div>
-                      <div className="text-center">Game</div>
-                      <div className="text-center">Players</div>
-                      <div className="text-center">Start List</div>
-                    </div>
-                  </div>
+                <div className="flex justify-center">
+                  <button
+                    type="submit"
+                    className="px-12 py-4 bg-white text-brand-green-900 font-bold rounded-full hover:bg-gray-100 transition-colors shadow-lg"
+                  >
+                    {isEnglish ? 'Send' : 'Lähetä'}
+                  </button>
                 </div>
-                {/* Phone notch */}
-                <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full"></div>
-              </div>
-
-              {/* Decorative gradient orbs */}
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-brand-green-400 rounded-full filter blur-3xl opacity-30"></div>
-              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-green-300 rounded-full filter blur-3xl opacity-20"></div>
+              </form>
             </motion.div>
           </div>
         </Container>

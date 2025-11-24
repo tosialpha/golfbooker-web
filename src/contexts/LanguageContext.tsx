@@ -47,11 +47,15 @@ const translations = {
   fi: {
     nav: {
       home: 'Etusivu',
+      story: 'Meistä',
       forPlayers: 'Käyttäjille',
       tournaments: 'Kilpailut',
       contact: 'Ota yhteyttä',
       startTrial: 'Aloita ilmainen kokeilu',
       tryDemo: 'Kokeile demoa'
+    },
+    home: {
+      readMore: 'Lue lisää'
     },
     hero: {
       title: 'Moderni Golfkentän hallintajärjestelmä',
@@ -222,16 +226,66 @@ const translations = {
       bySubmitting: 'Lähettämällä hyväksyt',
       privacyPolicy: 'tietosuojakäytäntömme',
       submit: 'Luo demo-ympäristö'
+    },
+    story: {
+      title: 'Meistä',
+      subtitle: 'Kaksi Aalto-yliopiston opiskelijaa, jotka rakastavat urheilua, rakentamista ja ongelmien ratkaisemista',
+      intro: {
+        paragraph1: 'Tarinamme ei tarvinnut suurta alkua. Se syntyi kahdesta Aalto-yliopiston kaverista, jotka rakastivat urheilua, rakentamista ja sellaisten ongelmien korjaamista, joiden ei enää kuuluisi olla olemassa vuonna 2025.',
+        paragraph2: 'Alun perin lähdimme luomaan alustaa, joka yhdistäisi koko urheilumaailman — varaukset, maksut, jäsenyydet, viestinnän, taloushallinnon — kaiken selkeäksi ja moderniksi kokonaisuudeksi. Jokainen järjestelmä, johon kosketimme, tuntui vanhentuneelta, pirstaleiselta tai siltä, ettei sitä oltu koskaan suunniteltu oikeita käyttäjiä varten.'
+      },
+      pivot: {
+        title: 'Käännekohta',
+        paragraph1: 'Matkan varrella intohimomme golfiin muutti suunnan. Kun aloimme jutella klubien, proiden, pelaajien ja operatiivisen puolen kanssa, saimme nopeasti selkeän kuvan: nykyiset järjestelmät ovat yksinkertaisesti liian vanhoja, sekavia ja täysin ylihinnoiteltuja.',
+        paragraph2: 'Moni klubi joutuu maksamaan järjettömiä summia järjestelmistä, jotka eivät ole pysyneet ajan tasalla — ja vielä kaiken lisäksi käyttää useampaa alustaa yhtä aikaa vain hoitaakseen perustason arkea. Golfalalla ei ollut yhtään aidosti modernia, järkevällä hinnoittelulla toimivaa kokonaisratkaisua. Joten päätimme, että jonkun on pakko korjata tämä. Ja se joku olimme me.'
+      },
+      solution: {
+        title: 'Ratkaisu',
+        paragraph1: 'Siksi rakensimme GolfBookerin.',
+        paragraph2: 'Ei pikaprojektina, vaan pitkän tähtäimen visiona tuoda golfklubeille moderni teknologia, yksinkertaisuus ja oikeasti hyvä käyttökokemus. Halusimme rakentaa järjestelmän, joka tuntuu nopealta, selkeältä ja kohtuuhintaiselta — ja joka perustuu siihen, mitä klubit oikeasti tarvitsevat. Ei turhaa tavaraa, ei vanhoja rakenteita, ei kohtuuttomia laskuja.',
+        paragraph3: 'Vain moderni, tehokas alusta, jonka takana on pieni tiimi, joka välittää oikeasti, liikkuu nopeasti ja kuuntelee vielä nopeammin.'
+      },
+      present: {
+        title: 'Tänään',
+        paragraph1: 'Rakennamme GolfBookeria edelleen joka päivä läheisessä yhteistyössä klubien kanssa, heidän palautteensa ja todellisten tarpeidensa pohjalta.',
+        paragraph2: 'Mutta yksi asia pysyy muuttumattomana:'
+      },
+      mission: {
+        title: 'Halu tehdä golfklubin arjesta yksinkertaisempaa, älykkäämpää ja miellyttävämpää — modernilla teknologialla ja järkevällä hinnoittelulla.',
+        closing: 'Tämä on meidän tarina. Ja rehellisesti: olemme vasta alkutaipaleella.'
+      },
+      keyPoints: {
+        modernTech: {
+          title: 'Moderni teknologia',
+          description: 'Rakennettu uusimmilla työkaluilla. Nopea, selkeä ja suunniteltu vuodelle 2025 — ei 2005.'
+        },
+        fairPricing: {
+          title: 'Järkevä hinnoittelu',
+          description: 'Ei vanhoja, kohtuuttomia vuosimaksuja. Selkeä, reilu ja nykyaikainen malli.'
+        },
+        realCollaboration: {
+          title: 'Aito yhteistyö',
+          description: 'Muotoiltu oikeiden klubien ja oikeiden ongelmien perusteella. Ei toimistosta keksittyjä oletuksia.'
+        },
+        smallTeam: {
+          title: 'Pieni tiimi, iso tahto',
+          description: 'Liikumme nopeasti, välitämme oikeasti ja kuuntelemme vielä nopeammin. Ei byrokratiaa, vain tuloksia.'
+        }
+      }
     }
   },
   en: {
     nav: {
       home: 'Home',
+      story: 'Our Story',
       forPlayers: 'For Players',
       tournaments: 'Tournaments',
       contact: 'Contact',
       startTrial: 'Start Free Trial',
       tryDemo: 'Try Demo'
+    },
+    home: {
+      readMore: 'Read more'
     },
     hero: {
       title: 'Modern Booking System for Golf Clubs',
@@ -402,6 +456,52 @@ const translations = {
       bySubmitting: 'By submitting you accept our',
       privacyPolicy: 'privacy policy',
       submit: 'Create Demo Environment'
+    },
+    story: {
+      title: 'Our Story',
+      subtitle: 'Two Aalto University students who love sports, building things, and solving problems',
+      intro: {
+        paragraph1: 'Our story didn\'t need a dramatic beginning. It started with two friends from Aalto University who loved sports, building things, and fixing problems that simply shouldn\'t exist anymore in 2025.',
+        paragraph2: 'We originally set out to create a platform that would unify the entire sports world — bookings, payments, memberships, communication, financial management — all in one clear and modern ecosystem. Every system we touched felt outdated, fragmented, or designed without real users in mind.'
+      },
+      pivot: {
+        title: 'The Turning Point',
+        paragraph1: 'Along the way, our passion for golf shifted everything. As we began talking with clubs, pros, players, and the operational side of the sport, the picture became very clear: the existing systems are outdated, confusing, and massively overpriced.',
+        paragraph2: 'Many clubs are forced to pay unreasonable amounts for software that hasn\'t kept up with the times — and even then, they often need multiple platforms just to run normal daily operations. There was no truly modern, reasonably priced, all-in-one solution for golf clubs. So we decided that someone needed to fix that. And that someone was us.'
+      },
+      solution: {
+        title: 'The Solution',
+        paragraph1: 'That\'s why we built GolfBooker.',
+        paragraph2: 'Not as a quick side project, but as a long-term vision to bring modern technology, simplicity, and genuinely good user experience into golf club operations. We wanted to create a system that feels fast, clear, fairly priced — and built around what clubs actually need. No unnecessary features, no legacy structures, no ridiculous yearly fees.',
+        paragraph3: 'Just a modern, efficient platform created by a small team that truly cares, moves fast, and listens even faster.'
+      },
+      present: {
+        title: 'Today',
+        paragraph1: 'We continue to build GolfBooker every day, working closely with clubs, shaped by their feedback and their real-world challenges.',
+        paragraph2: 'But one thing will never change:'
+      },
+      mission: {
+        title: 'Our mission is to make everyday golf operations simpler, smarter, and more enjoyable — with modern technology and fair pricing.',
+        closing: 'This is our story. And honestly, we\'re only just getting started.'
+      },
+      keyPoints: {
+        modernTech: {
+          title: 'Modern Technology',
+          description: 'Built with the latest tools. Fast, clean, and designed for 2025 — not 2005.'
+        },
+        fairPricing: {
+          title: 'Fair Pricing',
+          description: 'No old-school, unreasonable yearly fees. A clear, transparent, modern model.'
+        },
+        realCollaboration: {
+          title: 'Real Collaboration',
+          description: 'Shaped by real clubs and real problems. Not assumptions made in an office.'
+        },
+        smallTeam: {
+          title: 'Small Team, Big Drive',
+          description: 'We move fast, care deeply, and listen even faster. No bureaucracy — just results.'
+        }
+      }
     }
   }
 };

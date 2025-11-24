@@ -23,13 +23,20 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="pt-24 pb-32 lg:pt-32 lg:pb-48 relative overflow-hidden min-h-screen flex items-center">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100"
-        style={{ backgroundImage: 'url(/golf-hero-bg.jpg)' }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-white/10"></div>
+    <section className="relative overflow-hidden h-screen flex items-center">
+      {/* Video Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/golf-hero-video.mov" type="video/mp4" />
+        </video>
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/30"></div>
       </div>
 
       <Container className="relative z-10">
@@ -46,9 +53,9 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.1] mb-6 tracking-tight"
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6 tracking-tight"
               style={{
-                textShadow: '0 10px 40px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.2)'
+                textShadow: '0 10px 40px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.3)'
               }}
             >
               {t('hero.title')}
@@ -61,7 +68,7 @@ export const Hero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="text-lg sm:text-xl lg:text-2xl text-white/95 mb-10 leading-relaxed max-w-3xl mx-auto font-light"
               style={{
-                textShadow: '0 4px 12px rgba(0,0,0,0.2)'
+                textShadow: '0 4px 12px rgba(0,0,0,0.3)'
               }}
             >
               {t('hero.description')}
@@ -75,31 +82,52 @@ export const Hero: React.FC = () => {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Button
-                variant="primary"
-                size="lg"
-                className="w-full sm:w-auto transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-                style={{
-                  boxShadow: '0 20px 40px rgba(22, 163, 74, 0.3), 0 8px 16px rgba(0, 0, 0, 0.2)'
-                }}
-                onClick={() => navigate('/contact')}
-              >
-                {t('hero.requestDemo')}
-              </Button>
-              <Button
                 variant="secondary"
                 size="lg"
-                className="w-full sm:w-auto bg-white/95 hover:bg-white backdrop-blur-sm transform transition-all duration-300 hover:scale-105"
+                className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 hover:border-white/50 backdrop-blur-sm transform transition-all duration-300 hover:scale-105"
                 style={{
-                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(0, 0, 0, 0.1)'
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)'
                 }}
                 onClick={scrollToFeatures}
               >
                 {t('hero.viewFeatures')}
               </Button>
+              <Button
+                variant="primary"
+                size="lg"
+                className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                style={{
+                  boxShadow: '0 20px 40px rgba(37, 99, 235, 0.3), 0 8px 16px rgba(0, 0, 0, 0.2)'
+                }}
+                onClick={() => navigate('/contact')}
+              >
+                {t('hero.requestDemo')}
+              </Button>
             </motion.div>
           </motion.div>
         </div>
       </Container>
+
+      {/* Scroll Down Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="w-8 h-12 border-2 border-white/50 rounded-full flex items-start justify-center p-2 cursor-pointer"
+          onClick={scrollToFeatures}
+        >
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="w-1.5 h-1.5 bg-white rounded-full"
+          />
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

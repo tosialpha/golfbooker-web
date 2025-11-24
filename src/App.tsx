@@ -6,6 +6,7 @@ import { Layout } from './components/layout/Layout';
 import { Home } from './pages/Home';
 import { Demo } from './pages/Demo';
 import { Contact } from './pages/Contact';
+import { OurStory } from './pages/OurStory';
 import { TournamentManagement } from './pages/TournamentManagement';
 import { Privacy } from './pages/Privacy';
 import { Terms } from './pages/Terms';
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/demo" element={<Demo />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/our-story" element={<OurStory />} />
             <Route path="/tournaments" element={<TournamentManagement />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />

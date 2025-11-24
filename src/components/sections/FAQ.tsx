@@ -23,7 +23,7 @@ export const FAQ: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-24 bg-white">
+    <section id="faq" className="py-24 bg-gray-50">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
