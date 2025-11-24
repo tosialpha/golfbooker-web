@@ -31,10 +31,15 @@ export const Hero: React.FC = () => {
           loop
           muted
           playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: 'center' }}
         >
           <source src="/golf-hero-video.mov" type="video/mp4" />
+          <source src="/golf-hero-video.mov" type="video/quicktime" />
         </video>
+        {/* Fallback gradient for when video doesn't load */}
+        <div className="absolute inset-0 bg-gradient-to-br from-green-800 via-green-700 to-green-900"></div>
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-black/30"></div>
       </div>

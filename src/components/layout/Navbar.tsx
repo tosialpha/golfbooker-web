@@ -112,11 +112,11 @@ export const Navbar: React.FC = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-white/20 backdrop-blur-xl animate-slideDown bg-white/90">
-            <div className="flex flex-col gap-4">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-2xl border-t border-gray-100">
+            <div className="flex flex-col px-6 py-4">
               <Link
                 to="/"
-                className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium text-left py-2"
+                className="text-gray-900 hover:text-brand-green-600 transition-colors font-medium text-lg py-3 border-b border-gray-100"
                 onClick={() => {
                   setIsMobileMenuOpen(false);
                   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -126,26 +126,26 @@ export const Navbar: React.FC = () => {
               </Link>
               <Link
                 to="/our-story"
-                className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium py-2"
+                className="text-gray-900 hover:text-brand-green-600 transition-colors font-medium text-lg py-3 border-b border-gray-100"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t('nav.story')}
               </Link>
               <Link
                 to="/tournaments"
-                className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium py-2"
+                className="text-gray-900 hover:text-brand-green-600 transition-colors font-medium text-lg py-3 border-b border-gray-100"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t('nav.tournaments')}
               </Link>
               <Link
                 to="/contact"
-                className="text-gray-700 hover:text-brand-green-600 transition-colors font-medium py-2"
+                className="text-gray-900 hover:text-brand-green-600 transition-colors font-medium text-lg py-3 border-b border-gray-100"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t('nav.contact')}
               </Link>
-              <div className="flex justify-center py-2">
+              <div className="flex justify-center py-4">
                 <LanguageToggle />
               </div>
             </div>
