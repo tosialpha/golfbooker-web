@@ -35,8 +35,7 @@ export const Hero: React.FC = () => {
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: 'center' }}
         >
-          <source src="/golf-hero-video.mov" type="video/mp4" />
-          <source src="/golf-hero-video.mov" type="video/quicktime" />
+          <source src="/golf-hero-video.mp4" type="video/mp4" />
         </video>
         {/* Fallback gradient for when video doesn't load */}
         <div className="absolute inset-0 bg-gradient-to-br from-green-800 via-green-700 to-green-900"></div>
