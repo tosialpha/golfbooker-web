@@ -25,25 +25,23 @@ export const Hero: React.FC = () => {
   return (
     <section className="relative overflow-hidden h-screen flex items-center">
       {/* Video Background */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-green-800 via-green-700 to-green-900">
         <video
           autoPlay
           loop
           muted
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover z-0"
           style={{ objectPosition: 'center' }}
         >
           <source src="/golf-hero-video.mp4" type="video/mp4" />
         </video>
-        {/* Fallback gradient for when video doesn't load */}
-        <div className="absolute inset-0 bg-gradient-to-br from-green-800 via-green-700 to-green-900"></div>
         {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-black/30 z-10"></div>
       </div>
 
-      <Container className="relative z-10">
+      <Container className="relative z-20">
         <div className="flex items-center justify-center">
           {/* Centered Text Content */}
           <motion.div
