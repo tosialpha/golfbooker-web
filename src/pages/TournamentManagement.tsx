@@ -69,7 +69,7 @@ export const TournamentManagement: React.FC = () => {
       {/* Key Features Bar */}
       <section className="bg-white border-y border-gray-200">
         <Container>
-          <div className="py-12 grid grid-cols-3 gap-8">
+          <div className="py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +81,7 @@ export const TournamentManagement: React.FC = () => {
                   <Zap className="text-brand-green-600" size={24} />
                 </div>
               </div>
-              <div className="text-xl font-bold text-gray-900 mb-2">
+              <div className="text-lg md:text-xl font-bold text-gray-900 mb-2">
                 {isEnglish ? 'Create Tournaments' : 'Luo kilpailuja'}
               </div>
               <div className="text-sm text-gray-600 leading-relaxed">
@@ -101,7 +101,7 @@ export const TournamentManagement: React.FC = () => {
                   <Users className="text-brand-green-600" size={24} />
                 </div>
               </div>
-              <div className="text-xl font-bold text-gray-900 mb-2">
+              <div className="text-lg md:text-xl font-bold text-gray-900 mb-2">
                 {isEnglish ? 'Live Results' : 'Reaaliaikaiset tulokset'}
               </div>
               <div className="text-sm text-gray-600 leading-relaxed">
@@ -121,7 +121,7 @@ export const TournamentManagement: React.FC = () => {
                   <TrendingUp className="text-brand-green-600" size={24} />
                 </div>
               </div>
-              <div className="text-xl font-bold text-gray-900 mb-2">
+              <div className="text-lg md:text-xl font-bold text-gray-900 mb-2">
                 {isEnglish ? 'Complete Management' : 'Kokonaisvaltainen hallinta'}
               </div>
               <div className="text-sm text-gray-600 leading-relaxed">
@@ -140,7 +140,7 @@ export const TournamentManagement: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative flex items-end justify-center gap-8"
+            className="relative flex flex-col md:flex-row items-end justify-center gap-8 md:gap-8"
           >
             {/* Desktop mockup */}
             <motion.div
@@ -148,7 +148,7 @@ export const TournamentManagement: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative flex-1 max-w-4xl"
+              className="relative flex-1 max-w-4xl w-full"
             >
               <div className="bg-gray-900 rounded-2xl shadow-2xl p-3 relative">
                 <div className="bg-gray-100 rounded-xl w-full overflow-hidden">
@@ -165,13 +165,13 @@ export const TournamentManagement: React.FC = () => {
               <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-brand-green-200 rounded-2xl blur-2xl opacity-40"></div>
             </motion.div>
 
-            {/* Mobile mockup - overlapping */}
+            {/* Mobile mockup - overlapping on desktop, stacked on mobile */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative -ml-32 mb-8 z-10"
+              className="relative md:-ml-32 mb-8 z-10 flex justify-center"
             >
               <div className="aspect-[9/18] w-72 bg-gray-900 rounded-[3rem] shadow-2xl p-2 relative">
                 <div className="bg-gray-100 rounded-[2.5rem] w-full h-full overflow-hidden flex items-center justify-center">
