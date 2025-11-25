@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Container } from '../ui/Container';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { Smartphone, Trophy, Calendar } from 'lucide-react';
+import { Smartphone, Trophy, Calendar, TrendingUp } from 'lucide-react';
 
 export const ForPlayers: React.FC = () => {
   const { language } = useLanguage();
@@ -73,6 +73,21 @@ export const ForPlayers: React.FC = () => {
                     {isEnglish
                       ? 'Enter scores on the course and see live leaderboards'
                       : 'Merkitse tulokset kentällä ja katso livetulostauluja'}
+                  </div>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-10 h-10 bg-brand-green-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                  <TrendingUp className="text-brand-green-600" size={20} />
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900 mb-1">
+                    {isEnglish ? 'Free HCP Rounds' : 'Ilmaiset HCP-kierrokset'}
+                  </div>
+                  <div className="text-gray-600">
+                    {isEnglish
+                      ? 'Submit handicap rounds through our app completely free'
+                      : 'Palauta HCP-kierrokset sovelluksemme kautta täysin ilmaiseksi'}
                   </div>
                 </div>
               </li>

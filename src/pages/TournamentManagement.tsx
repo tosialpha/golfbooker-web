@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Container } from '../components/ui/Container';
 import { useLanguage } from '../contexts/LanguageContext';
-import { ArrowRight, Zap, TrendingUp, Users } from 'lucide-react';
+import { ArrowRight, Zap, TrendingUp, Users, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const TournamentManagement: React.FC = () => {
@@ -150,8 +150,8 @@ export const TournamentManagement: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative flex-1 max-w-4xl w-full"
             >
-              <div className="bg-gray-900 rounded-2xl shadow-2xl p-3 relative">
-                <div className="bg-gray-100 rounded-xl w-full overflow-hidden">
+              <div className="bg-gray-900 rounded-xl md:rounded-2xl shadow-2xl p-1.5 md:p-3 relative">
+                <div className="bg-gray-100 rounded-lg md:rounded-xl w-full overflow-hidden">
                   <img
                     src="/desktop-mockup-1.png"
                     alt="Desktop dashboard"
@@ -159,10 +159,6 @@ export const TournamentManagement: React.FC = () => {
                   />
                 </div>
               </div>
-
-              {/* Floating elements */}
-              <div className="absolute -top-8 -left-8 w-32 h-32 bg-purple-200 rounded-2xl blur-2xl opacity-40"></div>
-              <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-brand-green-200 rounded-2xl blur-2xl opacity-40"></div>
             </motion.div>
 
             {/* Mobile mockup - overlapping on desktop, stacked on mobile */}
@@ -173,8 +169,8 @@ export const TournamentManagement: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="relative md:-ml-32 mb-8 z-10 flex justify-center"
             >
-              <div className="aspect-[9/18] w-72 bg-gray-900 rounded-[3rem] shadow-2xl p-2 relative">
-                <div className="bg-gray-100 rounded-[2.5rem] w-full h-full overflow-hidden flex items-center justify-center">
+              <div className="aspect-[9/18] w-48 md:w-72 bg-gray-900 rounded-[2rem] md:rounded-[3rem] shadow-2xl p-1.5 md:p-2 relative">
+                <div className="bg-gray-100 rounded-[1.5rem] md:rounded-[2.5rem] w-full h-full overflow-hidden flex items-center justify-center">
                   <img
                     src="/tournament-phone-mockup-1.png"
                     alt="Tournament mobile app"
@@ -182,10 +178,6 @@ export const TournamentManagement: React.FC = () => {
                   />
                 </div>
               </div>
-
-              {/* Floating elements */}
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-brand-green-300 rounded-2xl blur-2xl opacity-60"></div>
-              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-blue-300 rounded-2xl blur-2xl opacity-50"></div>
             </motion.div>
           </motion.div>
         </Container>
@@ -204,42 +196,36 @@ export const TournamentManagement: React.FC = () => {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                {isEnglish ? 'Live tracking' : 'Live seuranta'}
+                {isEnglish ? 'Live tracking' : 'Seuraa kilpailua reaaliajassa'}
               </h2>
 
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 {isEnglish
                   ? 'Leaderboards update instantly and stay current throughout the tournament.'
-                  : 'Tuloslistat päivittyvät välittömästi ja pysyvät ajan tasalla koko kilpailun ajan.'
+                  : 'Tuloslistat päivittyvät heti kun pelaajat syöttävät tuloksensa. Kaikki näkevät tilanteen samaan aikaan.'
                 }
               </p>
 
-              <ul className="space-y-4 text-lg">
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-brand-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-brand-green-600 rounded-full"></div>
-                  </div>
-                  <span className="text-gray-700">
-                    {isEnglish ? 'Instant updates' : 'Välittömät päivitykset'}
+              <div className="space-y-3">
+                <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-green-300 hover:shadow-md transition-all">
+                  <div className="w-1.5 h-full bg-brand-green-500 rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-800 font-medium">
+                    {isEnglish ? 'Instant updates' : 'Päivitykset tapahtuvat välittömästi'}
                   </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-brand-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-brand-green-600 rounded-full"></div>
-                  </div>
-                  <span className="text-gray-700">
-                    {isEnglish ? 'Live leaderboards for spectators' : 'Reaaliaikaiset listat katsojille'}
+                </div>
+                <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-green-300 hover:shadow-md transition-all">
+                  <div className="w-1.5 h-full bg-brand-green-500 rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-800 font-medium">
+                    {isEnglish ? 'Live leaderboards for spectators' : 'Pelaajat näkevät tulokset sovelluksessa'}
                   </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-brand-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-brand-green-600 rounded-full"></div>
-                  </div>
-                  <span className="text-gray-700">
-                    {isEnglish ? 'Automatic validation' : 'Automaattinen validointi'}
+                </div>
+                <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-green-300 hover:shadow-md transition-all">
+                  <div className="w-1.5 h-full bg-brand-green-500 rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-800 font-medium">
+                    {isEnglish ? 'Automatic validation' : 'Järjestäjä voi halutessaan piilottaa viimeisten väylien tulokset'}
                   </span>
-                </li>
-              </ul>
+                </div>
+              </div>
             </motion.div>
 
             <motion.div
@@ -261,9 +247,6 @@ export const TournamentManagement: React.FC = () => {
                 }}
                 style={{ transformStyle: "preserve-3d" }}
               />
-
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-green-300 rounded-2xl blur-2xl opacity-50"></div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-brand-green-200 rounded-2xl blur-2xl opacity-40"></div>
             </motion.div>
           </div>
         </Container>
@@ -292,9 +275,6 @@ export const TournamentManagement: React.FC = () => {
                 }}
                 style={{ transformStyle: "preserve-3d" }}
               />
-
-              <div className="absolute -top-6 -left-6 w-24 h-24 bg-blue-300 rounded-2xl blur-2xl opacity-50"></div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-purple-200 rounded-2xl blur-2xl opacity-40"></div>
             </motion.div>
 
             <motion.div
@@ -305,42 +285,36 @@ export const TournamentManagement: React.FC = () => {
               className="order-1 lg:order-2"
             >
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                {isEnglish ? 'Create tournaments effortlessly' : 'Luo kilpailuja vaivattomasti'}
+                {isEnglish ? 'Create tournaments effortlessly' : 'Järjestä kilpailut muutamassa minuutissa'}
               </h2>
 
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 {isEnglish
                   ? 'Set up any type of tournament in minutes. From small club events to major championships - configure formats, scoring, and rules with ease.'
-                  : 'Järjestä kaikenkokoisia kilpailuja minuuteissa. Pienistä klubitapahtumista suuriin mestaruuksiin - määritä formaatit, pisteytys ja säännöt helposti.'
+                  : 'Oli sitten kyseessä oman klubin mestikset tai yhteistyökumppanin yritystapahtuma onnistuu se GolfBookerin kautta.'
                 }
               </p>
 
-              <ul className="space-y-4 text-lg">
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  </div>
-                  <span className="text-gray-700">
-                    {isEnglish ? 'Support for all tournament formats' : 'Tuki kaikille kilpailumuodoille'}
+              <div className="space-y-3">
+                <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-green-300 hover:shadow-md transition-all">
+                  <div className="w-1.5 h-full bg-brand-green-500 rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-800 font-medium">
+                    {isEnglish ? 'Support for all tournament formats' : 'Kaikki kilpailumuodot tuettu'}
                   </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  </div>
-                  <span className="text-gray-700">
-                    {isEnglish ? 'Unlimited participants' : 'Rajaton määrä osallistujia'}
+                </div>
+                <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-green-300 hover:shadow-md transition-all">
+                  <div className="w-1.5 h-full bg-brand-green-500 rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-800 font-medium">
+                    {isEnglish ? 'Unlimited participants' : 'Ei rajoitusta osallistujamäärään'}
                   </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  </div>
-                  <span className="text-gray-700">
-                    {isEnglish ? 'Quick templates for common formats' : 'Valmiit mallit yleisille formaateille'}
+                </div>
+                <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-green-300 hover:shadow-md transition-all">
+                  <div className="w-1.5 h-full bg-brand-green-500 rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-800 font-medium">
+                    {isEnglish ? 'Quick templates for common formats' : 'Valmiit pohjat tavallisimmille formaateille'}
                   </span>
-                </li>
-              </ul>
+                </div>
+              </div>
             </motion.div>
           </div>
         </Container>
@@ -357,42 +331,36 @@ export const TournamentManagement: React.FC = () => {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                {isEnglish ? 'Players mark scores conveniently on mobile' : 'Pelaajat merkkaavat tulokset kätevästi mobiilissa'}
+                {isEnglish ? 'Players mark scores conveniently on mobile' : 'Merkitse tulokset suoraan mobiilissa'}
               </h2>
 
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 {isEnglish
                   ? 'Players enter their scores directly through the mobile app. Quick, easy, and always up-to-date - no paper scorecards needed.'
-                  : 'Pelaajat syöttävät tuloksensa suoraan mobiilisovelluksen kautta. Nopeaa, helppoa ja aina ajan tasalla - ei tarvetta paperisille tuloskorteille.'
+                  : 'Pelaajat syöttävät tuloksensa sovelluksen kautta. Nopea, helppo ja aina ajantasalla.'
                 }
               </p>
 
-              <ul className="space-y-4 text-lg">
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                  </div>
-                  <span className="text-gray-700">
-                    {isEnglish ? 'Intuitive score entry' : 'Intuitiivinen tulosten syöttö'}
+              <div className="space-y-3">
+                <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-green-300 hover:shadow-md transition-all">
+                  <div className="w-1.5 h-full bg-brand-green-500 rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-800 font-medium">
+                    {isEnglish ? 'Intuitive score entry' : 'Selkeä ja yksinkertainen käyttö'}
                   </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                  </div>
-                  <span className="text-gray-700">
-                    {isEnglish ? 'Works offline - syncs when connected' : 'Toimii offline-tilassa - synkronoituu yhdistettäessä'}
+                </div>
+                <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-green-300 hover:shadow-md transition-all">
+                  <div className="w-1.5 h-full bg-brand-green-500 rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-800 font-medium">
+                    {isEnglish ? 'Works offline - syncs when connected' : 'Järjestäjä voi merkata tulokset järjestelmästä mikäli pelaaja ei käytä mobiilisovellusta'}
                   </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                  </div>
-                  <span className="text-gray-700">
-                    {isEnglish ? 'Automatic score validation' : 'Automaattinen tulosten validointi'}
+                </div>
+                <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-green-300 hover:shadow-md transition-all">
+                  <div className="w-1.5 h-full bg-brand-green-500 rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-800 font-medium">
+                    {isEnglish ? 'Automatic score validation' : 'Pelaajat voivat halutessaan palauttaa myös tasoituskierroksen ilmaiseksi sovelluksen kautta'}
                   </span>
-                </li>
-              </ul>
+                </div>
+              </div>
             </motion.div>
 
             <motion.div
@@ -408,13 +376,10 @@ export const TournamentManagement: React.FC = () => {
                   <img
                     src="/mobile-score-entry.png"
                     alt="Mobile score entry"
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-cover object-[center_72%]"
                   />
                 </div>
               </div>
-
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-purple-300 rounded-2xl blur-2xl opacity-50"></div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-pink-200 rounded-2xl blur-2xl opacity-40"></div>
             </motion.div>
           </div>
         </Container>
@@ -497,7 +462,7 @@ export const TournamentManagement: React.FC = () => {
       </section> */}
 
       {/* CTA Panel with Phone Mockup */}
-      <section id="cta-section" className="relative bg-gradient-to-br from-gray-800 via-brand-green-800 to-brand-green-900 py-20 overflow-hidden">
+      <section id="cta-section" className="relative bg-gradient-to-br from-emerald-900 via-green-700 to-teal-600 py-20 overflow-hidden">
         <Container>
           <div className="max-w-3xl mx-auto">
             {/* Contact form */}

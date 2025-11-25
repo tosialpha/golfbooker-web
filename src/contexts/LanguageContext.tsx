@@ -59,7 +59,7 @@ const translations = {
     },
     hero: {
       title: 'Moderni Golfkentän hallintajärjestelmä',
-      description: 'Käyttäjäystävällinen järjestelmä, ei kohtuuttomia hintoja.',
+      description: 'Nykyaikainen ja helppokäyttöinen järjestelmä - GolfBooker edistää sekä kenttien, että pelaajien käyttökokemusta',
       requestDemo: 'Esittely',
       viewFeatures: 'Katso toiminnot',
       integrationNexGolf: 'Integrointi NexGolf',
@@ -134,7 +134,7 @@ const translations = {
       }
     },
     footer: {
-      slogan: 'Moderni varausjärjestelmä golfkentille',
+      slogan: 'Moderni hallintajärjestelmä golfkentille',
       domestic: 'Kotimainen yritys',
       product: 'TUOTE',
       forGolfCourses: 'Golfkentille',

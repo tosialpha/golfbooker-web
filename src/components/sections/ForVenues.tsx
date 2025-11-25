@@ -20,7 +20,7 @@ export const ForVenues: React.FC = () => {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              {isEnglish ? 'For Venues' : 'Kentille'}
+              {isEnglish ? 'For Venues' : 'Golfkentille'}
             </h2>
 
             <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">

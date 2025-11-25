@@ -390,6 +390,7 @@ export const Contact: React.FC = () => {
                 <div className="space-y-3 ml-13">
                   <div>
                     <p className="text-xs text-gray-600 mb-2">{t('contact.salesDescription')}</p>
+                    <p className="text-xs font-medium text-gray-700 mb-1">Veeti Karppinen</p>
                     <a href="tel:+358407377397" className="text-sm text-brand-green-600 hover:text-brand-green-700 font-medium block break-all">
                       +358 40 737 7397
                     </a>
@@ -397,6 +398,7 @@ export const Contact: React.FC = () => {
 
                   <div>
                     <p className="text-xs text-gray-600 mb-2">{t('contact.technicalSupportDescription')}</p>
+                    <p className="text-xs font-medium text-gray-700 mb-1">Alexandr Malmberg</p>
                     <a href="tel:+358440582663" className="text-sm text-brand-green-600 hover:text-brand-green-700 font-medium block break-all">
                       +358 44 058 2663
                     </a>

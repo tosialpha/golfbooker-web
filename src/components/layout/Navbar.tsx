@@ -61,16 +61,6 @@ export const Navbar: React.FC = () => {
               {t('nav.home')}
             </Link>
             <Link
-              to="/our-story"
-              className={`transition-colors font-medium ${
-                useDarkTheme
-                  ? 'text-gray-700 hover:text-brand-green-600'
-                  : 'text-white hover:text-white/80'
-              }`}
-            >
-              {t('nav.story')}
-            </Link>
-            <Link
               to="/tournaments"
               className={`transition-colors font-medium ${
                 useDarkTheme
@@ -79,6 +69,16 @@ export const Navbar: React.FC = () => {
               }`}
             >
               {t('nav.tournaments')}
+            </Link>
+            <Link
+              to="/our-story"
+              className={`transition-colors font-medium ${
+                useDarkTheme
+                  ? 'text-gray-700 hover:text-brand-green-600'
+                  : 'text-white hover:text-white/80'
+              }`}
+            >
+              {t('nav.story')}
             </Link>
             <Link
               to="/contact"
@@ -125,18 +125,18 @@ export const Navbar: React.FC = () => {
                 {t('nav.home')}
               </Link>
               <Link
-                to="/our-story"
-                className="text-gray-900 hover:text-brand-green-600 transition-colors font-medium text-lg py-3 border-b border-gray-100"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {t('nav.story')}
-              </Link>
-              <Link
                 to="/tournaments"
                 className="text-gray-900 hover:text-brand-green-600 transition-colors font-medium text-lg py-3 border-b border-gray-100"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t('nav.tournaments')}
+              </Link>
+              <Link
+                to="/our-story"
+                className="text-gray-900 hover:text-brand-green-600 transition-colors font-medium text-lg py-3 border-b border-gray-100"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('nav.story')}
               </Link>
               <Link
                 to="/contact"
