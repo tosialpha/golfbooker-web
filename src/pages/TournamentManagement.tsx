@@ -140,7 +140,7 @@ export const TournamentManagement: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative flex flex-col md:flex-row items-end justify-center gap-8 md:gap-8"
+            className="relative flex flex-col md:flex-row items-center md:items-end justify-center gap-8 md:gap-8"
           >
             {/* Desktop mockup */}
             <motion.div
