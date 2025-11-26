@@ -20,6 +20,14 @@ export const FAQ: React.FC = () => {
       question: t('faq.questions.pricing.question'),
       answer: t('faq.questions.pricing.answer')
     },
+    {
+      question: t('faq.questions.handicap.question'),
+      answer: t('faq.questions.handicap.answer')
+    },
+    {
+      question: t('faq.questions.tournamentModule.question'),
+      answer: t('faq.questions.tournamentModule.answer')
+    },
   ];
 
   return (

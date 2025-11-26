@@ -155,7 +155,7 @@ export const TournamentManagement: React.FC = () => {
                   <img
                     src="/desktop-mockup-1.png"
                     alt="Desktop dashboard"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-left"
                   />
                 </div>
               </div>

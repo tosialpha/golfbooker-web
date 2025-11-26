@@ -115,6 +115,14 @@ const translations = {
         pricing: {
           question: 'Miten hinnoittelu toimii?',
           answer: 'Valitse tarvitsemasi toiminnot ja maksa vain niistä. Pyydä tarjous, niin räätälöimme paketin juuri sinun kenttäsi tarpeisiin.'
+        },
+        handicap: {
+          question: 'Pystyykö pelaajat palauttamaan tuloskortit niin, että tasoitus päivittyy automaattisesti?',
+          answer: 'Kyllä! Pelaajat voivat palauttaa tuloskortit suoraan sovelluksessa, ja tasoitus päivittyy automaattisesti.'
+        },
+        tournamentModule: {
+          question: 'Voiko pelkän kilpailumoduulin hankkia?',
+          answer: 'Kyllä! Kilpailumoduulin voi hankkia erikseen ilman koko varausjärjestelmän käyttöönottoa.'
         }
       }
     },
@@ -186,7 +194,7 @@ const translations = {
       }
     },
     footer: {
-      slogan: 'Moderni hallintajärjestelmä golfkentille',
+      slogan: 'Moderni hallintajärjestelmä golfkentille ja golfsimulaattoreille',
       domestic: 'Kotimainen yritys',
       product: 'TUOTE',
       forGolfCourses: 'Golfkentille',
@@ -397,6 +405,14 @@ const translations = {
         pricing: {
           question: 'How does pricing work?',
           answer: 'Choose the features you need and pay only for those. Request a quote, and we\'ll customize a package specifically for your course\'s needs.'
+        },
+        handicap: {
+          question: 'Can players submit scorecards so that handicap updates automatically?',
+          answer: 'Yes! Players can submit scorecards directly in the app, and the handicap updates automatically.'
+        },
+        tournamentModule: {
+          question: 'Can I get just the tournament module?',
+          answer: 'Yes! The tournament module can be acquired separately without implementing the full booking system.'
         }
       }
     },
