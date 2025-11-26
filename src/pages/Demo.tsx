@@ -20,16 +20,16 @@ export const Demo: React.FC = () => {
             <ArrowLeft size={20} />
             {t('demo.backToHome')}
           </Link>
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2">
             {t('demo.title')}
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600">
             {t('demo.subtitle')}
           </p>
         </div>
 
         {/* Demo Container */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-start">
           {/* Phone Mockup - Full Size */}
           <div className="lg:col-span-7 flex justify-center">
             <div className="w-full max-w-md">
@@ -41,8 +41,8 @@ export const Demo: React.FC = () => {
 
           {/* Instructions Panel */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
                 {t('demo.howItWorks')}
               </h3>
               <div className="space-y-4">
@@ -85,7 +85,7 @@ export const Demo: React.FC = () => {
         </div>
 
         {/* Benefits Section */}
-        <div className="mt-24">
+        <div className="mt-12 sm:mt-16 md:mt-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -93,10 +93,10 @@ export const Demo: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
               {t('demo.whyGolfBooker')}
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
               <div className="p-6">
                 <div className="w-16 h-16 bg-brand-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Smartphone className="text-brand-green-600" size={32} />
@@ -137,18 +137,18 @@ export const Demo: React.FC = () => {
         </div>
 
         {/* Waitlist Section */}
-        <div className="mt-24">
+        <div className="mt-12 sm:mt-16 md:mt-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center bg-gradient-to-br from-brand-green-50 to-white rounded-3xl p-12 border-2 border-brand-green-100"
+            className="text-center bg-gradient-to-br from-brand-green-50 to-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 border-2 border-brand-green-100"
           >
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
               {t('demo.beFirstTitle')}
             </h3>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto">
               {t('demo.beFirstDesc')}
             </p>
 

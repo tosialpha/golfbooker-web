@@ -14,10 +14,10 @@ export const Footer: React.FC = () => {
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
 
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8">
             {/* Brand Column */}
-            <div className="md:col-span-1">
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-brand-green-600 to-brand-green-500 bg-clip-text text-transparent mb-3">GolfBooker</h3>
+            <div className="col-span-2 md:col-span-1">
+              <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-brand-green-600 to-brand-green-500 bg-clip-text text-transparent mb-3">GolfBooker</h3>
               <p className="text-gray-600 text-sm mb-3 leading-relaxed">
                 {t('footer.slogan')}
               </p>
@@ -66,7 +66,7 @@ export const Footer: React.FC = () => {
             </div>
 
             {/* LATAA SOVELLUS Column */}
-            <div>
+            <div className="col-span-2 md:col-span-1">
               <h4 className="font-semibold text-gray-900 mb-4 tracking-tight">{t('footer.downloadApp')}</h4>
               <div className="space-y-3">
                 <div className="relative">
@@ -75,8 +75,8 @@ export const Footer: React.FC = () => {
                       <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
                     </svg>
                     <div className="flex-1">
-                      <div className="text-[10px] font-light">Lataa</div>
-                      <div className="text-base font-semibold -mt-0.5">App Storesta</div>
+                      <div className="text-[11px] sm:text-xs font-light">Lataa</div>
+                      <div className="text-sm sm:text-base font-semibold -mt-0.5">App Storesta</div>
                     </div>
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -113,8 +113,8 @@ export const Footer: React.FC = () => {
                       <path fill="url(#gradRed)" d="M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81Z"/>
                     </svg>
                     <div className="flex-1">
-                      <div className="text-[10px] font-light">LATAA SE</div>
-                      <div className="text-base font-semibold -mt-0.5">Google Playsta</div>
+                      <div className="text-[11px] sm:text-xs font-light">LATAA SE</div>
+                      <div className="text-sm sm:text-base font-semibold -mt-0.5">Google Playsta</div>
                     </div>
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center">

@@ -33,7 +33,7 @@ export const OurStory: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight"
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight"
                 style={{
                   textShadow: '0 10px 40px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.3)'
                 }}>
@@ -44,7 +44,7 @@ export const OurStory: React.FC = () => {
       </section>
 
       {/* The Beginning */}
-      <section className="py-20 md:py-32">
+      <section className="py-12 sm:py-16 md:py-24 lg:py-32">
         <Container>
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -52,13 +52,13 @@ export const OurStory: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="space-y-8"
+              className="space-y-6 sm:space-y-8"
             >
-              <p className="text-2xl md:text-3xl text-gray-800 leading-relaxed font-light">
+              <p className="text-xl sm:text-2xl md:text-3xl text-gray-800 leading-relaxed font-light">
                 {t('story.intro.paragraph1')}
               </p>
 
-              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed">
                 {t('story.intro.paragraph2')}
               </p>
             </motion.div>
@@ -67,7 +67,7 @@ export const OurStory: React.FC = () => {
       </section>
 
       {/* The Pivot - With Quote */}
-      <section className="py-20 md:py-32 bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-24 lg:py-32 bg-gray-50">
         <Container>
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -75,25 +75,25 @@ export const OurStory: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="mb-12"
+              className="mb-8 sm:mb-12"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 sm:mb-12">
                 {t('story.pivot.title')}
               </h2>
 
-              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-8">
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed mb-6 sm:mb-8">
                 {t('story.pivot.paragraph1')}
               </p>
 
               {/* Quote Block */}
-              <div className="relative my-12 pl-8 border-l-4 border-brand-green-600">
-                <Quote className="absolute -left-2 top-0 text-brand-green-600" size={32} />
-                <p className="text-2xl md:text-3xl font-medium text-gray-800 italic">
+              <div className="relative my-8 sm:my-12 pl-6 sm:pl-8 border-l-4 border-brand-green-600">
+                <Quote className="absolute -left-2 top-0 text-brand-green-600" size={24} />
+                <p className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-800 italic">
                   "The systems work… until they don't."
                 </p>
               </div>
 
-              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed">
                 {t('story.pivot.paragraph2')}
               </p>
             </motion.div>
@@ -102,7 +102,7 @@ export const OurStory: React.FC = () => {
       </section>
 
       {/* The Solution */}
-      <section className="py-20 md:py-32">
+      <section className="py-12 sm:py-16 md:py-24 lg:py-32">
         <Container>
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -110,21 +110,21 @@ export const OurStory: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="space-y-8"
+              className="space-y-6 sm:space-y-8"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 sm:mb-12">
                 {t('story.solution.title')}
               </h2>
 
-              <p className="text-2xl md:text-3xl text-brand-green-700 font-semibold leading-relaxed">
+              <p className="text-xl sm:text-2xl md:text-3xl text-brand-green-700 font-semibold leading-relaxed">
                 {t('story.solution.paragraph1')}
               </p>
 
-              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed">
                 {t('story.solution.paragraph2')}
               </p>
 
-              <p className="text-xl md:text-2xl text-gray-800 leading-relaxed font-medium">
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-800 leading-relaxed font-medium">
                 {t('story.solution.paragraph3')}
               </p>
             </motion.div>
@@ -133,7 +133,7 @@ export const OurStory: React.FC = () => {
       </section>
 
       {/* Today & Mission */}
-      <section className="py-20 md:py-32 bg-gradient-to-br from-brand-green-600 to-brand-green-800 relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-24 lg:py-32 bg-gradient-to-br from-brand-green-600 to-brand-green-800 relative overflow-hidden">
         <Container>
           <div className="max-w-4xl mx-auto relative z-10">
             <motion.div
@@ -141,27 +141,27 @@ export const OurStory: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="space-y-8"
+              className="space-y-6 sm:space-y-8"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 sm:mb-12">
                 {t('story.present.title')}
               </h2>
 
-              <p className="text-xl md:text-2xl text-white/95 leading-relaxed">
+              <p className="text-lg sm:text-xl md:text-2xl text-white/95 leading-relaxed">
                 {t('story.present.paragraph1')}
               </p>
 
-              <p className="text-xl md:text-2xl text-white/95 leading-relaxed">
+              <p className="text-lg sm:text-xl md:text-2xl text-white/95 leading-relaxed">
                 {t('story.present.paragraph2')}
               </p>
 
               {/* Mission Statement */}
-              <div className="mt-16 pt-12 border-t border-white/20">
-                <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-8">
+              <div className="mt-10 sm:mt-12 md:mt-16 pt-8 sm:pt-10 md:pt-12 border-t border-white/20">
+                <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 sm:mb-8">
                   {t('story.mission.title')}
                 </p>
 
-                <p className="text-xl md:text-2xl text-white/90 italic">
+                <p className="text-lg sm:text-xl md:text-2xl text-white/90 italic">
                   {t('story.mission.closing')}
                 </p>
               </div>
@@ -175,7 +175,7 @@ export const OurStory: React.FC = () => {
       </section>
 
       {/* Key Points Grid */}
-      <section className="py-20 md:py-32 bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-24 lg:py-32 bg-gray-50">
         <Container>
           <div className="max-w-6xl mx-auto">
             <motion.div
@@ -183,40 +183,40 @@ export const OurStory: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
             >
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <div className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
                   {t('story.keyPoints.modernTech.title')}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                   {t('story.keyPoints.modernTech.description')}
                 </p>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <div className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
                   {t('story.keyPoints.fairPricing.title')}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                   {t('story.keyPoints.fairPricing.description')}
                 </p>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <div className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
                   {t('story.keyPoints.realCollaboration.title')}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                   {t('story.keyPoints.realCollaboration.description')}
                 </p>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <div className="bg-white rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
                   {t('story.keyPoints.smallTeam.title')}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                   {t('story.keyPoints.smallTeam.description')}
                 </p>
               </div>

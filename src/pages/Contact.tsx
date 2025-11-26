@@ -140,7 +140,7 @@ export const Contact: React.FC = () => {
         </motion.div>
 
         {/* Contact Form and Info */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -148,7 +148,7 @@ export const Contact: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-2"
           >
-            <div className="bg-white rounded-xl shadow-lg p-3 md:p-4">
+            <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8">
               <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2 md:mb-3">
                 {t('contact.sendMessage')}
               </h3>

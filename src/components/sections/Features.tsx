@@ -93,7 +93,7 @@ export const Features: React.FC = () => {
   };
 
   return (
-    <section id="features" className="py-32 relative overflow-hidden">
+    <section id="features" className="py-16 sm:py-24 md:py-32 relative overflow-hidden">
       {/* Subtle Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-brand-green-100/60 via-brand-green-50/30 to-brand-green-100/50"></div>
 
@@ -103,18 +103,18 @@ export const Features: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-20"
+          className="text-center mb-10 sm:mb-16 md:mb-20"
         >
-          <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 tracking-tight">
             {t('features.title')}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             {t('features.subtitle')}
           </p>
         </motion.div>
 
         {/* 9 Collapsible Feature Boxes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -126,9 +126,9 @@ export const Features: React.FC = () => {
             >
               <button
                 onClick={() => toggleBox(index)}
-                className="w-full px-8 py-6 flex items-center justify-between text-left bg-gradient-to-br from-white to-gray-50/50 hover:from-brand-green-50/50 hover:to-white transition-all duration-300"
+                className="w-full px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 flex items-center justify-between text-left bg-gradient-to-br from-white to-gray-50/50 hover:from-brand-green-50/50 hover:to-white transition-all duration-300"
               >
-                <h3 className="text-xl font-bold text-gray-900 tracking-tight">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 tracking-tight">
                   {feature.title}
                 </h3>
                 <ChevronDown
@@ -147,8 +147,8 @@ export const Features: React.FC = () => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-8 pb-6 pt-4 bg-white">
-                      <p className="text-gray-700 leading-relaxed text-base">
+                    <div className="px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 pt-2 sm:pt-4 bg-white">
+                      <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
                         {feature.description}
                       </p>
                     </div>

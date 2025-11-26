@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { LanguageToggle } from '../ui/LanguageToggle';
 import { useLanguage } from '../../contexts/LanguageContext';
 
@@ -121,9 +122,16 @@ export const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-2xl border-t border-gray-100">
-            <div className="flex flex-col px-6 py-4">
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2, ease: 'easeInOut' }}
+              className="md:hidden absolute top-full left-0 right-0 bg-white shadow-2xl border-t border-gray-100 overflow-hidden"
+            >
+              <div className="flex flex-col px-4 sm:px-6 py-4">
               <Link
                 to="/"
                 className="text-gray-900 hover:text-brand-green-600 transition-colors font-medium text-lg py-3 border-b border-gray-100"
@@ -166,8 +174,9 @@ export const Navbar: React.FC = () => {
                 <LanguageToggle />
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
+        </AnimatePresence>
       </div>
     </nav>
   );

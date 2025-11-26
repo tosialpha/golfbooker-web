@@ -38,14 +38,14 @@ export const TournamentManagement: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight"
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 sm:mb-8 leading-tight"
                 style={{
                   textShadow: '0 10px 40px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.3)'
                 }}>
               {t('tournaments.title')}
             </h1>
 
-            <p className="text-xl md:text-2xl text-white/95 mb-12 leading-relaxed max-w-3xl whitespace-pre-line"
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 mb-8 sm:mb-12 leading-relaxed max-w-3xl"
                style={{
                  textShadow: '0 4px 12px rgba(0,0,0,0.3)'
                }}>
@@ -69,7 +69,7 @@ export const TournamentManagement: React.FC = () => {
       {/* Key Features Bar */}
       <section className="bg-white border-y border-gray-200">
         <Container>
-          <div className="py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="py-8 sm:py-12 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -133,14 +133,14 @@ export const TournamentManagement: React.FC = () => {
       </section>
 
       {/* Platform Showcase - Mobile & Desktop */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 sm:py-20 md:py-24 bg-gray-50">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative flex flex-col md:flex-row items-end justify-center gap-6 md:gap-0"
+            className="relative flex flex-col md:flex-row items-end justify-center gap-4 sm:gap-6 md:gap-0"
           >
             {/* Desktop mockup */}
             <motion.div
@@ -186,20 +186,20 @@ export const TournamentManagement: React.FC = () => {
       {/* Additional Feature Sections */}
 
       {/* Live Scoring Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 sm:py-20 md:py-24 bg-white">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
                 {isEnglish ? 'Live tracking' : 'Seuraa kilpailua reaaliajassa'}
               </h2>
 
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                 {isEnglish
                   ? 'Leaderboards update instantly and stay current throughout the tournament.'
                   : 'Tuloslistat päivittyvät heti kun pelaajat syöttävät tuloksensa. Kaikki näkevät tilanteen samaan aikaan.'
@@ -253,9 +253,9 @@ export const TournamentManagement: React.FC = () => {
       </section>
 
       {/* Tournament Creation Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 sm:py-20 md:py-24 bg-gray-50">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -284,11 +284,11 @@ export const TournamentManagement: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="order-1 lg:order-2"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
                 {isEnglish ? 'Create tournaments effortlessly' : 'Järjestä kilpailut muutamassa minuutissa'}
               </h2>
 
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                 {isEnglish
                   ? 'Set up any type of tournament in minutes. From small club events to major championships - configure formats, scoring, and rules with ease.'
                   : 'Oli sitten kyseessä oman klubin mestikset tai yhteistyökumppanin yritystapahtuma onnistuu se GolfBookerin kautta.'
@@ -321,20 +321,20 @@ export const TournamentManagement: React.FC = () => {
       </section>
 
       {/* Mobile Score Entry Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 sm:py-20 md:py-24 bg-white">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
                 {isEnglish ? 'Players mark scores conveniently on mobile' : 'Merkitse tulokset suoraan mobiilissa'}
               </h2>
 
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                 {isEnglish
                   ? 'Players enter their scores directly through the mobile app. Quick, easy, and always up-to-date - no paper scorecards needed.'
                   : 'Pelaajat syöttävät tuloksensa sovelluksen kautta. Nopea, helppo ja aina ajantasalla.'
@@ -371,8 +371,8 @@ export const TournamentManagement: React.FC = () => {
               whileHover={{ scale: 1.02 }}
               className="relative flex justify-center"
             >
-              <div className="aspect-[9/18] w-72 bg-gray-900 rounded-[3rem] shadow-2xl p-2 relative">
-                <div className="bg-gray-100 rounded-[2.5rem] w-full h-full overflow-hidden flex items-center justify-center">
+              <div className="aspect-[9/18] w-56 sm:w-64 md:w-72 bg-gray-900 rounded-[2.5rem] sm:rounded-[3rem] shadow-2xl p-2 relative mx-auto">
+                <div className="bg-gray-100 rounded-[2rem] sm:rounded-[2.5rem] w-full h-full overflow-hidden flex items-center justify-center">
                   <img
                     src="/mobile-score-entry.png"
                     alt="Mobile score entry"
@@ -462,9 +462,9 @@ export const TournamentManagement: React.FC = () => {
       </section> */}
 
       {/* CTA Panel with Contact Form */}
-      <section id="cta-section" className="relative bg-gray-50 py-24 overflow-hidden">
+      <section id="cta-section" className="relative bg-gray-50 py-16 sm:py-20 md:py-24 overflow-hidden">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             {/* Left side - Text content */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -472,10 +472,10 @@ export const TournamentManagement: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
                 {isEnglish ? 'Ready to get started?' : 'Valmis aloittamaan?'}
               </h2>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                 {isEnglish
                   ? 'Discover how our tournament management system can transform your golf events. Get in touch and we\'ll tell you more!'
                   : 'Tutustu kilpailunhallintajärjestelmäämme ja katso, miten se voi helpottaa tapahtumienne järjestämistä. Ota yhteyttä niin kerromme lisää!'
