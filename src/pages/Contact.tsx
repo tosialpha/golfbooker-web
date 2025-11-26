@@ -64,7 +64,7 @@ export const Contact: React.FC = () => {
       const emailSubject = subjectMap[formData.subject] || formData.subject;
 
       const formattedDateTime = selectedDate
-        ? selectedDate.toISOString().slice(0, 16).replace('T', ' ')
+        ? `${selectedDate.getFullYear()}-${String(selectedDate.getMonth() + 1).padStart(2, '0')}-${String(selectedDate.getDate()).padStart(2, '0')} ${String(selectedDate.getHours()).padStart(2, '0')}:${String(selectedDate.getMinutes()).padStart(2, '0')}`
         : 'Ei määritelty';
 
       // Send via Resend API
