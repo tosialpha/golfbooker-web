@@ -104,7 +104,7 @@ export const Navbar: React.FC = () => {
 
           {/* Language Toggle (Desktop) */}
           <div className="hidden md:block">
-            <LanguageToggle />
+            <LanguageToggle darkTheme={useDarkTheme} />
           </div>
 
           {/* Mobile Menu Button */}
