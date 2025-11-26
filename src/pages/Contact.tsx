@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Phone, Mail, Loader2 } from 'lucide-react';
+import { ArrowLeft, Phone, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '../components/ui/Button';
 import { Container } from '../components/ui/Container';
