@@ -60,7 +60,7 @@ const translations = {
     },
     hero: {
       title: 'Moderni Golfkentän hallintajärjestelmä',
-      description: 'Nykyaikainen ja helppokäyttöinen järjestelmä - GolfBooker edistää sekä kenttien, että pelaajien käyttökokemusta',
+      description: 'Nykyaikainen ja helppokäyttöinen järjestelmä - GolfBooker edistää sekä kenttien, että pelaajien käyttökokemusta.',
       requestDemo: 'Esittely',
       viewFeatures: 'Katso toiminnot',
       integrationNexGolf: 'Integrointi NexGolf',
