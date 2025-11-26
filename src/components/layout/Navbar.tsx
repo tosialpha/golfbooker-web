@@ -71,6 +71,16 @@ export const Navbar: React.FC = () => {
               {t('nav.tournaments')}
             </Link>
             <Link
+              to="/simulators"
+              className={`transition-colors font-medium ${
+                useDarkTheme
+                  ? 'text-gray-700 hover:text-brand-green-600'
+                  : 'text-white hover:text-white/80'
+              }`}
+            >
+              {t('nav.simulators')}
+            </Link>
+            <Link
               to="/our-story"
               className={`transition-colors font-medium ${
                 useDarkTheme
@@ -130,6 +140,13 @@ export const Navbar: React.FC = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t('nav.tournaments')}
+              </Link>
+              <Link
+                to="/simulators"
+                className="text-gray-900 hover:text-brand-green-600 transition-colors font-medium text-lg py-3 border-b border-gray-100"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('nav.simulators')}
               </Link>
               <Link
                 to="/our-story"

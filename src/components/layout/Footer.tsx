@@ -40,6 +40,11 @@ export const Footer: React.FC = () => {
                     {t('nav.tournaments')}
                   </Link>
                 </li>
+                <li>
+                  <Link to="/simulators" className="hover:text-brand-green-600 transition-all duration-200 hover:translate-x-1 inline-block" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                    {t('nav.simulators')}
+                  </Link>
+                </li>
               </ul>
             </div>
 

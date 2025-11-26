@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Phone, Mail } from 'lucide-react';
+import { ArrowLeft, Phone, Mail, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '../components/ui/Button';
 import { Container } from '../components/ui/Container';
@@ -63,31 +63,27 @@ export const Contact: React.FC = () => {
 
       const emailSubject = subjectMap[formData.subject] || formData.subject;
 
-      // Prepare form data for Web3Forms
-      const web3FormData = new FormData();
-      web3FormData.append('access_key', '2836fb7b-e299-46ac-bceb-bfdf2fac41bd');
-      web3FormData.append('name', formData.name);
-      web3FormData.append('email', formData.email);
-      web3FormData.append('phone', formData.phone || 'Not provided');
-
       const formattedDateTime = selectedDate
         ? selectedDate.toISOString().slice(0, 16).replace('T', ' ')
-        : 'Not specified';
-      web3FormData.append('preferred_datetime', formattedDateTime);
+        : 'Ei määritelty';
 
-      web3FormData.append('subject', emailSubject);
-      web3FormData.append('message', formData.message);
-      web3FormData.append('from_name', 'GolfBooker Contact Form');
-
-      // Send to Web3Forms
-      const response = await fetch('https://api.web3forms.com/submit', {
+      // Send via Resend API
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        body: web3FormData
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: formData.name.split(' ')[0] || formData.name,
+          lastName: formData.name.split(' ').slice(1).join(' ') || '',
+          email: formData.email,
+          phone: formData.phone,
+          message: `${emailSubject}\n\nToivottu ajankohta: ${formattedDateTime}\n\n${formData.message}`,
+          source: 'Ota yhteyttä',
+        }),
       });
 
-      const data = await response.json();
-
-      if (data.success) {
+      if (response.ok) {
         setSubmitStatus('success');
         // Reset form after successful submission
         setFormData({
@@ -103,7 +99,7 @@ export const Contact: React.FC = () => {
         // Clear success message after 5 seconds
         setTimeout(() => setSubmitStatus('idle'), 5000);
       } else {
-        throw new Error('Form submission failed');
+        throw new Error('Failed to send message');
       }
     } catch (error) {
       console.error('Error sending message:', error);
@@ -122,7 +118,7 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-brand-green-50 to-white pt-24 pb-6">
+    <div className="min-h-screen bg-gray-50 pt-24 pb-6">
       <Container>
         {/* Header */}
         <motion.div

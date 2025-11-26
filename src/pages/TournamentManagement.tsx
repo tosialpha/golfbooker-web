@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Container } from '../components/ui/Container';
 import { useLanguage } from '../contexts/LanguageContext';
-import { ArrowRight, Zap, TrendingUp, Users } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowRight, Zap, TrendingUp, Users, Mail, Phone, User } from 'lucide-react';
+import { ContactForm } from '../components/ContactForm';
 
 export const TournamentManagement: React.FC = () => {
   const { t, language } = useLanguage();
@@ -140,7 +140,7 @@ export const TournamentManagement: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative flex flex-col md:flex-row items-center md:items-end justify-center gap-8 md:gap-8"
+            className="relative flex flex-col md:flex-row items-end justify-center gap-6 md:gap-0"
           >
             {/* Desktop mockup */}
             <motion.div
@@ -148,29 +148,29 @@ export const TournamentManagement: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative flex-1 max-w-4xl w-full"
+              className="relative w-full md:w-[70%] max-w-4xl"
             >
-              <div className="bg-gray-900 rounded-xl md:rounded-2xl shadow-2xl p-1.5 md:p-3 relative">
-                <div className="bg-gray-100 rounded-lg md:rounded-xl w-full overflow-hidden">
+              <div className="bg-gray-900 rounded-2xl md:rounded-3xl shadow-2xl p-2 md:p-3 relative">
+                <div className="bg-gray-100 rounded-xl md:rounded-2xl w-full overflow-hidden aspect-[16/10]">
                   <img
                     src="/desktop-mockup-1.png"
                     alt="Desktop dashboard"
-                    className="w-full object-contain"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </div>
             </motion.div>
 
-            {/* Mobile mockup - overlapping on desktop, stacked on mobile */}
+            {/* Mobile mockup - positioned to the right */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative md:-ml-32 mb-8 z-10 flex justify-center"
+              className="relative md:-ml-16 z-10 flex justify-center"
             >
-              <div className="aspect-[9/18] w-48 md:w-72 bg-gray-900 rounded-[2rem] md:rounded-[3rem] shadow-2xl p-1.5 md:p-2 relative">
-                <div className="bg-gray-100 rounded-[1.5rem] md:rounded-[2.5rem] w-full h-full overflow-hidden flex items-center justify-center">
+              <div className="aspect-[9/19] w-40 md:w-52 lg:w-64 bg-gray-900 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl p-1.5 md:p-2 relative">
+                <div className="bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] w-full h-full overflow-hidden flex items-center justify-center">
                   <img
                     src="/tournament-phone-mockup-1.png"
                     alt="Tournament mobile app"
@@ -461,103 +461,66 @@ export const TournamentManagement: React.FC = () => {
         </Container>
       </section> */}
 
-      {/* CTA Panel with Phone Mockup */}
-      <section id="cta-section" className="relative bg-gradient-to-br from-emerald-900 via-green-700 to-teal-600 py-20 overflow-hidden">
+      {/* CTA Panel with Contact Form */}
+      <section id="cta-section" className="relative bg-gray-50 py-24 overflow-hidden">
         <Container>
-          <div className="max-w-3xl mx-auto">
-            {/* Contact form */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left side - Text content */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-white"
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-center">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 {isEnglish ? 'Ready to get started?' : 'Valmis aloittamaan?'}
               </h2>
-              <p className="text-lg md:text-xl text-gray-200 mb-4 text-center">
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 {isEnglish
                   ? 'Discover how our tournament management system can transform your golf events. Get in touch and we\'ll tell you more!'
                   : 'Tutustu kilpailunhallintajärjestelmäämme ja katso, miten se voi helpottaa tapahtumienne järjestämistä. Ota yhteyttä niin kerromme lisää!'
                 }
               </p>
-              <p className="text-sm text-green-300 mb-8 text-center">
-                {isEnglish
-                  ? 'Fill out the form and we\'ll contact you shortly.'
-                  : 'Täytä lomake, niin otamme sinuun yhteyttä pian.'}
-              </p>
 
-              <form className="space-y-4">
-                <input
-                  type="text"
-                  placeholder={isEnglish ? 'Full name*' : 'Nimi*'}
-                  className="w-full px-6 py-4 rounded-full bg-white bg-opacity-90 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-green-400"
-                  required
-                />
-
-                <input
-                  type="email"
-                  placeholder={isEnglish ? 'Email*' : 'Sähköposti*'}
-                  className="w-full px-6 py-4 rounded-full bg-white bg-opacity-90 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-green-400"
-                  required
-                />
-
-                <input
-                  type="tel"
-                  placeholder={isEnglish ? 'Phone' : 'Puhelin'}
-                  className="w-full px-6 py-4 rounded-full bg-white bg-opacity-90 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-green-400"
-                />
-
-                <textarea
-                  placeholder={isEnglish ? 'Write your message...*' : 'Kirjoita viesti...*'}
-                  rows={4}
-                  className="w-full px-6 py-4 rounded-3xl bg-white bg-opacity-90 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-green-400 resize-none"
-                  required
-                ></textarea>
-
-                <div className="text-sm text-gray-300">
-                  *{isEnglish ? 'required field' : 'pakollinen tieto'}
+              <div className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-brand-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <User className="text-brand-green-600" size={24} />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500">{isEnglish ? 'Contact person' : 'Yhteyshenkilö'}</p>
+                    <p className="text-gray-900 font-medium">Veeti Karppinen</p>
+                  </div>
                 </div>
-
-                <div className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    id="privacy"
-                    className="mt-1 w-4 h-4 rounded border-gray-300 text-brand-green-600 focus:ring-brand-green-400"
-                    required
-                  />
-                  <label htmlFor="privacy" className="text-sm text-gray-300">
-                    {isEnglish ? (
-                      <>I understand and agree that my personal data will be processed in accordance with the <Link to="/privacy" className="underline hover:text-white">privacy policy</Link>.*</>
-                    ) : (
-                      <>Ymmärrän ja suostun siihen, että henkilötietojani käsitellään <Link to="/privacy" className="underline hover:text-white">tietosuojakäytännön</Link> mukaisesti.*</>
-                    )}
-                  </label>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-brand-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Phone className="text-brand-green-600" size={24} />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500">{isEnglish ? 'Phone' : 'Puhelin'}</p>
+                    <p className="text-gray-900 font-medium">+358 40 737 7397</p>
+                  </div>
                 </div>
-
-                <div className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    id="marketing"
-                    className="mt-1 w-4 h-4 rounded border-gray-300 text-brand-green-600 focus:ring-brand-green-400"
-                  />
-                  <label htmlFor="marketing" className="text-sm text-gray-300">
-                    {isEnglish
-                      ? 'I want to receive marketing communications and updates about new features.'
-                      : 'Haluan vastaanottaa markkinointiviestejä ja tietoa uusista ominaisuuksista.'}
-                  </label>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-brand-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Mail className="text-brand-green-600" size={24} />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500">{isEnglish ? 'Email' : 'Sähköposti'}</p>
+                    <p className="text-gray-900 font-medium">info@golfbooker.fi</p>
+                  </div>
                 </div>
+              </div>
+            </motion.div>
 
-                <div className="flex justify-center">
-                  <button
-                    type="submit"
-                    className="px-12 py-4 bg-white text-brand-green-900 font-bold rounded-full hover:bg-gray-100 transition-colors shadow-lg"
-                  >
-                    {isEnglish ? 'Send' : 'Lähetä'}
-                  </button>
-                </div>
-              </form>
+            {/* Right side - Form card */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+<ContactForm source="Kilpailut" />
             </motion.div>
           </div>
         </Container>

@@ -50,6 +50,7 @@ const translations = {
       story: 'Meistä',
       forPlayers: 'Käyttäjille',
       tournaments: 'Kilpailut',
+      simulators: 'Golfsimulaattorit',
       contact: 'Ota yhteyttä',
       startTrial: 'Aloita ilmainen kokeilu',
       tryDemo: 'Kokeile demoa'
@@ -131,6 +132,57 @@ const translations = {
       integrations: {
         title: 'Integraatiot',
         description: 'Saumaton yhteys olemassa oleviin järjestelmiin. Kilpailunhallinta integroituu vaivattomasti ERP-järjestelmiin, jäsenrekistereihin ja maksuratkaisuihin. GolfBookerin kilpailumoduuli voidaan ottaa käyttöön myös erikseen ilman koko varausjärjestelmän käyttöönottoa, jolloin se toimii täydellisesti nykyisten järjestelmiesi rinnalla.'
+      }
+    },
+    simulators: {
+      title: 'Golfsimulaattorit',
+      subtitle: 'Moderni järjestelmä simulaattoritoiminnan hallintaan - räätälöity juuri sinun tarpeisiisi',
+      features: {
+        streamlined: {
+          title: 'Räätälöity simulaattoreille',
+          description: 'Vain ne ominaisuudet mitä tarvitset - ei turhaa monimutkaisuutta'
+        },
+        booking: {
+          title: 'Helppo varausten hallinta',
+          description: 'Yksinkertainen varausjärjestelmä simulaattoriaikojen hallintaan'
+        },
+        customers: {
+          title: 'Asiakashallinta',
+          description: 'Seuraa asiakkaita ja heidän käyntejään yhdessä paikassa'
+        }
+      },
+      tailored: {
+        title: 'Suunniteltu simulaattoreille',
+        description: 'GolfBooker tarjoaa simulaattoritoimijoille saman laadukkaan järjestelmän kuin golfkentille, mutta ilman turhia ominaisuuksia. Saat käyttöösi vain ne työkalut, joita simulaattoritoiminnassa oikeasti tarvitaan.',
+        points: [
+          'Selkeä ja yksinkertainen käyttöliittymä',
+          'Ei turhia kenttätoimintojen ominaisuuksia',
+          'Nopea käyttöönotto ja helppo oppia'
+        ]
+      },
+      bookingManagement: {
+        title: 'Varausten hallinta',
+        description: 'Hallitse simulaattoriaikoja vaivattomasti. Järjestelmä tukee erilaisia hinnoittelumalleja ja toistuvien varausten hallintaa.',
+        points: [
+          'Aikavälikohtainen hallinta',
+          'Ruuhka- ja hiljaisempien aikojen hinnoittelu',
+          'Toistuvat varaukset ja sarjaliput'
+        ]
+      },
+      unified: {
+        title: 'Yksi järjestelmä - kenttä ja simulaattori',
+        description: 'Jos klubillasi on sekä golfkenttä että simulaattori, GolfBooker tarjoaa yhtenäisen järjestelmän molempien hallintaan. Yksi asiakastietokanta, yksi varausjärjestelmä, yksi näkymä kaikkeen.',
+        points: [
+          'Hallitse kenttä- ja simulaattorivaraukset samasta järjestelmästä',
+          'Yhtenäinen asiakastietokanta',
+          'Yhdistetty raportointi ja analytiikka',
+          'Saumaton kokemus asiakkaillesi'
+        ]
+      },
+      cta: {
+        title: 'Valmis modernisoimaan simulaattoritoimintasi?',
+        description: 'Ota yhteyttä ja kerromme lisää miten GolfBooker voi auttaa simulaattoritoimintaasi.',
+        formNote: 'Täytä lomake, niin otamme sinuun yhteyttä pian.'
       }
     },
     footer: {
@@ -280,6 +332,7 @@ const translations = {
       story: 'Our Story',
       forPlayers: 'For Players',
       tournaments: 'Tournaments',
+      simulators: 'Golf Simulators',
       contact: 'Contact',
       startTrial: 'Start Free Trial',
       tryDemo: 'Try Demo'
@@ -361,6 +414,57 @@ const translations = {
       integrations: {
         title: 'Integrations',
         description: 'Seamless connection to existing systems. Competition management integrates effortlessly with ERP systems, member registries, and payment solutions. GolfBooker\'s competition module can also be implemented independently without adopting the full booking system, allowing it to work perfectly alongside your current systems.'
+      }
+    },
+    simulators: {
+      title: 'Golf Simulators',
+      subtitle: 'Modern system for managing simulator operations - tailored to your needs',
+      features: {
+        streamlined: {
+          title: 'Tailored for Simulators',
+          description: 'Only the features you need - no unnecessary complexity'
+        },
+        booking: {
+          title: 'Easy Booking Management',
+          description: 'Simple booking system for managing simulator time slots'
+        },
+        customers: {
+          title: 'Customer Management',
+          description: 'Track customers and their sessions in one place'
+        }
+      },
+      tailored: {
+        title: 'Designed for Simulators',
+        description: 'GolfBooker offers simulator operators the same quality system as for golf courses, but without unnecessary features. You get access to only the tools that are actually needed for simulator operations.',
+        points: [
+          'Clear and simple user interface',
+          'No unnecessary course management features',
+          'Quick setup and easy to learn'
+        ]
+      },
+      bookingManagement: {
+        title: 'Booking Management',
+        description: 'Manage simulator time slots effortlessly. The system supports various pricing models and recurring booking management.',
+        points: [
+          'Time slot management',
+          'Peak and off-peak pricing',
+          'Recurring bookings and multi-pass cards'
+        ]
+      },
+      unified: {
+        title: 'One System - Course and Simulator',
+        description: 'If your club has both a golf course and simulator, GolfBooker provides a unified system for managing both. One customer database, one booking system, one view of everything.',
+        points: [
+          'Manage course and simulator bookings from the same system',
+          'Unified customer database',
+          'Combined reporting and analytics',
+          'Seamless experience for your customers'
+        ]
+      },
+      cta: {
+        title: 'Ready to modernize your simulator operations?',
+        description: 'Get in touch and we\'ll tell you more about how GolfBooker can help your simulator business.',
+        formNote: 'Fill out the form and we\'ll contact you soon.'
       }
     },
     footer: {

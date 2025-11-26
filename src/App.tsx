@@ -8,6 +8,7 @@ import { Demo } from './pages/Demo';
 import { Contact } from './pages/Contact';
 import { OurStory } from './pages/OurStory';
 import { TournamentManagement } from './pages/TournamentManagement';
+import { GolfSimulators } from './pages/GolfSimulators';
 import { Privacy } from './pages/Privacy';
 import { Terms } from './pages/Terms';
 
@@ -24,6 +25,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/our-story" element={<OurStory />} />
             <Route path="/tournaments" element={<TournamentManagement />} />
+            <Route path="/simulators" element={<GolfSimulators />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
           </Routes>
