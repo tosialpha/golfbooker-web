@@ -307,9 +307,9 @@ const translations = {
       phoneTitle: 'Puhelin',
       emailTitle: 'Sähköposti',
       sales: 'Myynti',
-      salesDescription: 'Yleiset tiedustelut, tarjouspyynnöt ja tuotedemot',
+      salesDescription: 'Yleiset tiedustelut ja tarjouspyynnöt',
       technicalSupport: 'Tekninen tuki',
-      technicalSupportDescription: 'Käyttötuki, tekniset ongelmat ja ohjeet',
+      technicalSupportDescription: 'Käyttötuki ja tekniset ongelmat',
       businessHours: 'ma–pe klo 9–18',
       whatsapp: 'Viesti WhatsAppissa'
     },
@@ -641,9 +641,9 @@ const translations = {
       phoneTitle: 'Phone',
       emailTitle: 'Email',
       sales: 'Sales',
-      salesDescription: 'General inquiries, quote requests, and product demos',
+      salesDescription: 'General inquiries and quote requests',
       technicalSupport: 'Technical Support',
-      technicalSupportDescription: 'User support, technical issues, and guidance',
+      technicalSupportDescription: 'User support and technical issues',
       businessHours: 'Mon–Fri 9 AM–6 PM',
       whatsapp: 'Message on WhatsApp'
     },

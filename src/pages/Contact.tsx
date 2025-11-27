@@ -486,19 +486,12 @@ export const Contact: React.FC = () => {
                 </div>
 
                 <div className="space-y-3 ml-13">
-                  <div>
-                    <p className="text-xs text-gray-600 mb-2">{t('contact.salesDescription')}</p>
-                    <a href="mailto:info@golfbooker.fi" className="text-sm text-brand-green-600 hover:text-brand-green-700 font-medium block break-all">
-                      info@golfbooker.fi
-                    </a>
-                  </div>
-
-                  <div>
-                    <p className="text-xs text-gray-600 mb-2">{t('contact.technicalSupportDescription')}</p>
-                    <a href="mailto:support@golfbooker.fi" className="text-sm text-brand-green-600 hover:text-brand-green-700 font-medium block break-all">
-                      support@golfbooker.fi
-                    </a>
-                  </div>
+                  <a href="mailto:info@golfbooker.fi" className="text-sm text-brand-green-600 hover:text-brand-green-700 font-medium block break-all">
+                    info@golfbooker.fi
+                  </a>
+                  <a href="mailto:support@golfbooker.fi" className="text-sm text-brand-green-600 hover:text-brand-green-700 font-medium block break-all">
+                    support@golfbooker.fi
+                  </a>
                 </div>
               </div>
             </div>
