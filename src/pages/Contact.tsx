@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Phone, Mail } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { ArrowLeft, Phone, Mail, Calendar } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '../components/ui/Button';
 import { Container } from '../components/ui/Container';
 import { useLanguage } from '../contexts/LanguageContext';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+
+// Cal.com configuration
+const CAL_USERNAME = 'alexandr-malmberg-0yxzmk';
+const CAL_EVENT_SLUG = '30min';
 
 export const Contact: React.FC = () => {
   const { t, language } = useLanguage();
@@ -18,7 +20,6 @@ export const Contact: React.FC = () => {
     subject: '',
     message: ''
   });
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
@@ -28,6 +29,21 @@ export const Contact: React.FC = () => {
     subject: false,
     privacy: false
   });
+  const [showCalendar, setShowCalendar] = useState(false);
+
+  // Load Cal.com embed script
+  useEffect(() => {
+    if (showCalendar) {
+      const script = document.createElement('script');
+      script.src = 'https://app.cal.com/embed/embed.js';
+      script.async = true;
+      document.body.appendChild(script);
+
+      return () => {
+        document.body.removeChild(script);
+      };
+    }
+  }, [showCalendar]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,7 +68,6 @@ export const Contact: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      // Create email subject
       const subjectMap: { [key: string]: string } = {
         general: t('contact.subjectGeneral'),
         demo: t('contact.subjectDemo'),
@@ -63,44 +78,36 @@ export const Contact: React.FC = () => {
 
       const emailSubject = subjectMap[formData.subject] || formData.subject;
 
-      const formattedDateTime = selectedDate
-        ? `${selectedDate.getFullYear()}-${String(selectedDate.getMonth() + 1).padStart(2, '0')}-${String(selectedDate.getDate()).padStart(2, '0')} ${String(selectedDate.getHours()).padStart(2, '0')}:${String(selectedDate.getMinutes()).padStart(2, '0')}`
-        : 'Ei määritelty';
-
-      // Send via Resend API
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           firstName: formData.name.split(' ')[0] || formData.name,
           lastName: formData.name.split(' ').slice(1).join(' ') || '',
           email: formData.email,
           phone: formData.phone,
-          message: `${emailSubject}\n\nToivottu ajankohta: ${formattedDateTime}\n\n${formData.message}`,
+          message: `${emailSubject}\n\n${formData.message}`,
           source: 'Ota yhteyttä',
         }),
       });
 
-      if (response.ok) {
-        setSubmitStatus('success');
-        // Reset form after successful submission
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          subject: '',
-          message: ''
-        });
-        setSelectedDate(null);
-        setPrivacyAccepted(false);
-
-        // Clear success message after 5 seconds
-        setTimeout(() => setSubmitStatus('idle'), 5000);
-      } else {
+      if (!response.ok) {
         throw new Error('Failed to send message');
       }
+
+      setSubmitStatus('success');
+      // Reset form after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      });
+      setPrivacyAccepted(false);
+
+      // Clear success message after 5 seconds
+      setTimeout(() => setSubmitStatus('idle'), 5000);
     } catch (error) {
       console.error('Error sending message:', error);
       setSubmitStatus('error');
@@ -139,13 +146,87 @@ export const Contact: React.FC = () => {
           </p>
         </motion.div>
 
+        {/* Book Demo Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="max-w-6xl mx-auto mb-6"
+        >
+          <div className="bg-gradient-to-r from-brand-green-600 to-brand-green-700 rounded-xl shadow-lg p-6 md:p-8 text-white">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <h2 className="text-xl md:text-2xl font-bold mb-2">
+                  {isEnglish ? 'Book a Demo' : 'Varaa demo'}
+                </h2>
+                <p className="text-brand-green-100 text-sm md:text-base">
+                  {isEnglish
+                    ? 'Schedule a 30-minute video call with us. We\'ll show you how GolfBooker can help your club.'
+                    : 'Varaa 30 minuutin videotapaaminen kanssamme. Näytämme miten GolfBooker voi auttaa klubiasi.'}
+                </p>
+              </div>
+              <button
+                onClick={() => setShowCalendar(true)}
+                className="flex items-center justify-center gap-2 bg-white text-brand-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-brand-green-50 transition-colors shadow-md whitespace-nowrap"
+              >
+                <Calendar size={20} />
+                {isEnglish ? 'Book Demo' : 'Varaa demo'}
+              </button>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Cal.com Modal */}
+        <AnimatePresence>
+          {showCalendar && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+              onClick={() => setShowCalendar(false)}
+            >
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex items-center justify-between p-4 border-b">
+                  <h3 className="text-lg font-bold text-gray-900">
+                    {isEnglish ? 'Book a Demo' : 'Varaa demo'}
+                  </h3>
+                  <button
+                    onClick={() => setShowCalendar(false)}
+                    className="text-gray-500 hover:text-gray-700 p-1"
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+                <div className="p-4" style={{ minHeight: '500px' }}>
+                  <iframe
+                    src={`https://cal.com/${CAL_USERNAME}/${CAL_EVENT_SLUG}?embed=true&theme=light`}
+                    width="100%"
+                    height="500"
+                    frameBorder="0"
+                    className="rounded-lg"
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {/* Contact Form and Info */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-2"
           >
             <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8">
@@ -218,61 +299,39 @@ export const Contact: React.FC = () => {
                   )}
                 </div>
 
-                {/* Date & Time and Subject */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {isEnglish ? "Preferred Date & Time" : "Toivottu ajankohta"} <span className="text-gray-400 text-sm">({t('contact.optional')})</span>
-                    </label>
-                    <DatePicker
-                      selected={selectedDate}
-                      onChange={(date: Date | null) => setSelectedDate(date)}
-                      showTimeSelect
-                      timeFormat="HH:mm"
-                      timeIntervals={5}
-                      dateFormat="dd.MM.yyyy HH:mm"
-                      placeholderText={isEnglish ? "Select date and time" : "Valitse päivä ja aika"}
-                      className="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent transition-all"
-                      calendarClassName="shadow-xl"
-                      timeCaption={isEnglish ? "Time" : "Aika"}
-                      minDate={new Date()}
-                      showPopperArrow={false}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-900 mb-2">
-                      {t('contact.subject')} <span className="text-gray-900">*</span>
-                    </label>
-                    <select
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={(e) => {
-                        handleChange(e);
-                        setErrors({ ...errors, subject: false });
-                      }}
-                      className={`w-full px-4 py-3 text-sm rounded-lg border ${errors.subject ? 'border-red-500 bg-red-50' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent transition-all appearance-none bg-white cursor-pointer`}
-                      style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'right 1rem center',
-                        backgroundSize: '12px'
-                      }}
-                    >
-                      <option value="">{t('contact.selectSubject')}</option>
-                      <option value="general">{t('contact.subjectGeneral')}</option>
-                      <option value="demo">{t('contact.subjectDemo')}</option>
-                      <option value="pricing">{t('contact.subjectPricing')}</option>
-                      <option value="technical">{t('contact.subjectTechnical')}</option>
-                      <option value="other">{t('contact.subjectOther')}</option>
-                    </select>
-                    {errors.subject && (
-                      <p className="text-red-500 text-xs mt-1">
-                        {isEnglish ? 'Please select a subject' : 'Valitse aihe'}
-                      </p>
-                    )}
-                  </div>
+                {/* Subject */}
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-900 mb-2">
+                    {t('contact.subject')} <span className="text-gray-900">*</span>
+                  </label>
+                  <select
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={(e) => {
+                      handleChange(e);
+                      setErrors({ ...errors, subject: false });
+                    }}
+                    className={`w-full px-4 py-3 text-sm rounded-lg border ${errors.subject ? 'border-red-500 bg-red-50' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-brand-green-600 focus:border-transparent transition-all appearance-none bg-white cursor-pointer`}
+                    style={{
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
+                      backgroundRepeat: 'no-repeat',
+                      backgroundPosition: 'right 1rem center',
+                      backgroundSize: '12px'
+                    }}
+                  >
+                    <option value="">{t('contact.selectSubject')}</option>
+                    <option value="general">{t('contact.subjectGeneral')}</option>
+                    <option value="demo">{t('contact.subjectDemo')}</option>
+                    <option value="pricing">{t('contact.subjectPricing')}</option>
+                    <option value="technical">{t('contact.subjectTechnical')}</option>
+                    <option value="other">{t('contact.subjectOther')}</option>
+                  </select>
+                  {errors.subject && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {isEnglish ? 'Please select a subject' : 'Valitse aihe'}
+                    </p>
+                  )}
                 </div>
 
                 {/* Message - Full width */}
@@ -343,9 +402,7 @@ export const Contact: React.FC = () => {
 
                 {submitStatus === 'success' && (
                   <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
-                    {isEnglish
-                      ? "Thank you! We'll get back to you soon."
-                      : "Kiitos! Palaamme asiaan pian."}
+                    {isEnglish ? "Thank you! We'll get back to you soon." : "Kiitos! Palaamme asiaan pian."}
                   </div>
                 )}
 

@@ -236,6 +236,34 @@ const translations = {
       joinWaitlist: 'Liity listalle',
       noSpam: 'Ei roskapostia, vain päivityksiä'
     },
+    booking: {
+      title: 'Varaa demo',
+      subtitle: 'Valitse sopiva aika esittelylle',
+      selectDate: 'Valitse päivä',
+      selectTime: 'Valitse aika',
+      yourDetails: 'Yhteystiedot',
+      name: 'Nimi',
+      email: 'Sähköposti',
+      companyName: 'Yritys',
+      phone: 'Puhelin',
+      bookDemo: 'Varaa demo',
+      booking: 'Varataan...',
+      success: 'Demo varattu!',
+      successMessage: 'Otamme sinuun yhteyttä vahvistaaksemme ajan.',
+      error: 'Varaus epäonnistui',
+      tryAgain: 'Yritä uudelleen',
+      back: 'Takaisin',
+      previousWeek: 'Edellinen viikko',
+      nextWeek: 'Seuraava viikko',
+      today: 'Tänään',
+      weekdays: {
+        mon: 'Ma',
+        tue: 'Ti',
+        wed: 'Ke',
+        thu: 'To',
+        fri: 'Pe'
+      }
+    },
     contact: {
       backToHome: 'Takaisin etusivulle',
       title: 'Kysyttävää?',
@@ -525,6 +553,34 @@ const translations = {
       emailPlaceholder: 'youremail@email.com',
       joinWaitlist: 'Join Waitlist',
       noSpam: 'No spam, just updates'
+    },
+    booking: {
+      title: 'Book a Demo',
+      subtitle: 'Choose a convenient time for a demo',
+      selectDate: 'Select a date',
+      selectTime: 'Select a time',
+      yourDetails: 'Your details',
+      name: 'Name',
+      email: 'Email',
+      companyName: 'Company',
+      phone: 'Phone',
+      bookDemo: 'Book Demo',
+      booking: 'Booking...',
+      success: 'Demo booked!',
+      successMessage: 'We will contact you to confirm the time.',
+      error: 'Booking failed',
+      tryAgain: 'Try again',
+      back: 'Back',
+      previousWeek: 'Previous week',
+      nextWeek: 'Next week',
+      today: 'Today',
+      weekdays: {
+        mon: 'Mon',
+        tue: 'Tue',
+        wed: 'Wed',
+        thu: 'Thu',
+        fri: 'Fri'
+      }
     },
     contact: {
       backToHome: 'Back to Home',
