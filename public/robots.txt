@@ -1,0 +1,40 @@
+# GolfBooker robots.txt
+# https://golfbooker.fi
+
+User-agent: *
+Allow: /
+
+# Disallow admin and private pages
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://golfbooker.fi/sitemap.xml
+
+# LLMs.txt - Information for AI crawlers
+# See: https://golfbooker.fi/llms.txt
+
+# AI Crawlers - Allow access
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+# Crawl-delay (optional, be gentle with the server)
+Crawl-delay: 1

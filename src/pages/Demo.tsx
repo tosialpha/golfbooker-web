@@ -7,12 +7,22 @@ import { Button } from '../components/ui/Button';
 import { Container } from '../components/ui/Container';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
+import { SEO } from '../components/SEO';
 
 export const Demo: React.FC = () => {
   const { t } = useLanguage();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-brand-green-50 to-white pt-24 pb-16">
+      <SEO
+        titleFi="Kokeile GolfBooker-sovellusta - Interaktiivinen demo | GolfBooker"
+        titleEn="Try GolfBooker App - Interactive Demo | GolfBooker"
+        descriptionFi="Kokeile GolfBookerin helppokäyttöistä ajanvaraussovellusta demossa. Näe miten pelaajat varaavat lähtöaikoja ja hallitsevat golfkierroksensa. Liity odotulistalle!"
+        descriptionEn="Try GolfBooker's easy-to-use booking app in our demo. See how players book tee times and manage their golf rounds. Join our waitlist!"
+        path="/demo"
+        keywordsFi="golf ajanvaraus sovellus, lähtöaika varaus demo, golfkenttä varausjärjestelmä demo, mobiilisovellus golf"
+        keywordsEn="golf booking app demo, tee time reservation demo, golf course booking system demo, mobile golf app"
+      />
       <Container>
         {/* Header */}
         <div className="mb-8">

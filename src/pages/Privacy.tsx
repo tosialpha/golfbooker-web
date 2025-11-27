@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { SEO } from '../components/SEO';
 
 export const Privacy: React.FC = () => {
   const { t, language } = useLanguage();
@@ -9,6 +10,14 @@ export const Privacy: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-24 pb-16">
+      <SEO
+        titleFi="Tietosuojaseloste | GolfBooker"
+        titleEn="Privacy Policy | GolfBooker"
+        descriptionFi="GolfBookerin tietosuojaseloste. Lue miten käsittelemme henkilötietojasi GDPR:n mukaisesti."
+        descriptionEn="GolfBooker privacy policy. Learn how we process your personal data in accordance with GDPR."
+        path="/privacy"
+        noindex={true}
+      />
       <div className="max-w-4xl mx-auto px-6">
         {/* Back Button */}
         <Link

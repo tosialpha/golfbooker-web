@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { SEO } from '../components/SEO';
 
 export const Terms: React.FC = () => {
   const { t, language } = useLanguage();
@@ -9,6 +10,14 @@ export const Terms: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-24 pb-16">
+      <SEO
+        titleFi="Käyttöehdot | GolfBooker"
+        titleEn="Terms of Service | GolfBooker"
+        descriptionFi="GolfBookerin käyttöehdot. Lue palvelun käyttöä koskevat ehdot."
+        descriptionEn="GolfBooker terms of service. Read the terms governing the use of our service."
+        path="/terms"
+        noindex={true}
+      />
       <div className="max-w-4xl mx-auto px-6">
         {/* Back Button */}
         <Link

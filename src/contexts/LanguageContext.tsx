@@ -104,6 +104,18 @@ const translations = {
       title: 'Usein kysytyt kysymykset',
       subtitle: 'Löydä vastaukset yleisimpiin kysymyksiin',
       questions: {
+        whatIsGolfBooker: {
+          question: 'Mikä on GolfBooker?',
+          answer: 'GolfBooker on suomalainen, moderni varausjärjestelmä golfkentille ja golfsimulaattoreille. Se sisältää ajanvarauskalenterin, kilpailumoduulin, asiakashallinnan ja analytiikan. GolfBooker on Funect Oy:n kehittämä ja ylläpitämä palvelu.'
+        },
+        bookingSystem: {
+          question: 'Millainen järjestelmä golfkentälle sopii?',
+          answer: 'Golfkentälle sopii varausjärjestelmä, joka tukee lähtöaikojen varausta, ryhmävarauksia, jäsenhallintaa ja verkkomaksuja. GolfBooker tarjoaa kaikki nämä ominaisuudet yhdessä helppokäyttöisessä paketissa.'
+        },
+        simulatorBooking: {
+          question: 'Miten golfsimulaattorin ajanvaraus toimii?',
+          answer: 'GolfBookerin simulaattorivarausjärjestelmässä asiakkaat voivat varata aikoja verkosta 24/7. Järjestelmä tukee erilaisia hinnoittelumalleja (ruuhka-ajat, hiljaiset ajat), sarjalippuja ja toistuvien varausten hallintaa.'
+        },
         implementation: {
           question: 'Kuinka kauan käyttöönotto kestää?',
           answer: 'Käyttöönotto kestää noin 1-2 viikkoa, johon sisältyy henkilökunnan perehdytys ja integraatiot. Autamme koko prosessin ajan.'
@@ -114,7 +126,7 @@ const translations = {
         },
         pricing: {
           question: 'Miten hinnoittelu toimii?',
-          answer: 'Valitse tarvitsemasi toiminnot ja maksa vain niistä. Pyydä tarjous, niin räätälöimme paketin juuri sinun kenttäsi tarpeisiin.'
+          answer: 'Valitse tarvitsemasi toiminnot ja maksa vain niistä. Pyydä tarjous, niin räätälöimme paketin juuri sinun kenttäsi tarpeisiin. Hinnoittelu on selkeä ja järkevä ilman piilokustannuksia.'
         },
         handicap: {
           question: 'Pystyykö pelaajat palauttamaan tuloskortit niin, että tasoitus päivittyy automaattisesti?',
@@ -122,7 +134,11 @@ const translations = {
         },
         tournamentModule: {
           question: 'Voiko pelkän kilpailumoduulin hankkia?',
-          answer: 'Kyllä! Kilpailumoduulin voi hankkia erikseen ilman koko varausjärjestelmän käyttöönottoa.'
+          answer: 'Kyllä! Kilpailumoduulin voi hankkia erikseen ilman koko varausjärjestelmän käyttöönottoa. Se sopii klubeille, jotka haluavat modernisoida kilpailunhallinnan säilyttäen nykyisen varausjärjestelmän.'
+        },
+        finnishCompany: {
+          question: 'Onko GolfBooker suomalainen yritys?',
+          answer: 'Kyllä, GolfBooker on 100% suomalainen yritys. Funect Oy on perustettu Helsingissä ja palvelemme ensisijaisesti suomalaisia golfkenttiä ja simulaattoreita. Asiakaspalvelu on suomeksi.'
         }
       }
     },
@@ -422,17 +438,29 @@ const translations = {
       title: 'Frequently Asked Questions',
       subtitle: 'Find answers to common questions',
       questions: {
+        whatIsGolfBooker: {
+          question: 'What is GolfBooker?',
+          answer: 'GolfBooker is a Finnish, modern booking system for golf courses and golf simulators. It includes a booking calendar, tournament module, customer management, and analytics. GolfBooker is developed and maintained by Funect Oy.'
+        },
+        bookingSystem: {
+          question: 'What kind of booking system is suitable for a golf course?',
+          answer: 'A golf course needs a booking system that supports tee time reservations, group bookings, member management, and online payments. GolfBooker provides all these features in one easy-to-use package.'
+        },
+        simulatorBooking: {
+          question: 'How does golf simulator booking work?',
+          answer: 'With GolfBooker\'s simulator booking system, customers can book slots online 24/7. The system supports various pricing models (peak hours, off-peak), multi-pass cards, and recurring booking management.'
+        },
         implementation: {
           question: 'How long does implementation take?',
           answer: 'Implementation takes approximately 1-2 weeks, which includes staff training and integrations. We assist you throughout the entire process.'
         },
         support: {
           question: 'What kind of customer support do you offer?',
-          answer: 'We offer customer support in Finnish. You can quickly get help via email, phone, or chat support.'
+          answer: 'We offer customer support in Finnish and English. You can quickly get help via email, phone, or chat support.'
         },
         pricing: {
           question: 'How does pricing work?',
-          answer: 'Choose the features you need and pay only for those. Request a quote, and we\'ll customize a package specifically for your course\'s needs.'
+          answer: 'Choose the features you need and pay only for those. Request a quote, and we\'ll customize a package specifically for your course\'s needs. Pricing is transparent and fair with no hidden costs.'
         },
         handicap: {
           question: 'Can players submit scorecards so that handicap updates automatically?',
@@ -440,7 +468,11 @@ const translations = {
         },
         tournamentModule: {
           question: 'Can I get just the tournament module?',
-          answer: 'Yes! The tournament module can be acquired separately without implementing the full booking system.'
+          answer: 'Yes! The tournament module can be acquired separately without implementing the full booking system. It\'s perfect for clubs that want to modernize tournament management while keeping their current booking system.'
+        },
+        finnishCompany: {
+          question: 'Is GolfBooker a Finnish company?',
+          answer: 'Yes, GolfBooker is a 100% Finnish company. Funect Oy was founded in Helsinki and we primarily serve Finnish golf courses and simulators. Customer support is available in Finnish.'
         }
       }
     },

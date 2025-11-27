@@ -4,6 +4,7 @@ import { Container } from '../components/ui/Container';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ArrowRight, Zap, TrendingUp, Users, Mail, Phone, User } from 'lucide-react';
 import { ContactForm } from '../components/ContactForm';
+import { SEO } from '../components/SEO';
 
 export const TournamentManagement: React.FC = () => {
   const { t, language } = useLanguage();
@@ -18,6 +19,15 @@ export const TournamentManagement: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        titleFi="Kilpailumoduuli golfklubeille - Tulospalvelu & ilmoittautuminen | GolfBooker"
+        titleEn="Tournament Management for Golf Clubs - Live Scoring & Registration | GolfBooker"
+        descriptionFi="GolfBookerin kilpailumoduuli: reaaliaikaiset tuloslistat, mobiilitulosten syöttö, ilmoittautumisten hallinta. Järjestä kilpailut helposti stroke play, stableford ja bogey-peleille."
+        descriptionEn="GolfBooker tournament module: live leaderboards, mobile score entry, registration management. Easily organize stroke play, stableford, and bogey competitions."
+        path="/tournaments"
+        keywordsFi="golf kilpailumoduuli, golfkilpailun hallinta, tulospalvelu golf, reaaliaikaiset tulokset golf, ilmoittautuminen golfkilpailuun, stableford tulokset, stroke play järjestelmä"
+        keywordsEn="golf tournament software, tournament management system, live golf scoring, golf competition registration, stableford scoring system, stroke play software"
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-32 pb-24 min-h-[600px] flex items-center">
         {/* Background Image */}

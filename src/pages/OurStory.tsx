@@ -3,12 +3,22 @@ import { motion } from 'framer-motion';
 import { Container } from '../components/ui/Container';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Quote } from 'lucide-react';
+import { SEO } from '../components/SEO';
 
 export const OurStory: React.FC = () => {
   const { t } = useLanguage();
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        titleFi="Meistä - GolfBookerin tarina | Suomalainen golfteknologia"
+        titleEn="Our Story - About GolfBooker | Finnish Golf Technology"
+        descriptionFi="GolfBooker on kahden Aalto-yliopiston opiskelijan perustama suomalainen yritys. Rakennamme modernia teknologiaa golfklubeille järkevällä hinnoittelulla."
+        descriptionEn="GolfBooker is a Finnish company founded by two Aalto University students. We build modern technology for golf clubs with fair pricing."
+        path="/our-story"
+        keywordsFi="GolfBooker yritys, suomalainen golfteknologia, golfklubin ohjelmisto Suomi, Funect Oy"
+        keywordsEn="GolfBooker company, Finnish golf technology, golf club software Finland, Funect Oy"
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden h-[60vh] min-h-[500px] flex items-center">
         {/* Video Background */}

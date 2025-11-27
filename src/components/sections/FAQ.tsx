@@ -9,24 +9,32 @@ export const FAQ: React.FC = () => {
 
   const faqs = [
     {
-      question: t('faq.questions.implementation.question'),
-      answer: t('faq.questions.implementation.answer')
+      question: t('faq.questions.whatIsGolfBooker.question'),
+      answer: t('faq.questions.whatIsGolfBooker.answer')
     },
     {
-      question: t('faq.questions.support.question'),
-      answer: t('faq.questions.support.answer')
+      question: t('faq.questions.bookingSystem.question'),
+      answer: t('faq.questions.bookingSystem.answer')
+    },
+    {
+      question: t('faq.questions.simulatorBooking.question'),
+      answer: t('faq.questions.simulatorBooking.answer')
+    },
+    {
+      question: t('faq.questions.implementation.question'),
+      answer: t('faq.questions.implementation.answer')
     },
     {
       question: t('faq.questions.pricing.question'),
       answer: t('faq.questions.pricing.answer')
     },
     {
-      question: t('faq.questions.handicap.question'),
-      answer: t('faq.questions.handicap.answer')
-    },
-    {
       question: t('faq.questions.tournamentModule.question'),
       answer: t('faq.questions.tournamentModule.answer')
+    },
+    {
+      question: t('faq.questions.finnishCompany.question'),
+      answer: t('faq.questions.finnishCompany.answer')
     },
   ];
 

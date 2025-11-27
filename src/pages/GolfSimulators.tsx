@@ -4,6 +4,7 @@ import { Container } from '../components/ui/Container';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ArrowRight, Zap, Calendar, Users, Layers, Mail, Phone, User } from 'lucide-react';
 import { ContactForm } from '../components/ContactForm';
+import { SEO } from '../components/SEO';
 
 export const GolfSimulators: React.FC = () => {
   const { language } = useLanguage();
@@ -18,6 +19,15 @@ export const GolfSimulators: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        titleFi="Golfsimulaattoreiden varausjärjestelmä - Ajanvaraus & hinnoittelu | GolfBooker"
+        titleEn="Golf Simulator Booking System - Reservations & Pricing | GolfBooker"
+        descriptionFi="Moderni varausjärjestelmä golfsimulaattoreille. Hallitse ajanvarauksia, asiakkaita ja hinnoittelua yhdessä paikassa. Älykäs hinnoittelu ja helppo käyttöönotto."
+        descriptionEn="Modern booking system for golf simulators. Manage reservations, customers, and pricing in one place. Smart pricing and easy setup."
+        path="/simulators"
+        keywordsFi="golfsimulaattori varausjärjestelmä, simulaattori ajanvaraus, golfsimulaattori hallinta, sisägolf varaukset, golf simulator booking, simulaattori hinnoittelu"
+        keywordsEn="golf simulator booking system, indoor golf reservations, simulator management software, golf simulator scheduling, smart pricing golf simulator"
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-32 pb-24 min-h-[600px] flex items-center">
         {/* Background Image */}
