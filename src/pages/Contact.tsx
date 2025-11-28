@@ -7,19 +7,7 @@ import { Container } from '../components/ui/Container';
 import { useLanguage } from '../contexts/LanguageContext';
 
 // Cal.com configuration
-const CAL_USERNAME = 'alexandr-malmberg-0yxzmk';
-const CAL_EVENT_SLUG = '30min';
-
-// Declare Cal global type
-declare global {
-  interface Window {
-    Cal?: {
-      (action: string, ...args: unknown[]): void;
-      ns?: Record<string, (action: string, ...args: unknown[]) => void>;
-      q?: unknown[];
-    };
-  }
-}
+const CAL_LINK = 'alexandr-malmberg-0yxzmk/30min';
 
 export const Contact: React.FC = () => {
   const { t, language } = useLanguage();
@@ -40,63 +28,26 @@ export const Contact: React.FC = () => {
     subject: false,
     privacy: false
   });
+  const [calLoaded, setCalLoaded] = useState(false);
 
   // Load Cal.com embed script on mount
   useEffect(() => {
-    // Only load if not already loaded
-    if (window.Cal) return;
+    // Check if script already exists
+    if (document.querySelector('script[src="https://app.cal.com/embed/embed.js"]')) {
+      setCalLoaded(true);
+      return;
+    }
 
-    // Cal.com embed snippet
-    (function (C: Window) {
-      const p = function (a: unknown, ar: unknown[]) {
-        a && (window.Cal?.q?.push([a].concat(ar)));
-      };
-      if (!window.Cal) {
-        const cal = function (a: unknown, ...ar: unknown[]) {
-          p(a, ar);
-        };
-        cal.q = [] as unknown[];
-        window.Cal = cal as Window['Cal'];
-      }
-      const d = C.document;
-      const s = d.createElement('script');
-      s.src = 'https://app.cal.com/embed/embed.js';
-      s.async = true;
-      d.head.appendChild(s);
-    })(window);
-
-    // Initialize Cal after script loads
-    const initCal = () => {
-      if (window.Cal) {
-        window.Cal('init', { origin: 'https://cal.com' });
-      }
-    };
-
-    // Check if Cal is ready
-    const checkCal = setInterval(() => {
-      if (window.Cal) {
-        initCal();
-        clearInterval(checkCal);
-      }
-    }, 100);
-
-    return () => clearInterval(checkCal);
+    const script = document.createElement('script');
+    script.src = 'https://app.cal.com/embed/embed.js';
+    script.async = true;
+    script.onload = () => setCalLoaded(true);
+    document.body.appendChild(script);
   }, []);
 
-  // Open Cal.com popup modal
+  // Fallback function if Cal doesn't work
   const openCalBooking = () => {
-    if (window.Cal) {
-      window.Cal('ui', {
-        calLink: `${CAL_USERNAME}/${CAL_EVENT_SLUG}`,
-        config: {
-          layout: 'month_view',
-          theme: 'light',
-        },
-      });
-    } else {
-      // Fallback to direct link if Cal.com script failed to load
-      window.open(`https://cal.com/${CAL_USERNAME}/${CAL_EVENT_SLUG}`, '_blank', 'noopener,noreferrer');
-    }
+    window.open(`https://cal.com/${CAL_LINK}`, '_blank', 'noopener,noreferrer');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -219,13 +170,24 @@ export const Contact: React.FC = () => {
                     : 'Varaa 30 minuutin videotapaaminen kanssamme. Näytämme miten GolfBooker voi auttaa klubiasi.'}
                 </p>
               </div>
-              <button
-                onClick={openCalBooking}
-                className="flex items-center justify-center gap-2 bg-white text-brand-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-brand-green-50 transition-colors shadow-md whitespace-nowrap"
-              >
-                <Calendar size={20} />
-                {isEnglish ? 'Book Demo' : 'Varaa demo'}
-              </button>
+              {calLoaded ? (
+                <button
+                  data-cal-link={CAL_LINK}
+                  data-cal-config='{"layout":"month_view","theme":"light"}'
+                  className="flex items-center justify-center gap-2 bg-white text-brand-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-brand-green-50 transition-colors shadow-md whitespace-nowrap cursor-pointer"
+                >
+                  <Calendar size={20} />
+                  {isEnglish ? 'Book Demo' : 'Varaa demo'}
+                </button>
+              ) : (
+                <button
+                  onClick={openCalBooking}
+                  className="flex items-center justify-center gap-2 bg-white text-brand-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-brand-green-50 transition-colors shadow-md whitespace-nowrap"
+                >
+                  <Calendar size={20} />
+                  {isEnglish ? 'Book Demo' : 'Varaa demo'}
+                </button>
+              )}
             </div>
           </div>
         </motion.div>
