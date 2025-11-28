@@ -150,7 +150,7 @@ export const TournamentManagement: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative flex flex-col md:flex-row items-end justify-center gap-4 sm:gap-6 md:gap-0"
+            className="relative flex flex-col md:flex-row items-end justify-center md:gap-0"
           >
             {/* Desktop mockup */}
             <motion.div
@@ -171,16 +171,16 @@ export const TournamentManagement: React.FC = () => {
               </div>
             </motion.div>
 
-            {/* Mobile mockup - positioned to the right */}
+            {/* Mobile mockup - overlaps desktop on mobile, positioned to the right on desktop */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative md:-ml-16 z-10 flex justify-center"
+              className="absolute bottom-4 right-4 md:relative md:bottom-auto md:right-auto md:-ml-16 z-10 flex justify-center"
             >
-              <div className="aspect-[9/19] w-40 md:w-52 lg:w-64 bg-gray-900 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl p-1.5 md:p-2 relative">
-                <div className="bg-gray-100 rounded-[1.5rem] md:rounded-[2rem] w-full h-full overflow-hidden flex items-center justify-center">
+              <div className="aspect-[9/19] w-24 sm:w-28 md:w-52 lg:w-64 bg-gray-900 rounded-[1.5rem] sm:rounded-[1.75rem] md:rounded-[2.5rem] shadow-2xl p-1 sm:p-1.5 md:p-2 relative">
+                <div className="bg-gray-100 rounded-[1.25rem] sm:rounded-[1.5rem] md:rounded-[2rem] w-full h-full overflow-hidden flex items-center justify-center">
                   <img
                     src="/tournament-phone-mockup-1.png"
                     alt="Tournament mobile app"
