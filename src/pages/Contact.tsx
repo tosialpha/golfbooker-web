@@ -1,13 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Phone, Mail, Calendar, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Phone, Mail, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '../components/ui/Button';
 import { Container } from '../components/ui/Container';
 import { useLanguage } from '../contexts/LanguageContext';
 
-// Cal.com configuration - direct link (most reliable across all browsers)
-const CAL_BOOKING_URL = 'https://cal.com/alexandr-malmberg-0yxzmk/30min';
+// Cal.com configuration
+const CAL_USERNAME = 'alexandr-malmberg-0yxzmk';
+const CAL_EVENT_SLUG = '30min';
+
+// Declare Cal global type
+declare global {
+  interface Window {
+    Cal?: {
+      (action: string, ...args: unknown[]): void;
+      ns?: Record<string, (action: string, ...args: unknown[]) => void>;
+      q?: unknown[];
+    };
+  }
+}
 
 export const Contact: React.FC = () => {
   const { t, language } = useLanguage();
@@ -28,9 +40,63 @@ export const Contact: React.FC = () => {
     subject: false,
     privacy: false
   });
-  // Open Cal.com booking in new tab (most reliable across all browsers including Safari and incognito)
+
+  // Load Cal.com embed script on mount
+  useEffect(() => {
+    // Only load if not already loaded
+    if (window.Cal) return;
+
+    // Cal.com embed snippet
+    (function (C: Window) {
+      const p = function (a: unknown, ar: unknown[]) {
+        a && (window.Cal?.q?.push([a].concat(ar)));
+      };
+      if (!window.Cal) {
+        const cal = function (a: unknown, ...ar: unknown[]) {
+          p(a, ar);
+        };
+        cal.q = [] as unknown[];
+        window.Cal = cal as Window['Cal'];
+      }
+      const d = C.document;
+      const s = d.createElement('script');
+      s.src = 'https://app.cal.com/embed/embed.js';
+      s.async = true;
+      d.head.appendChild(s);
+    })(window);
+
+    // Initialize Cal after script loads
+    const initCal = () => {
+      if (window.Cal) {
+        window.Cal('init', { origin: 'https://cal.com' });
+      }
+    };
+
+    // Check if Cal is ready
+    const checkCal = setInterval(() => {
+      if (window.Cal) {
+        initCal();
+        clearInterval(checkCal);
+      }
+    }, 100);
+
+    return () => clearInterval(checkCal);
+  }, []);
+
+  // Open Cal.com popup modal
   const openCalBooking = () => {
-    window.open(CAL_BOOKING_URL, '_blank', 'noopener,noreferrer');
+    if (window.Cal) {
+      window.Cal('ui', {
+        calLink: `${CAL_USERNAME}/${CAL_EVENT_SLUG}`,
+        config: {
+          layout: 'month_view',
+          theme: 'light',
+        },
+      });
+    } else {
+      // Fallback to direct link if Cal.com script failed to load
+      window.open(`https://cal.com/${CAL_USERNAME}/${CAL_EVENT_SLUG}`, '_blank', 'noopener,noreferrer');
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -159,7 +225,6 @@ export const Contact: React.FC = () => {
               >
                 <Calendar size={20} />
                 {isEnglish ? 'Book Demo' : 'Varaa demo'}
-                <ExternalLink size={16} className="opacity-60" />
               </button>
             </div>
           </div>
