@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Phone, Mail, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -8,6 +8,9 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 // Cal.com configuration
 const CAL_LINK = 'alexandr-malmberg-0yxzmk/30min';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+declare const Cal: any;
 
 export const Contact: React.FC = () => {
   const { t, language } = useLanguage();
@@ -28,27 +31,65 @@ export const Contact: React.FC = () => {
     subject: false,
     privacy: false
   });
-  const [calLoaded, setCalLoaded] = useState(false);
 
-  // Load Cal.com embed script on mount
+  // Load and initialize Cal.com embed
   useEffect(() => {
-    // Check if script already exists
-    if (document.querySelector('script[src="https://app.cal.com/embed/embed.js"]')) {
-      setCalLoaded(true);
-      return;
-    }
+    // Official Cal.com embed snippet
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (function (C: any, A: string, L: string) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const p = function (a: any, ar: any) { a.q.push(ar); };
+      const d = C.document;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      C.Cal = C.Cal || function (...args: any[]) {
+        const cal = C.Cal;
+        const ar = args;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement("script")).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const api: any = function (...apiArgs: any[]) { p(api, apiArgs); };
+          const namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === "string") {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ["initNamespace", namespace]);
+          } else {
+            p(cal, ar);
+          }
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
 
-    const script = document.createElement('script');
-    script.src = 'https://app.cal.com/embed/embed.js';
-    script.async = true;
-    script.onload = () => setCalLoaded(true);
-    document.body.appendChild(script);
+    // Initialize Cal.com
+    Cal("init", { origin: "https://cal.com" });
+
+    // Pre-load the UI for faster popup
+    Cal("preload", { calLink: CAL_LINK });
   }, []);
 
-  // Fallback function if Cal doesn't work
-  const openCalBooking = () => {
-    window.open(`https://cal.com/${CAL_LINK}`, '_blank', 'noopener,noreferrer');
-  };
+  // Open Cal.com popup modal
+  const openCalBooking = useCallback(() => {
+    if (typeof Cal !== 'undefined') {
+      Cal("ui", {
+        calLink: CAL_LINK,
+        config: {
+          layout: "month_view",
+          theme: "light"
+        }
+      });
+    } else {
+      // Fallback to direct link if Cal failed to load
+      window.open(`https://cal.com/${CAL_LINK}`, '_blank', 'noopener,noreferrer');
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -170,24 +211,13 @@ export const Contact: React.FC = () => {
                     : 'Varaa 30 minuutin videotapaaminen kanssamme. Näytämme miten GolfBooker voi auttaa klubiasi.'}
                 </p>
               </div>
-              {calLoaded ? (
-                <button
-                  data-cal-link={CAL_LINK}
-                  data-cal-config='{"layout":"month_view","theme":"light"}'
-                  className="flex items-center justify-center gap-2 bg-white text-brand-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-brand-green-50 transition-colors shadow-md whitespace-nowrap cursor-pointer"
-                >
-                  <Calendar size={20} />
-                  {isEnglish ? 'Book Demo' : 'Varaa demo'}
-                </button>
-              ) : (
-                <button
-                  onClick={openCalBooking}
-                  className="flex items-center justify-center gap-2 bg-white text-brand-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-brand-green-50 transition-colors shadow-md whitespace-nowrap"
-                >
-                  <Calendar size={20} />
-                  {isEnglish ? 'Book Demo' : 'Varaa demo'}
-                </button>
-              )}
+              <button
+                onClick={openCalBooking}
+                className="flex items-center justify-center gap-2 bg-white text-brand-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-brand-green-50 transition-colors shadow-md whitespace-nowrap cursor-pointer"
+              >
+                <Calendar size={20} />
+                {isEnglish ? 'Book Demo' : 'Varaa demo'}
+              </button>
             </div>
           </div>
         </motion.div>
