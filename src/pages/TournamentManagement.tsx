@@ -195,7 +195,7 @@ export const TournamentManagement: React.FC = () => {
 
       {/* Additional Feature Sections */}
 
-      {/* Live Scoring Section */}
+      {/* Tournament Creation Section */}
       <section className="py-16 sm:py-20 md:py-24 bg-white">
         <Container>
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
@@ -204,6 +204,74 @@ export const TournamentManagement: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              whileHover={{ scale: 1.02 }}
+              className="relative"
+            >
+              <motion.img
+                src="/tournament-creation-mockup.png"
+                alt="Tournament creation dashboard"
+                className="w-full rounded-2xl shadow-2xl"
+                whileHover={{
+                  rotateX: -2,
+                  rotateY: -2,
+                  transition: { duration: 0.3 }
+                }}
+                style={{ transformStyle: "preserve-3d" }}
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+                {isEnglish ? 'Create tournaments effortlessly' : 'Järjestä kilpailut muutamassa minuutissa'}
+              </h2>
+
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed">
+                {isEnglish
+                  ? 'Set up any type of tournament in minutes. From small club events to major championships - configure formats, scoring, and rules with ease.'
+                  : 'Oli sitten kyseessä oman klubin mestikset tai yhteistyökumppanin yritystapahtuma onnistuu se GolfBookerin kautta.'
+                }
+              </p>
+
+              <div className="space-y-3">
+                <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-green-300 hover:shadow-md transition-all">
+                  <div className="w-1.5 h-full bg-brand-green-500 rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-800 font-medium">
+                    {isEnglish ? 'Support for all tournament formats' : 'Kaikki kilpailumuodot tuettu'}
+                  </span>
+                </div>
+                <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-green-300 hover:shadow-md transition-all">
+                  <div className="w-1.5 h-full bg-brand-green-500 rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-800 font-medium">
+                    {isEnglish ? 'Unlimited participants' : 'Ei rajoitusta osallistujamäärään'}
+                  </span>
+                </div>
+                <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-green-300 hover:shadow-md transition-all">
+                  <div className="w-1.5 h-full bg-brand-green-500 rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-800 font-medium">
+                    {isEnglish ? 'Quick templates for common formats' : 'Valmiit pohjat tavallisimmille formaateille'}
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Live Scoring Section */}
+      <section className="py-16 sm:py-20 md:py-24 bg-gray-50">
+        <Container>
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="order-2 lg:order-1"
             >
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
                 {isEnglish ? 'Live tracking' : 'Seuraa kilpailua reaaliajassa'}
@@ -244,7 +312,7 @@ export const TournamentManagement: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               whileHover={{ scale: 1.02 }}
-              className="relative"
+              className="order-1 lg:order-2 relative"
             >
               <motion.img
                 src="/live-tracking-desktop.png"
@@ -257,74 +325,6 @@ export const TournamentManagement: React.FC = () => {
                 }}
                 style={{ transformStyle: "preserve-3d" }}
               />
-            </motion.div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Tournament Creation Section */}
-      <section className="py-16 sm:py-20 md:py-24 bg-gray-50">
-        <Container>
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              whileHover={{ scale: 1.02 }}
-              className="order-2 lg:order-1 relative"
-            >
-              <motion.img
-                src="/tournament-creation-mockup.png"
-                alt="Tournament creation dashboard"
-                className="w-full rounded-2xl shadow-2xl"
-                whileHover={{
-                  rotateX: -2,
-                  rotateY: -2,
-                  transition: { duration: 0.3 }
-                }}
-                style={{ transformStyle: "preserve-3d" }}
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="order-1 lg:order-2"
-            >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-                {isEnglish ? 'Create tournaments effortlessly' : 'Järjestä kilpailut muutamassa minuutissa'}
-              </h2>
-
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-                {isEnglish
-                  ? 'Set up any type of tournament in minutes. From small club events to major championships - configure formats, scoring, and rules with ease.'
-                  : 'Oli sitten kyseessä oman klubin mestikset tai yhteistyökumppanin yritystapahtuma onnistuu se GolfBookerin kautta.'
-                }
-              </p>
-
-              <div className="space-y-3">
-                <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-green-300 hover:shadow-md transition-all">
-                  <div className="w-1.5 h-full bg-brand-green-500 rounded-full flex-shrink-0"></div>
-                  <span className="text-gray-800 font-medium">
-                    {isEnglish ? 'Support for all tournament formats' : 'Kaikki kilpailumuodot tuettu'}
-                  </span>
-                </div>
-                <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-green-300 hover:shadow-md transition-all">
-                  <div className="w-1.5 h-full bg-brand-green-500 rounded-full flex-shrink-0"></div>
-                  <span className="text-gray-800 font-medium">
-                    {isEnglish ? 'Unlimited participants' : 'Ei rajoitusta osallistujamäärään'}
-                  </span>
-                </div>
-                <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-green-300 hover:shadow-md transition-all">
-                  <div className="w-1.5 h-full bg-brand-green-500 rounded-full flex-shrink-0"></div>
-                  <span className="text-gray-800 font-medium">
-                    {isEnglish ? 'Quick templates for common formats' : 'Valmiit pohjat tavallisimmille formaateille'}
-                  </span>
-                </div>
-              </div>
             </motion.div>
           </div>
         </Container>

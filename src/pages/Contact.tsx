@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Phone, Mail, Calendar } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, Phone, Mail, Calendar, ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Button } from '../components/ui/Button';
 import { Container } from '../components/ui/Container';
 import { useLanguage } from '../contexts/LanguageContext';
 
-// Cal.com configuration
-const CAL_USERNAME = 'alexandr-malmberg-0yxzmk';
-const CAL_EVENT_SLUG = '30min';
+// Cal.com configuration - direct link (most reliable across all browsers)
+const CAL_BOOKING_URL = 'https://cal.com/alexandr-malmberg-0yxzmk/30min';
 
 export const Contact: React.FC = () => {
   const { t, language } = useLanguage();
@@ -29,21 +28,10 @@ export const Contact: React.FC = () => {
     subject: false,
     privacy: false
   });
-  const [showCalendar, setShowCalendar] = useState(false);
-
-  // Load Cal.com embed script
-  useEffect(() => {
-    if (showCalendar) {
-      const script = document.createElement('script');
-      script.src = 'https://app.cal.com/embed/embed.js';
-      script.async = true;
-      document.body.appendChild(script);
-
-      return () => {
-        document.body.removeChild(script);
-      };
-    }
-  }, [showCalendar]);
+  // Open Cal.com booking in new tab (most reliable across all browsers including Safari and incognito)
+  const openCalBooking = () => {
+    window.open(CAL_BOOKING_URL, '_blank', 'noopener,noreferrer');
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -166,59 +154,16 @@ export const Contact: React.FC = () => {
                 </p>
               </div>
               <button
-                onClick={() => setShowCalendar(true)}
+                onClick={openCalBooking}
                 className="flex items-center justify-center gap-2 bg-white text-brand-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-brand-green-50 transition-colors shadow-md whitespace-nowrap"
               >
                 <Calendar size={20} />
                 {isEnglish ? 'Book Demo' : 'Varaa demo'}
+                <ExternalLink size={16} className="opacity-60" />
               </button>
             </div>
           </div>
         </motion.div>
-
-        {/* Cal.com Modal */}
-        <AnimatePresence>
-          {showCalendar && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
-              onClick={() => setShowCalendar(false)}
-            >
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="flex items-center justify-between p-4 border-b">
-                  <h3 className="text-lg font-bold text-gray-900">
-                    {isEnglish ? 'Book a Demo' : 'Varaa demo'}
-                  </h3>
-                  <button
-                    onClick={() => setShowCalendar(false)}
-                    className="text-gray-500 hover:text-gray-700 p-1"
-                  >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                </div>
-                <div className="p-4" style={{ minHeight: '500px' }}>
-                  <iframe
-                    src={`https://cal.com/${CAL_USERNAME}/${CAL_EVENT_SLUG}?embed=true&theme=light`}
-                    width="100%"
-                    height="500"
-                    frameBorder="0"
-                    className="rounded-lg"
-                  />
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
 
         {/* Contact Form and Info */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">

@@ -46,7 +46,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
 const translations = {
   fi: {
     nav: {
-      home: 'Etusivu',
+      home: 'Golfkentille',
       story: 'Meistä',
       forPlayers: 'Käyttäjille',
       tournaments: 'Kilpailut',
@@ -102,15 +102,15 @@ const translations = {
     },
     faq: {
       title: 'Usein kysytyt kysymykset',
-      subtitle: 'Löydä vastaukset yleisimpiin kysymyksiin',
+      subtitle: '',
       questions: {
         whatIsGolfBooker: {
           question: 'Mikä on GolfBooker?',
-          answer: 'GolfBooker on suomalainen, moderni varausjärjestelmä golfkentille ja golfsimulaattoreille. Se sisältää ajanvarauskalenterin, kilpailumoduulin, asiakashallinnan ja analytiikan. GolfBooker on Funect Oy:n kehittämä ja ylläpitämä palvelu.'
+          answer: 'GolfBooker on suomalainen, moderni varausjärjestelmä golfkentille ja golfsimulaattoreille. Se sisältää ajanvarauskalenterin, kilpailumoduulin, asiakashallinnan ja analytiikan.'
         },
         bookingSystem: {
           question: 'Millainen järjestelmä golfkentälle sopii?',
-          answer: 'Golfkentälle sopii varausjärjestelmä, joka tukee lähtöaikojen varausta, ryhmävarauksia, jäsenhallintaa ja verkkomaksuja. GolfBooker tarjoaa kaikki nämä ominaisuudet yhdessä helppokäyttöisessä paketissa.'
+          answer: 'Golfkentälle sopii toiminnanohjausjärjestelmä, joka tukee lähtöaikojen varausta, ryhmävarauksia, jäsenhallintaa ja verkkomaksuja. GolfBooker tarjoaa kaikki nämä ominaisuudet yhdessä helppokäyttöisessä paketissa.'
         },
         simulatorBooking: {
           question: 'Miten golfsimulaattorin ajanvaraus toimii?',
@@ -210,7 +210,7 @@ const translations = {
       }
     },
     footer: {
-      slogan: 'Moderni hallintajärjestelmä golfkentille ja golfsimulaattoreille',
+      slogan: 'Moderni hallintajärjestelmä golfin ammattilaisille',
       domestic: 'Kotimainen yritys',
       product: 'TUOTE',
       forGolfCourses: 'Golfkentille',
@@ -365,7 +365,7 @@ const translations = {
         },
         fairPricing: {
           title: 'Järkevä hinnoittelu',
-          description: 'Ei vanhoja, kohtuuttomia vuosimaksuja. Selkeä, reilu ja nykyaikainen malli.'
+          description: 'Maksat vain niistä palveluista joita käytät, emmekä veloita lisää vaikka liikevaihtosi kasvaa.'
         },
         realCollaboration: {
           title: 'Aito yhteistyö',
@@ -380,7 +380,7 @@ const translations = {
   },
   en: {
     nav: {
-      home: 'Home',
+      home: 'Golf Courses',
       story: 'Our Story',
       forPlayers: 'For Players',
       tournaments: 'Tournaments',
@@ -440,7 +440,7 @@ const translations = {
       questions: {
         whatIsGolfBooker: {
           question: 'What is GolfBooker?',
-          answer: 'GolfBooker is a Finnish, modern booking system for golf courses and golf simulators. It includes a booking calendar, tournament module, customer management, and analytics. GolfBooker is developed and maintained by Funect Oy.'
+          answer: 'GolfBooker is a Finnish, modern booking system for golf courses and golf simulators. It includes a booking calendar, tournament module, customer management, and analytics.'
         },
         bookingSystem: {
           question: 'What kind of booking system is suitable for a golf course?',
@@ -699,7 +699,7 @@ const translations = {
         },
         fairPricing: {
           title: 'Fair Pricing',
-          description: 'No old-school, unreasonable yearly fees. A clear, transparent, modern model.'
+          description: 'You only pay for the services you use, and we don\'t charge more as your revenue grows.'
         },
         realCollaboration: {
           title: 'Real Collaboration',
