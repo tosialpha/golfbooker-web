@@ -102,7 +102,7 @@ const translations = {
     },
     faq: {
       title: 'Usein kysytyt kysymykset',
-      subtitle: '',
+      subtitle: 'Löydä vastaukset yleisimpiin kysymyksiin',
       questions: {
         whatIsGolfBooker: {
           question: 'Mikä on GolfBooker?',

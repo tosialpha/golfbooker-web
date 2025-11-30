@@ -48,12 +48,9 @@ export const FAQ: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
             {t('faq.title')}
           </h2>
-          <p className="text-xl text-gray-600">
-            {t('faq.subtitle')}
-          </p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">

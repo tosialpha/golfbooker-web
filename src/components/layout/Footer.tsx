@@ -53,7 +53,7 @@ export const Footer: React.FC = () => {
               <h4 className="font-semibold text-gray-900 mb-4 tracking-tight">{t('footer.company')}</h4>
               <ul className="space-y-3 text-sm text-gray-600">
                 <li>
-                  <Link to="/story" className="hover:text-brand-green-600 transition-all duration-200 hover:translate-x-1 inline-block" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                  <Link to="/our-story" className="hover:text-brand-green-600 transition-all duration-200 hover:translate-x-1 inline-block" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                     {t('nav.story')}
                   </Link>
                 </li>
