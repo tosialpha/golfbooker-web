@@ -103,8 +103,18 @@ export const Navbar: React.FC = () => {
             </Link>
           </div>
 
-          {/* Language Toggle (Desktop) */}
-          <div className="hidden md:block">
+          {/* Sign In + Language Toggle (Desktop) */}
+          <div className="hidden md:flex items-center gap-4">
+            <a
+              href="https://app.golfbooker.fi"
+              className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                useDarkTheme
+                  ? 'bg-brand-green-600 text-white hover:bg-brand-green-700'
+                  : 'bg-white text-gray-900 hover:bg-white/90'
+              }`}
+            >
+              {t('nav.signIn')}
+            </a>
             <LanguageToggle darkTheme={useDarkTheme} />
           </div>
 
@@ -170,6 +180,13 @@ export const Navbar: React.FC = () => {
               >
                 {t('nav.contact')}
               </Link>
+              <a
+                href="https://app.golfbooker.fi"
+                className="bg-brand-green-600 text-white text-center font-medium text-lg py-3 rounded-lg mt-4 hover:bg-brand-green-700 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('nav.signIn')}
+              </a>
               <div className="flex justify-center py-4">
                 <LanguageToggle />
               </div>

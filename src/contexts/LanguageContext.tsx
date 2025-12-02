@@ -53,7 +53,8 @@ const translations = {
       simulators: 'Golfsimulaattorit',
       contact: 'Ota yhteyttä',
       startTrial: 'Aloita ilmainen kokeilu',
-      tryDemo: 'Kokeile demoa'
+      tryDemo: 'Kokeile demoa',
+      signIn: 'Kirjaudu'
     },
     home: {
       readMore: 'Lue lisää'
@@ -387,7 +388,8 @@ const translations = {
       simulators: 'Golf Simulators',
       contact: 'Contact',
       startTrial: 'Start Free Trial',
-      tryDemo: 'Try Demo'
+      tryDemo: 'Try Demo',
+      signIn: 'Sign In'
     },
     home: {
       readMore: 'Read more'
