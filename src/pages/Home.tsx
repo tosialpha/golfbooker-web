@@ -6,6 +6,7 @@ import { OurStoryPreview } from '../components/sections/OurStoryPreview';
 import { ForVenues } from '../components/sections/ForVenues';
 import { ForPlayers } from '../components/sections/ForPlayers';
 import { TournamentsPreview } from '../components/sections/TournamentsPreview';
+import { InfoGrid } from '../components/sections/InfoGrid';
 import { FAQ } from '../components/sections/FAQ';
 
 export const Home: React.FC = () => {
@@ -25,6 +26,7 @@ export const Home: React.FC = () => {
       <ForVenues />
       <ForPlayers />
       <OurStoryPreview />
+      <InfoGrid />
       <TournamentsPreview />
       <FAQ />
     </>

@@ -334,47 +334,74 @@ const translations = {
     },
     story: {
       title: 'Meistä',
-      subtitle: 'Kaksi Aalto-yliopiston opiskelijaa, jotka rakastavat urheilua, rakentamista ja ongelmien ratkaisemista',
-      intro: {
-        paragraph1: 'Tarinamme ei tarvinnut suurta alkua. Se syntyi kahdesta Aalto-yliopiston kaverista, jotka rakastivat urheilua, rakentamista ja sellaisten ongelmien korjaamista, joiden ei enää kuuluisi olla olemassa vuonna 2025.',
-        paragraph2: 'Alun perin lähdimme luomaan alustaa, joka yhdistäisi koko urheilumaailman — varaukset, maksut, jäsenyydet, viestinnän, taloushallinnon — kaiken selkeäksi ja moderniksi kokonaisuudeksi. Jokainen järjestelmä, johon kosketimme, tuntui vanhentuneelta, pirstaleiselta tai siltä, ettei sitä oltu koskaan suunniteltu oikeita käyttäjiä varten.'
+      subtitle: 'Nuori ja kunnianhimoinen tiimi, joka haluaa tuoda golfkentille raikkaan tuulahduksen',
+      background: {
+        title: 'Taustamme',
+        paragraph1: 'Lähdimme alun perin kehittämään mobiilisovellusta liikunta-alalle, jonka tarkoituksena oli sisältää ajanvarausjärjestelmä ja sosiaalisia ominaisuuksia käyttäjille.',
+        paragraph2: 'Keskustelut liikuntapaikkojen kanssa osoittivat, että he toivovat kokonaisvaltaista järjestelmää, jolla toiminnan pyörittäminen onnistuu yhdestä paikasta. Olemme kehittäneet vastaavanlaista järjestelmää muulle liikunta-alalle, erityisesti ryhmäliikuntaan, ja GolfBookerissa hyödynnämme tätä pohjaa huomioiden golfin omat erityistarpeet.'
       },
       pivot: {
         title: 'Käännekohta',
-        paragraph1: 'Matkan varrella intohimomme golfiin muutti suunnan. Kun aloimme jutella klubien, proiden, pelaajien ja operatiivisen puolen kanssa, saimme nopeasti selkeän kuvan: nykyiset järjestelmät ovat yksinkertaisesti liian vanhoja, sekavia ja täysin ylihinnoiteltuja.',
-        paragraph2: 'Moni klubi joutuu maksamaan järjettömiä summia järjestelmistä, jotka eivät ole pysyneet ajan tasalla — ja vielä kaiken lisäksi käyttää useampaa alustaa yhtä aikaa vain hoitaakseen perustason arkea. Golfalalla ei ollut yhtään aidosti modernia, järkevällä hinnoittelulla toimivaa kokonaisratkaisua. Joten päätimme, että jonkun on pakko korjata tämä. Ja se joku olimme me.'
+        paragraph1: 'Tämän johdosta meillä oli jo pohja toiminnanohjaus-ratkaisuille ja kun kuulimme NexGolfin lopettamisesta, teimme haastattelukierroksen useille kentille ja pelaajille. Huomasimme, että markkinassa on tilaa ja kysyntää uudelle toimijalle.',
+        paragraph2: 'Meillä yhdistyy nykyaikainen ohjelmistokehitys, markkinointi, kuluttajakokemuksen ymmärrys sekä aito into tehdä asiat uudella tavalla. Pidämme jalat tukevasti maassa, mutta katseen rohkeasti tulevassa. Lisäksi tiimille tukea tarjoavat ohjelmistokehityksessä useampia muita kokeneita tekijöitä.'
       },
-      solution: {
-        title: 'Ratkaisu',
-        paragraph1: 'Siksi rakensimme GolfBookerin.',
-        paragraph2: 'Ei pikaprojektina, vaan pitkän tähtäimen visiona tuoda golfklubeille moderni teknologia, yksinkertaisuus ja oikeasti hyvä käyttökokemus. Halusimme rakentaa järjestelmän, joka tuntuu nopealta, selkeältä ja kohtuuhintaiselta — ja joka perustuu siihen, mitä klubit oikeasti tarvitsevat. Ei turhaa tavaraa, ei vanhoja rakenteita, ei kohtuuttomia laskuja.',
-        paragraph3: 'Vain moderni, tehokas alusta, jonka takana on pieni tiimi, joka välittää oikeasti, liikkuu nopeasti ja kuuntelee vielä nopeammin.'
+      team: {
+        title: 'Tiimimme',
+        intro: 'Olemme nuori ja kunnianhimoinen tiimi, joka haluaa tuoda golfkentille raikkaan tuulahduksen.',
+        alexandr: {
+          role: 'Perustaja',
+          bio: 'Alexandr on toiminut markkinoinnin ja digitaalisen sisällön parissa jo nuoresta lähtien. Asiakasprojekteista kasvanut kiinnostus teknologiaa kohtaan vei Aalto-yliopiston kauppakorkeakouluun ja koodaamisen syvään päätyyn. Freelance-kehitysprojekteista askel omaan ohjelmistotuotteeseen oli luonnollinen. Golf on kulkenut mukana pienestä pitäen, ja nyt urheilun, teknologian ja yrittäjyyden yhdistäminen tuntuu vihdoin täydelliseltä yhtälöltä.'
+        },
+        veeti: {
+          role: 'Perustaja',
+          bio: 'Veeti tuo tiimiin ainutlaatuisen taustan, jossa yhdistyvät kurinalaisuus, vastuu ja kyky toimia paineen alla. Polku kulki rauhanturvaajan ja pelastajan työn kautta, ennen kuin kipinä liiketoimintaan ja isompiin haasteisiin veti kohti Aalto-yliopiston kauppakorkeakoulua. Viime vuodet ovat rakentaneet selkeän rytmin tavoitteellisesta tekemisestä ja liikunnasta, ja golf on tullut osaksi arkea nopeasti ja intohimoisesti. Yrittäjyys on nyt se seuraava iso askel, johon Veeti tuo vahvan draivin ja päätöksentekokyvyn.'
+        },
+        together: 'Yhdessä muodostamme tiimin, joka ei pelkästään puhu muutoksesta — me rakennamme sitä käytännössä, nopealla syklillä ja oikeiden käyttäjien kanssa.'
       },
-      present: {
-        title: 'Tänään',
-        paragraph1: 'Rakennamme GolfBookeria edelleen joka päivä läheisessä yhteistyössä klubien kanssa, heidän palautteensa ja todellisten tarpeidensa pohjalta.',
-        paragraph2: 'Mutta yksi asia pysyy muuttumattomana:'
+      offer: {
+        title: 'Mitä tarjoamme',
+        paragraph1: 'Emme tarjoa pelkkää ohjelmistoa, vaan kokonaisvaltaisen ratkaisun.',
+        paragraph2: 'GolfBooker tarjoaa alustan koko golfklubin pyörittämiseen: jäsen- ja osakasrekisteristä varauksiin, tapahtumiin, viestintään, kilpailuihin, analytiikkaan, laskutukseen ja kirjanpitoa tukeviin toimintoihin. Simulaattorit, kentät ja muut resurssit, kuten golfautot, ovat hallittavissa samasta paikasta. Uusimpana kehityskohteenamme testaamme tekoälyä dynaamisen hinnoittelun tukena.',
+        paragraph3: 'Pelaajat voivat palauttaa tasoituskierroksia sovelluksessa ja käyttää mobiilituloskorttia kilpailuissa. Kaveritoiminnot, yhteisöllisyys ja AI-ratkaisut tekevät kokemuksesta edistyksellisen sekä kentille että pelaajille.',
+        paragraph4: 'Ja mikä tärkeintä — jos klubille tai pelaajille syntyy tarve, me toteutamme.'
+      },
+      pricing: {
+        title: 'Hinnoittelu',
+        paragraph1: 'Hinnoittelemme modulaarisesti ja kenttä maksaa siitä, mitä tarvitsee. Emme sido hintoja liikevaihtoon tai menestykseen. Asiakkaan kasvu on meille ilon aihe, ei syy nostaa hintoja.',
+        paragraph2: 'Pelaajille sovellus on maksuton, mukaan lukien tasoituskierrosten palautus. Tähtäämme tulevaisuudessa läpinäkyvään hinnoitteluun, jossa kenttä voi valita sopivan paketin verkkosivuiltamme tai pyytää tarpeisiinsa räätälöidyn ratkaisun.'
+      },
+      timeline: {
+        title: 'Aikataulu',
+        paragraph1: 'Aloitamme parhaillaan joulukuun aikana ensimmäisten kenttien käyttöönottoa, ja sovelluksen ensimmäinen versio julkaistaan tammikuussa 2026. Olemme aikataulussa tulevaa kautta varten.'
+      },
+      support: {
+        title: 'Asiakastuki',
+        paragraph1: 'Tarjoamme käyttöönoton yhteydessä koulutuksen ja jatkuva asiakastuki hoituu nimetyn yhteyshenkilön kautta. Lisäksi järjestelmästä löytyy ohjevideoita sekä vastauksia yleisiin kysymyksiin.'
+      },
+      partnerships: {
+        title: 'Yhteistyö',
+        paragraph1: 'Teemme aktiivisesti yhteistyötä eri golfalan toimijoiden kanssa uusien innovaatioiden rakentamiseksi ja uskomme vahvasti, että yhdessä luomme golfin tulevaisuuden. Kehitämme vaiheittain all-in-one alustaa suomalaiselle golfyhteisölle. Rakennamme vankalle pohjalle, jotta järjestelmän skaalautuessa laatu ei kärsi.'
       },
       mission: {
-        title: 'Halu tehdä golfklubin arjesta yksinkertaisempaa, älykkäämpää ja miellyttävämpää — modernilla teknologialla ja järkevällä hinnoittelulla.',
-        closing: 'Tämä on meidän tarina. Ja rehellisesti: olemme vasta alkutaipaleella.'
+        title: 'Tavoitteennamme on tarjota jokaiselle kentälle heidän tarpeisiin sopiva paketti fiksuun hintaan.',
+        closing: 'Kuluttajapuolelle haluamme, että pelaajille riittää jatkossa yksi sovellus, joka sisältää kaiken: varaukset, tasoituskierrosten palautukset, sosiaaliset ominaisuudet, kilpailuihin ilmoittautumiset sekä tulosten merkkaukset.'
       },
       keyPoints: {
         modernTech: {
           title: 'Moderni teknologia',
-          description: 'Rakennettu uusimmilla työkaluilla. Nopea, selkeä ja suunniteltu vuodelle 2025 — ei 2005.'
+          description: 'Nykyaikainen ohjelmistokehitys ja kuluttajakokemuksen ymmärrys yhdistettynä aitoon intoon tehdä asiat uudella tavalla.'
         },
         fairPricing: {
           title: 'Järkevä hinnoittelu',
-          description: 'Maksat vain niistä palveluista joita käytät, emmekä veloita lisää vaikka liikevaihtosi kasvaa.'
+          description: 'Modulaarinen hinnoittelu — maksat vain siitä mitä tarvitset. Emme sido hintoja liikevaihtoon tai menestykseen.'
         },
-        realCollaboration: {
-          title: 'Aito yhteistyö',
-          description: 'Muotoiltu oikeiden klubien ja oikeiden ongelmien perusteella. Ei toimistosta keksittyjä oletuksia.'
+        allInOne: {
+          title: 'Kokonaisvaltainen ratkaisu',
+          description: 'Koko golfklubin pyörittäminen yhdestä paikasta: varaukset, jäsenrekisteri, kilpailut, analytiikka ja markkinointi.'
         },
         smallTeam: {
           title: 'Pieni tiimi, iso tahto',
-          description: 'Liikumme nopeasti, välitämme oikeasti ja kuuntelemme vielä nopeammin. Ei byrokratiaa, vain tuloksia.'
+          description: 'Pidämme jalat tukevasti maassa, mutta katseen rohkeasti tulevassa. Liikumme nopeasti ja kuuntelemme asiakkaitamme.'
         }
       }
     }
@@ -668,48 +695,75 @@ const translations = {
       submit: 'Create Demo Environment'
     },
     story: {
-      title: 'Our Story',
-      subtitle: 'Two Aalto University students who love sports, building things, and solving problems',
-      intro: {
-        paragraph1: 'Our story didn\'t need a dramatic beginning. It started with two friends from Aalto University who loved sports, building things, and fixing problems that simply shouldn\'t exist anymore in 2025.',
-        paragraph2: 'We originally set out to create a platform that would unify the entire sports world — bookings, payments, memberships, communication, financial management — all in one clear and modern ecosystem. Every system we touched felt outdated, fragmented, or designed without real users in mind.'
+      title: 'About Us',
+      subtitle: 'A young and ambitious team bringing a fresh approach to golf course management',
+      background: {
+        title: 'Our Background',
+        paragraph1: 'We originally set out to develop a mobile application for the sports industry, designed to include a booking system and social features for users.',
+        paragraph2: 'Conversations with sports venues showed that they wanted a comprehensive system to run their operations from one place. We have developed a similar system for other sports industries, especially group fitness, and in GolfBooker we leverage this foundation while addressing golf\'s specific needs.'
       },
       pivot: {
         title: 'The Turning Point',
-        paragraph1: 'Along the way, our passion for golf shifted everything. As we began talking with clubs, pros, players, and the operational side of the sport, the picture became very clear: the existing systems are outdated, confusing, and massively overpriced.',
-        paragraph2: 'Many clubs are forced to pay unreasonable amounts for software that hasn\'t kept up with the times — and even then, they often need multiple platforms just to run normal daily operations. There was no truly modern, reasonably priced, all-in-one solution for golf clubs. So we decided that someone needed to fix that. And that someone was us.'
+        paragraph1: 'This gave us a foundation for business management solutions, and when we heard about NexGolf shutting down, we conducted an interview round with several courses and players. We discovered that there is room and demand in the market for a new player.',
+        paragraph2: 'We combine modern software development, marketing, consumer experience understanding, and a genuine passion for doing things in a new way. We keep our feet firmly on the ground but our eyes boldly on the future. Additionally, the team is supported by several other experienced professionals in software development.'
       },
-      solution: {
-        title: 'The Solution',
-        paragraph1: 'That\'s why we built GolfBooker.',
-        paragraph2: 'Not as a quick side project, but as a long-term vision to bring modern technology, simplicity, and genuinely good user experience into golf club operations. We wanted to create a system that feels fast, clear, fairly priced — and built around what clubs actually need. No unnecessary features, no legacy structures, no ridiculous yearly fees.',
-        paragraph3: 'Just a modern, efficient platform created by a small team that truly cares, moves fast, and listens even faster.'
+      team: {
+        title: 'Our Team',
+        intro: 'We are a young and ambitious team that wants to bring a fresh breeze to golf courses.',
+        alexandr: {
+          role: 'Founder',
+          bio: 'Alexandr has been working in marketing and digital content since a young age. Growing interest in technology from client projects led him to Aalto University School of Business and deep into coding. The step from freelance development projects to building his own software product was natural. Golf has been part of his life since childhood, and now combining sports, technology, and entrepreneurship finally feels like the perfect equation.'
+        },
+        veeti: {
+          role: 'Founder',
+          bio: 'Veeti brings a unique background to the team, combining discipline, responsibility, and the ability to perform under pressure. His path went through peacekeeping and rescue work before the spark for business and bigger challenges drew him to Aalto University School of Business. Recent years have built a clear rhythm of goal-oriented work and fitness, and golf has quickly and passionately become part of everyday life. Entrepreneurship is now the next big step, to which Veeti brings strong drive and decision-making ability.'
+        },
+        together: 'Together we form a team that doesn\'t just talk about change — we build it in practice, with a fast cycle and with real users.'
       },
-      present: {
-        title: 'Today',
-        paragraph1: 'We continue to build GolfBooker every day, working closely with clubs, shaped by their feedback and their real-world challenges.',
-        paragraph2: 'But one thing will never change:'
+      offer: {
+        title: 'What We Offer',
+        paragraph1: 'We don\'t just offer software, but a comprehensive solution.',
+        paragraph2: 'GolfBooker provides a platform for running an entire golf club: from member and shareholder registers to bookings, events, communication, tournaments, analytics, billing, and accounting support functions. Simulators, courses, and other resources like golf carts can be managed from the same place. As our latest development, we are testing AI to support dynamic pricing.',
+        paragraph3: 'Players can submit handicap rounds in the app and use mobile scorecards in competitions. Friend features, community, and AI solutions make the experience progressive for both courses and players.',
+        paragraph4: 'And most importantly — if a club or players have a need, we deliver.'
+      },
+      pricing: {
+        title: 'Pricing',
+        paragraph1: 'We price modularly and the course pays for what it needs. We don\'t tie prices to revenue or success. Customer growth is a source of joy for us, not a reason to raise prices.',
+        paragraph2: 'The app is free for players, including handicap round submissions. In the future, we aim for transparent pricing where courses can choose a suitable package from our website or request a customized solution for their needs.'
+      },
+      timeline: {
+        title: 'Timeline',
+        paragraph1: 'We are currently starting the implementation of the first courses during December, and the first version of the app will be released in January 2026. We are on schedule for the upcoming season.'
+      },
+      support: {
+        title: 'Customer Support',
+        paragraph1: 'We provide training during implementation, and ongoing customer support is handled through a named contact person. The system also includes tutorial videos and answers to common questions.'
+      },
+      partnerships: {
+        title: 'Partnerships',
+        paragraph1: 'We actively collaborate with various golf industry players to build new innovations and strongly believe that together we create the future of golf. We are developing an all-in-one platform for the Finnish golf community in phases. We build on a solid foundation so that quality doesn\'t suffer as the system scales.'
       },
       mission: {
-        title: 'Our mission is to make everyday golf operations simpler, smarter, and more enjoyable — with modern technology and fair pricing.',
-        closing: 'This is our story. And honestly, we\'re only just getting started.'
+        title: 'Our goal is to provide every course with a package suited to their needs at a smart price.',
+        closing: 'For consumers, we want players to need just one app in the future that includes everything: bookings, handicap round submissions, social features, tournament registrations, and score recording.'
       },
       keyPoints: {
         modernTech: {
           title: 'Modern Technology',
-          description: 'Built with the latest tools. Fast, clean, and designed for 2025 — not 2005.'
+          description: 'Modern software development and consumer experience understanding combined with a genuine passion for doing things in a new way.'
         },
         fairPricing: {
           title: 'Fair Pricing',
-          description: 'You only pay for the services you use, and we don\'t charge more as your revenue grows.'
+          description: 'Modular pricing — you only pay for what you need. We don\'t tie prices to revenue or success.'
         },
-        realCollaboration: {
-          title: 'Real Collaboration',
-          description: 'Shaped by real clubs and real problems. Not assumptions made in an office.'
+        allInOne: {
+          title: 'Comprehensive Solution',
+          description: 'Running an entire golf club from one place: bookings, member registry, tournaments, analytics, and marketing.'
         },
         smallTeam: {
           title: 'Small Team, Big Drive',
-          description: 'We move fast, care deeply, and listen even faster. No bureaucracy — just results.'
+          description: 'We keep our feet on the ground but our eyes boldly on the future. We move fast and listen to our customers.'
         }
       }
     }

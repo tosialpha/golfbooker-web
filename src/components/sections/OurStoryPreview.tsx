@@ -25,7 +25,7 @@ export const OurStoryPreview: React.FC = () => {
 
             <div className="prose prose-lg max-w-none mb-8">
               <p className="text-xl text-gray-600 leading-relaxed">
-                {t('story.intro.paragraph1')}
+                {t('story.background.paragraph1')}
               </p>
             </div>
 
