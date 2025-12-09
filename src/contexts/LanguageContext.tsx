@@ -354,7 +354,7 @@ const translations = {
         },
         veeti: {
           role: 'Perustaja',
-          bio: 'Veeti tuo tiimiin ainutlaatuisen taustan, jossa yhdistyvät kurinalaisuus, vastuu ja kyky toimia paineen alla. Polku kulki rauhanturvaajan ja pelastajan työn kautta, ennen kuin kipinä liiketoimintaan ja isompiin haasteisiin veti kohti Aalto-yliopiston kauppakorkeakoulua. Viime vuodet ovat rakentaneet selkeän rytmin tavoitteellisesta tekemisestä ja liikunnasta, ja golf on tullut osaksi arkea nopeasti ja intohimoisesti. Yrittäjyys on nyt se seuraava iso askel, johon Veeti tuo vahvan draivin ja päätöksentekokyvyn.'
+          bio: 'Veeti tuo tiimiin monipuolisen taustan pelastajan ja kriisinhallinnan tehtävistä, joissa yhdistyvät kurinalaisuus, vastuuntunto ja kyky toimia paineen alla. Kainuusta Helsinkiin kotiutuneena Aalto-yliopiston opinnot ja yrittäjyys ovat vahvistaneet osaamista liiketoiminnan kehittämisessä ja asiakaslähtöisissä ratkaisuissa. Kestävyysurheilun lisäksi golfista on tullut muutamassa vuodessa aktiivinen arjen rytmittäjä, mikä tuo tekemiseen myös pelaajan käytännön näkökulman. Veeti tunnetaan vahvasta draivistaan ja päätöksentekokyvystään.'
         },
         together: 'Yhdessä muodostamme tiimin, joka ei pelkästään puhu muutoksesta — me rakennamme sitä käytännössä, nopealla syklillä ja oikeiden käyttäjien kanssa.'
       },

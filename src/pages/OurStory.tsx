@@ -151,8 +151,12 @@ export const OurStory: React.FC = () => {
                   className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100"
                 >
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-brand-green-500 to-brand-green-700 rounded-full flex items-center justify-center text-white text-2xl sm:text-3xl font-bold">
-                      A
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden flex-shrink-0">
+                      <img
+                        src="/alexandr-profile.jpg"
+                        alt="Alexandr Malmberg"
+                        className="w-full h-full object-cover object-[center_20%] scale-110"
+                      />
                     </div>
                     <div>
                       <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Alexandr Malmberg</h3>
@@ -173,8 +177,12 @@ export const OurStory: React.FC = () => {
                   className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100"
                 >
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-brand-green-500 to-brand-green-700 rounded-full flex items-center justify-center text-white text-2xl sm:text-3xl font-bold">
-                      V
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden flex-shrink-0">
+                      <img
+                        src="/veeti-profile.jpg"
+                        alt="Veeti Karppinen"
+                        className="w-full h-full object-cover object-[center_30%] scale-[1.4]"
+                      />
                     </div>
                     <div>
                       <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Veeti Karppinen</h3>
