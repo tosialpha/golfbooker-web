@@ -342,8 +342,8 @@ const translations = {
       },
       pivot: {
         title: 'Käännekohta',
-        paragraph1: 'Tämän johdosta meillä oli jo pohja toiminnanohjaus-ratkaisuille ja kun kuulimme NexGolfin lopettamisesta, teimme haastattelukierroksen useille kentille ja pelaajille. Huomasimme, että markkinassa on tilaa ja kysyntää uudelle toimijalle.',
-        paragraph2: 'Meillä yhdistyy nykyaikainen ohjelmistokehitys, markkinointi, kuluttajakokemuksen ymmärrys sekä aito into tehdä asiat uudella tavalla. Pidämme jalat tukevasti maassa, mutta katseen rohkeasti tulevassa. Lisäksi tiimille tukea tarjoavat ohjelmistokehityksessä useampia muita kokeneita tekijöitä.'
+        paragraph1: 'Tämän johdosta meillä oli jo pohja toiminnanohjaus-ratkaisuille. Teimme haastattelukierroksen useille kentille ja pelaajille, ja huomasimme, että markkinassa on tilaa ja kysyntää uudelle toimijalle.',
+        paragraph2: 'Meillä yhdistyy nykyaikainen ohjelmistokehitys, markkinointi, kuluttajakokemuksen ymmärrys sekä aito into tehdä asiat uudella tavalla. Pidämme jalat tukevasti maassa, mutta katseen rohkeasti tulevassa.'
       },
       team: {
         title: 'Tiimimme',
@@ -704,8 +704,8 @@ const translations = {
       },
       pivot: {
         title: 'The Turning Point',
-        paragraph1: 'This gave us a foundation for business management solutions, and when we heard about NexGolf shutting down, we conducted an interview round with several courses and players. We discovered that there is room and demand in the market for a new player.',
-        paragraph2: 'We combine modern software development, marketing, consumer experience understanding, and a genuine passion for doing things in a new way. We keep our feet firmly on the ground but our eyes boldly on the future. Additionally, the team is supported by several other experienced professionals in software development.'
+        paragraph1: 'This gave us a foundation for business management solutions. We conducted an interview round with several courses and players, and discovered that there is room and demand in the market for a new player.',
+        paragraph2: 'We combine modern software development, marketing, consumer experience understanding, and a genuine passion for doing things in a new way. We keep our feet firmly on the ground but our eyes boldly on the future.'
       },
       team: {
         title: 'Our Team',
