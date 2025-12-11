@@ -15,8 +15,8 @@ export const Navbar: React.FC = () => {
   const lightBackgroundPages = ['/contact'];
   const isLightBackground = lightBackgroundPages.includes(location.pathname);
 
-  // Show dark theme when scrolled OR on light background pages
-  const useDarkTheme = isScrolled || isLightBackground;
+  // Show dark theme when scrolled OR on light background pages OR mobile menu is open
+  const useDarkTheme = isScrolled || isLightBackground || isMobileMenuOpen;
 
   useEffect(() => {
     const handleScroll = () => {
